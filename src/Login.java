@@ -7,8 +7,8 @@ public class Login extends JFrame {
     private JTextField emailTextField;
     private JLabel passwordLabel;
     private JTextField passwordTextField;
-    private JButton loginButton;
     private JButton signupButton;
+    private JButton loginButton;
 
     public static void main(String[] args) {
         System.out.println("Booting up... ATS System");
@@ -20,3 +20,5 @@ public class Login extends JFrame {
         login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
+
+
