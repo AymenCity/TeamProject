@@ -9,6 +9,8 @@ public class Login extends JFrame {
     private JTextField passwordTextField;
     private JButton signupButton;
     private JButton loginButton;
+    private JLabel orLabel;
+    private JLabel infoLabel;
 
     public static void main(String[] args) {
         System.out.println("Booting up... ATS System");
