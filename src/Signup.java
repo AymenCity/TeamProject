@@ -19,7 +19,7 @@ public class Signup extends JDialog {
     public Signup() {
         setContentPane(mainPanel);
         setTitle("ATS System");
-        setSize(600,300);
+        setSize(600,400);
         setVisible(true);
 
         cancelButton.addActionListener(new ActionListener() {

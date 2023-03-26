@@ -17,7 +17,7 @@ public class Login extends JFrame {
     public Login() {
         setContentPane(mainPanel);
         setTitle("ATS System");
-        setSize(600,300);
+        setSize(600,400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
