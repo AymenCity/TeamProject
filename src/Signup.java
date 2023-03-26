@@ -29,6 +29,12 @@ public class Signup extends JDialog {
                 Login login = new Login();
             }
         });
+        signUpButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(signUpButton, "Hello, " + nameTextField.getText() + "! You have created an account");
+            }
+        });
     }
 
     public JPanel getMainPanel(){

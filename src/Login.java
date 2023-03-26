@@ -29,9 +29,16 @@ public class Login extends JFrame {
                 Signup signup = new Signup();
             }
         });
+        loginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(loginButton, "test");
+            }
+        });
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+        UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
         System.out.println("Booting up... ATS System");
         Login login = new Login();
     }
