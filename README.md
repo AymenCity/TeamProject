@@ -1,5 +1,5 @@
 # Team Project
-* GUI Development (Developers)
+GUI Development (Developers)
 
 * Aymen -> Login, Sign-up, User Management
 * Rati 	-> Add User, Change Password
