@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-public class UserManagement {
+public class UserManagement extends JFrame {
     private JButton newButton;
     private JButton deleteButton;
     private JButton cancelButton;
@@ -17,4 +17,11 @@ public class UserManagement {
     private JLabel phoneNumberLabel;
     private JLabel emailLabel;
     private JLabel passwordLabel;
+
+    public UserManagement() {
+        setContentPane(mainPanel);
+        setTitle("ATS System");
+        setSize(600, 400);
+        setVisible(true);
+    }
 }
