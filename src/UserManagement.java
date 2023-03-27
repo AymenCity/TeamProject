@@ -5,7 +5,16 @@ public class UserManagement {
     private JButton deleteButton;
     private JButton cancelButton;
     private JButton applyButton;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
+    private JTextField IDTextField;
+    private JTextField nameTextField;
+    private JTextField roleTextField;
+    private JPanel mainPanel;
+    private JLabel userManagementLabel;
+    private JLabel IDLabel;
+    private JLabel nameLabel;
+    private JLabel roleLabel;
+    private JLabel addressLabel;
+    private JLabel phoneNumberLabel;
+    private JLabel emailLabel;
+    private JLabel passwordLabel;
 }
