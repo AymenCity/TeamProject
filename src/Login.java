@@ -32,7 +32,7 @@ public class Login extends JFrame {
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(loginButton, "Incorrect email or password.");
+                JOptionPane.showMessageDialog(loginButton, "Incorrect email or password..");
             }
         });
     }
