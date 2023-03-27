@@ -18,15 +18,15 @@ public class Signup extends JFrame {
 
     public Signup() {
         setContentPane(mainPanel);
-        setTitle("ATS System");
-        setSize(600,400);
+        setTitle("ATS System");          // name of software
+        setSize(600,400);   // window resolution
         setVisible(true);
 
-        cancelButton.addActionListener(new ActionListener() {
+        cancelButton.addActionListener(new ActionListener() {       // replaces Signup page with Login page
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
-                Login login = new Login();
+                dispose();                  // removes Signup page
+                Login login = new Login();  // adds Login page
             }
         });
         signUpButton.addActionListener(new ActionListener() {

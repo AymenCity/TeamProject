@@ -16,31 +16,25 @@ public class Login extends JFrame {
 
     public Login() {
         setContentPane(mainPanel);
-        setTitle("ATS System");
-        setSize(600,400);
+        setTitle("ATS System");          // name of software
+        setSize(600,400);   // window resolution
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
 
-        signUpButton.addActionListener(new ActionListener() {
+        signUpButton.addActionListener(new ActionListener() {   // replaces Login page with Signup page
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
-                Signup signup = new Signup();
+                dispose();                      // removes Login page
+                Signup signup = new Signup();   // adds Signup page
             }
         });
-        loginButton.addActionListener(new ActionListener() {
+        loginButton.addActionListener(new ActionListener() {    // detects if user credentials are correct from database
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(loginButton, "Incorrect email or password.");
             }
         });
-    }
-
-    public static void main(String[] args) throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {
-        UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-        System.out.println("Booting up... ATS System");
-        Login login = new Login();
     }
 }
 

@@ -17,6 +17,9 @@ public class UserManagement extends JFrame {
     private JLabel phoneNumberLabel;
     private JLabel emailLabel;
     private JLabel passwordLabel;
+    private JTextField textField1;
+    private JTextField textField2;
+    private JTextField textField3;
 
     public UserManagement() {
         setContentPane(mainPanel);
