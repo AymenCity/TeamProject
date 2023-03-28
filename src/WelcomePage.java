@@ -12,6 +12,7 @@ public class WelcomePage extends JFrame {
     private JButton AlertsButton;
     private JButton RefundsButton;
     private JButton signOutButton;
+    private JLabel copyrightText;
 
     public WelcomePage() {
         setContentPane(mainPanel);
