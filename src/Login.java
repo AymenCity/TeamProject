@@ -32,15 +32,8 @@ public class Login extends JFrame {
         loginButton.addActionListener(new ActionListener() {    // detects if user credentials are correct
             @Override
             public void actionPerformed(ActionEvent e) {
-                String email = emailTextField.getText();        // create string email - gets inputs from text field
-                String password = passwordTextField.getText();  // create string password - gets inputs from text field
-
-                if (email.equals("test@gmail.com") && password.equals("123"))   // login credentials are correct
-                    JOptionPane.showMessageDialog(loginButton, "Login is successful!");
-                    // dispose();
-                    // WelcomePage welcome = new WelcomePage();
-                else                                                            // login credentials are incorrect
-                    JOptionPane.showMessageDialog(loginButton, "Incorrect email or password.");
+                dispose();
+                WelcomePage welcomePage = new WelcomePage();
             }
         });
     }
