@@ -20,11 +20,12 @@ public class UserManagement extends JFrame {
     private JTextField textField1;
     private JTextField textField2;
     private JTextField textField3;
+    private JTextField textField4;
 
     public UserManagement() {
         setContentPane(mainPanel);
         setTitle("ATS System");
-        setSize(600, 400);
+        setSize(600, 600);
         setVisible(true);
     }
 }
