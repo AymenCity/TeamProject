@@ -37,6 +37,8 @@ public class Login extends JFrame {
 
                 if (email.equals("test@gmail.com") && password.equals("123"))   // login credentials are correct
                     JOptionPane.showMessageDialog(loginButton, "Login is successful!");
+                    // dispose();
+                    // WelcomePage welcome = new WelcomePage();
                 else                                                            // login credentials are incorrect
                     JOptionPane.showMessageDialog(loginButton, "Incorrect email or password.");
             }
