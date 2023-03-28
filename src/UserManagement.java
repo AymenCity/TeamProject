@@ -7,7 +7,6 @@ public class UserManagement extends JFrame {
     private JButton applyButton;
     private JTextField IDTextField;
     private JTextField nameTextField;
-    private JTextField roleTextField;
     private JPanel mainPanel;
     private JLabel userManagementLabel;
     private JLabel IDLabel;
@@ -21,6 +20,7 @@ public class UserManagement extends JFrame {
     private JTextField textField2;
     private JTextField textField3;
     private JTextField textField4;
+    private JComboBox roleComboBox;
 
     public UserManagement() {
         setContentPane(mainPanel);
