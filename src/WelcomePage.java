@@ -5,14 +5,14 @@ import java.awt.event.ActionListener;
 public class WelcomePage extends JFrame {
     private JPanel mainPanel;
     private JLabel welcomeLabel;
-    private JLabel TestNameField;
-    private JLabel SupportingTextField;
+    private JLabel TestNameLabel;
+    private JLabel SupportingLabel;
     private JButton UserManagementButton;
     private JButton ReportButton;
     private JButton AlertsButton;
     private JButton RefundsButton;
     private JButton signOutButton;
-    private JLabel copyrightText;
+    private JLabel copyrightLabel;
 
     public WelcomePage() {
         setContentPane(mainPanel);

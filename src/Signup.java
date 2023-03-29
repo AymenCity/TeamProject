@@ -15,6 +15,7 @@ public class Signup extends JFrame {
     private JLabel passwordLabel;
     private JRadioButton iAcceptTheTermsRadioButton;
     private JButton cancelButton;
+    private JLabel copyrightLabel;
 
     public Signup() {
         setContentPane(mainPanel);
@@ -39,6 +40,9 @@ public class Signup extends JFrame {
 
     public JPanel getMainPanel(){
         return mainPanel;
+    }
+    public JTextField getNameTextField() {
+        return nameTextField;
     }
 }
 

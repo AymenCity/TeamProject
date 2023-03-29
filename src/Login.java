@@ -13,6 +13,7 @@ public class Login extends JFrame {
     private JButton loginButton;
     private JLabel orLabel;
     private JLabel infoLabel;
+    private JLabel copyrightLabel;
 
     public Login() {
         setContentPane(mainPanel);
@@ -36,6 +37,13 @@ public class Login extends JFrame {
                 WelcomePage welcomePage = new WelcomePage();
             }
         });
+    }
+
+    public JPanel getMainPanel(){
+        return mainPanel;
+    }
+    public JTextField getEmailTextField() {
+        return emailTextField;
     }
 }
 

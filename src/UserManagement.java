@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class UserManagement extends JFrame {
     private JButton newButton;
@@ -27,5 +29,13 @@ public class UserManagement extends JFrame {
         setTitle("ATS System");
         setSize(600, 600);
         setVisible(true);
+
+        cancelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                WelcomePage welcomePage = new WelcomePage();
+            }
+        });
     }
 }
