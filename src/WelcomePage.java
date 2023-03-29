@@ -34,5 +34,12 @@ public class WelcomePage extends JFrame {
                 UserManagement userManagement = new UserManagement();
             }
         });
+        RefundsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                Refund refund = new Refund();
+            }
+        });
     }
 }

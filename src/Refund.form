@@ -47,7 +47,15 @@
             <preferred-size width="150" height="50"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-4473925"/>
+          <font size="14" style="1"/>
+          <model>
+            <item value="Customer Name 1"/>
+            <item value="Customer Name 2"/>
+            <item value="Customer Name 3"/>
+          </model>
+        </properties>
       </component>
     </children>
   </grid>
