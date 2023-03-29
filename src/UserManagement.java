@@ -37,5 +37,12 @@ public class UserManagement extends JFrame {
                 WelcomePage welcomePage = new WelcomePage();
             }
         });
+        newButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                AddUser addUser = new AddUser();
+            }
+        });
     }
 }
