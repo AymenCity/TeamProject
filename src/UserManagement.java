@@ -23,6 +23,7 @@ public class UserManagement extends JFrame {
     private JTextField textField3;
     private JTextField textField4;
     private JComboBox roleComboBox;
+    private JLabel CopyrightLabel;
 
     public UserManagement() {
         setContentPane(mainPanel);
@@ -35,13 +36,6 @@ public class UserManagement extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 WelcomePage welcomePage = new WelcomePage();
-            }
-        });
-        newButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                AddUser addUser = new AddUser();
             }
         });
     }

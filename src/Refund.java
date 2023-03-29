@@ -5,6 +5,8 @@ public class Refund extends JFrame {
     private JLabel RefundText;
     private JLabel chooseAUserLabel;
     private JList CustList;
+    private JTable refundTable;
+    private JLabel CopyrightLabel;
 
     public Refund() {
         setContentPane(mainPanel);
