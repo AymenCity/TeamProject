@@ -20,6 +20,7 @@ public class AddUser extends JFrame {
     private JTextField passwordTextField;
     private JTextField confirmPasswordTextField;
     private JButton cancelButton;
+    private JLabel airViaLabel;
     private JTree tree1;
 
     public AddUser() {
