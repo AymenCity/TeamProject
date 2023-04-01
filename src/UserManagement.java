@@ -12,18 +12,18 @@ public class UserManagement extends JFrame {
     private JPanel mainPanel;
     private JLabel userManagementLabel;
     private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JTextField textField4;
-    private JComboBox roleComboBox;
+    private JTextField addressTextField;
+    private JTextField dateOfBirthTextField;
+    private JTextField dayJoinedTextField;
+    private JComboBox typeComboBox;
     private JLabel CopyrightLabel;
-    private JLabel idLabel;
+    private JLabel customerIdLabel;
     private JLabel nameLabel;
-    private JLabel roleLabel;
+    private JLabel typeLabel;
     private JLabel addressLabel;
     private JLabel phoneNumberLabel;
-    private JLabel emailLabel;
-    private JLabel passwordLabel;
+    private JLabel dateOfBirthLabel;
+    private JLabel dayJoinedLabel;
     private JComboBox selectUserComboBox;
     private JLabel infoLabel;
 
