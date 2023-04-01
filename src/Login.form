@@ -8,12 +8,12 @@
     <properties/>
     <border type="none"/>
     <children>
-      <component id="e2829" class="javax.swing.JLabel" binding="emailLabel">
+      <component id="e2829" class="javax.swing.JLabel" binding="usernameLabel">
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Email"/>
+          <text value="Username"/>
         </properties>
       </component>
       <component id="105" class="javax.swing.JButton" binding="signUpButton" default-binding="true">
@@ -31,7 +31,8 @@
           <grid row="8" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="------------ or ------------"/>
+          <foreground color="-8026747"/>
+          <text value="------------------------ or ------------------------"/>
         </properties>
       </component>
       <component id="74cd" class="javax.swing.JButton" binding="loginButton" default-binding="true">
@@ -61,7 +62,7 @@
           <text value="Login"/>
         </properties>
       </component>
-      <component id="f3a84" class="javax.swing.JTextField" binding="emailTextField">
+      <component id="f3a84" class="javax.swing.JTextField" binding="usernameTextField">
         <constraints>
           <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>

@@ -16,6 +16,8 @@ public class Signup extends JFrame {
     private JRadioButton iAcceptTheTermsRadioButton;
     private JButton cancelButton;
     private JLabel copyrightLabel;
+    private JTextField confirmPasswordTextField;
+    private JLabel confirmPasswordLabel;
 
     public Signup() {
         setContentPane(mainPanel);
