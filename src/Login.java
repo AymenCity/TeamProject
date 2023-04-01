@@ -1,7 +1,9 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.util.Scanner;
 
 public class Login extends JFrame {
@@ -16,6 +18,8 @@ public class Login extends JFrame {
     private JLabel orLabel;
     private JLabel infoLabel;
     private JLabel copyrightLabel;
+    private JButton clearButton;
+    boolean matched = false;
 
     public Login() {
         setContentPane(mainPanel);
@@ -35,34 +39,38 @@ public class Login extends JFrame {
         loginButton.addActionListener(new ActionListener() {    // detects if user credentials are correct
             @Override
             public void actionPerformed(ActionEvent e) {
-                String usernameT = usernameTextField.getText();
-                String passwordT = passwordTextField.getText();
+                String username = usernameTextField.getText().trim();
+                String password = passwordTextField.getText().trim();
+
+                /*if (username.equals("CTI") && password.equals("test123")) {
+                    dispose();
+                    WelcomePage welcomePage = new WelcomePage();
+                }
+                else {} */
+
 
                 try {
-                    File loginFile = new File("login.txt");
-                    Scanner scan = new Scanner(loginFile);
-                    scan.useDelimiter("[,\n]");
-
-                    while (scan.hasNext()) {
-                        String username = scan.next();
-                        String password = scan.next();
-
-                        if (username.equals(username.trim()) && password.equals(password.trim())) {
-                            dispose();
-                            WelcomePage welcomePage = new WelcomePage();
-                        }
-                        else {
-                            JOptionPane.showMessageDialog(null, "invalid");
+                    FileReader fr = new FileReader("src/account/login.txt");
+                    BufferedReader br = new BufferedReader(fr);
+                    String line;
+                    while ((line = br.readLine()) != null) {
+                        if (line.equals(username+","+password)) {
+                            matched = true;
+                            break;
                         }
                     }
+                    fr.close();
                 }
                 catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, "invalid" +ex);
                 }
 
-
-
-
+                if (matched) {
+                    dispose();
+                    WelcomePage welcomePage = new WelcomePage();
+                }
+                else {
+                    JOptionPane.showMessageDialog(mainPanel, "Invalid Username / Password", "Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
     }
