@@ -5,20 +5,28 @@ import java.awt.event.ActionListener;
 public class WelcomePage extends JFrame {
     private JPanel mainPanel;
     private JLabel welcomeLabel;
-    private JLabel TestNameLabel;
     private JLabel SupportingLabel;
     private JButton UserManagementButton;
-    private JButton ReportButton;
-    private JButton AlertsButton;
-    private JButton RefundsButton;
+    private JButton stockControlButton;
+    private JButton alertsButton;
+    private JButton refundsButton;
     private JButton signOutButton;
     private JLabel copyrightLabel;
+    private JButton salesControlButton;
+    private JButton salesReportButton;
+    private JButton backupButton;
+    private Login login;
 
     public WelcomePage() {
+        this.login = login;
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
-        setSize(600,400);   // window resolution
+        setSize(600,600);   // window resolution
         setVisible(true);
+
+        // TestNameLabel.setText(login.getUsernameTextField().toString());
+
+
 
         signOutButton.addActionListener(new ActionListener() {
             @Override
@@ -34,12 +42,20 @@ public class WelcomePage extends JFrame {
                 UserManagement userManagement = new UserManagement();
             }
         });
-        RefundsButton.addActionListener(new ActionListener() {
+        refundsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 Refund refund = new Refund();
             }
         });
+        stockControlButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                StockControl stockControl = new StockControl();
+            }
+        });
     }
+
 }
