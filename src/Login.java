@@ -24,7 +24,7 @@ public class Login extends JFrame {
     public Login() {
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
-        setSize(600,400);   // window resolution
+        setSize(600,500);   // window resolution
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
@@ -79,7 +79,7 @@ public class Login extends JFrame {
     public JPanel getMainPanel(){
         return mainPanel;
     }
-    public JTextField getEmailTextField() {
+    public JTextField getUsernameTextField() {
         return usernameTextField;
     }
 }
