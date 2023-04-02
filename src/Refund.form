@@ -61,30 +61,37 @@
         <constraints>
           <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-4473925"/>
+        </properties>
         <border type="none"/>
         <children>
-          <component id="be4f7" class="javax.swing.JTable" binding="refundTable">
+          <scrollpane id="80695">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="50"/>
-              </grid>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
-            <properties>
-              <autoCreateRowSorter value="false"/>
-              <autoResizeMode value="2"/>
-              <background color="-4473925"/>
-              <columnSelectionAllowed value="false"/>
-              <enabled value="true"/>
-              <fillsViewportHeight value="false"/>
-              <foreground color="-16776961"/>
-              <inheritsPopupMenu value="false"/>
-              <showHorizontalLines value="true"/>
-              <showVerticalLines value="true"/>
-              <surrendersFocusOnKeystroke value="false"/>
-              <updateSelectionOnSort value="true"/>
-            </properties>
-          </component>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="be4f7" class="javax.swing.JTable" binding="refundTable">
+                <constraints/>
+                <properties>
+                  <autoCreateRowSorter value="false"/>
+                  <autoResizeMode value="2"/>
+                  <background color="-4473925"/>
+                  <columnSelectionAllowed value="false"/>
+                  <enabled value="true"/>
+                  <fillsViewportHeight value="false"/>
+                  <foreground color="-16776961"/>
+                  <inheritsPopupMenu value="false"/>
+                  <showHorizontalLines value="true"/>
+                  <showVerticalLines value="true"/>
+                  <surrendersFocusOnKeystroke value="false"/>
+                  <updateSelectionOnSort value="true"/>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
         </children>
       </grid>
       <grid id="af51e" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">

@@ -4,9 +4,11 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-
+import java.sql.Date;
 import java.time.LocalDate;
-
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 
 
 public class StockControl extends JFrame {
@@ -58,19 +60,31 @@ public class StockControl extends JFrame {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String blankID, type, number, price, flightDate, flightTime, status;
-
+                String blankID, type, number, price, status;
+                LocalDateTime flightDate = LocalDateTime.parse(dateTextField.getText(),
+                        DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"));
+                LocalDateTime flightTime = LocalDateTime.parse(timeTextField.getText(),
+                        DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"));
                 blankID = blankIdTextField.getText();
                 type = typeTextField.getText();
                 number = numberTextField.getText();
                 price = priceTextField.getText();
-                flightDate = dateTextField.getText();
-                flightTime = timeTextField.getText();
                 status = statusTextField.getText();
-
                 try {
 
-                    pst = main.con.prepareStatement("insert into Ticket(ticketID,ticketBlankType, ticketBlankNumber, ticketPrice, ticketFlightDate, ticketFlightTime, ticketStatus, airlineID, managerName)values('1','420','111111', '420', LocalDate.parse(\"2018-05-05\"), LocalDate.parse(\"2018-05-05\"), 'VALID', '1101', 'Jeremy Clarkson')");
+                    pst = main.con.prepareStatement("insert into Ticket(ticketID,ticketBlankType, ticketBlankNumber, ticketPrice, ticketFlightDate, ticketFlightTime, ticketStatus)values(?,?,?,?,?,?,?)");
+                    pst.setInt(1, 1);
+                    pst.setInt(2, Integer.parseInt(type));
+                    pst.setInt(3, Integer.parseInt(blankID));
+                    pst.setInt(4, Integer.parseInt(number));
+                    pst.setDate(5, new java.sql.Date(flightDate.atZone(ZoneId.systemDefault())
+                            .toInstant().toEpochMilli()));
+                    pst.setDate(6, new java.sql.Date(flightTime.atZone(ZoneId.systemDefault())
+                            .toInstant().toEpochMilli()));
+                    pst.setString(7, status);
+                    //pst.setInt(8, 11001);
+                    //pst.setString(9, "Jeremy Clarky");
+
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(mainPanel, "Record Added");
                     blankIdTextField.setText("");

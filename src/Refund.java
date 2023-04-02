@@ -15,7 +15,6 @@ public class Refund extends JFrame {
         setTitle("ATS System");        // name of software
         setSize(600, 400);   // window resolution
         setVisible(true);
-
         createTable();
 
        /* String[] Columns = {"ID","Name","Payment"};
@@ -39,6 +38,7 @@ public class Refund extends JFrame {
                 null,
                 new String[]{"ID","Name","Payment"}
         ));
+        refundTable.setVisible(true);
     }
 }
 

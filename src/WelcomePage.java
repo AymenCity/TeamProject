@@ -40,7 +40,7 @@ public class WelcomePage extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                UserManagement userManagement = new UserManagement();
+                CustomerManagement customerManagement = new CustomerManagement();
             }
         });
         refundsButton.addActionListener(new ActionListener() {

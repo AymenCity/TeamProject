@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class UserManagement extends JFrame {
+public class CustomerManagement extends JFrame {
     private JButton newButton;
     private JButton deleteUserButton;
     private JButton cancelButton;
@@ -29,7 +29,7 @@ public class UserManagement extends JFrame {
     private JTextField agentIdTextField;
     private JLabel agentIdLabel;
 
-    public UserManagement() {
+    public CustomerManagement() {
         setContentPane(mainPanel);
         setTitle("ATS System");
         setSize(600, 600);
@@ -46,7 +46,7 @@ public class UserManagement extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                AddUser addUser = new AddUser();
+                AddCustomer addCustomer = new AddCustomer();
             }
         });
     }

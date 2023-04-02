@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AddUser extends JFrame {
+public class AddCustomer extends JFrame {
     private JPanel mainPanel;
     private JLabel fullNameLabel;
     private JTextField fullNameTextField;
@@ -21,7 +21,7 @@ public class AddUser extends JFrame {
     private JLabel airViaLabel;
     private JTree tree1;
 
-    public AddUser() {
+    public AddCustomer() {
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
         setSize(600,400);   // window resolution
@@ -31,7 +31,7 @@ public class AddUser extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                UserManagement userManagement = new UserManagement();
+                CustomerManagement customerManagement = new CustomerManagement();
             }
         });
 
