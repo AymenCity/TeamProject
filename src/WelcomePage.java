@@ -16,6 +16,7 @@ public class WelcomePage extends JFrame {
     private JButton salesReportButton;
     private JButton backupButton;
     private Login login;
+    public Main main;
 
     public WelcomePage() {
         this.login = login;

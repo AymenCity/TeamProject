@@ -10,15 +10,19 @@ public class Main {
         UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());     // setting the UI to be Metal
         System.out.println("Booting up... ATS System");    // terminal output test
         Login login = new Login();  // runs program
+    }
 
+    Connection con;
+
+    public void connect() {
         // database connection
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://smcse-stuproj00.city.ac.uk:3306/in2018g21";
             String user = "in2018g21_a";
             String pass = "QOb9VqF7";
-            Connection con = DriverManager.getConnection(url,user,pass);
-            if (con!=null) {
+            this.con = DriverManager.getConnection(url,user,pass);
+            if (this.con!=null) {
                 System.out.println("Successful database connection");
             }
         }
@@ -29,6 +33,5 @@ public class Main {
         catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 }

@@ -6,8 +6,6 @@ public class AddUser extends JFrame {
     private JPanel mainPanel;
     private JLabel fullNameLabel;
     private JTextField fullNameTextField;
-    private JLabel roleLabel;
-    private JComboBox roleComboBox;
     private JLabel addressLabel;
     private JLabel phoneNumberLabel;
     private JLabel emailLabel;

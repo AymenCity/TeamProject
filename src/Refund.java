@@ -1,11 +1,14 @@
 import javax.swing.*;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Refund extends JFrame {
     private JPanel mainPanel;
     private JList CustomerList;
     private JTable refundTable;
+    private JButton returnButton;
 
     public Refund() {
         setContentPane(mainPanel);
@@ -23,6 +26,13 @@ public class Refund extends JFrame {
         };
         JTable refundTable = new JTable(Data,Columns);
         this.add(refundTable);*/
+        returnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                WelcomePage welcomePage = new WelcomePage();
+            }
+        });
     }
     private void createTable(){
         refundTable.setModel(new DefaultTableModel(

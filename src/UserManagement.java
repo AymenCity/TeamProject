@@ -26,6 +26,8 @@ public class UserManagement extends JFrame {
     private JLabel dayJoinedLabel;
     private JComboBox selectUserComboBox;
     private JLabel infoLabel;
+    private JTextField agentIdTextField;
+    private JLabel agentIdLabel;
 
     public UserManagement() {
         setContentPane(mainPanel);

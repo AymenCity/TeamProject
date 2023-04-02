@@ -24,7 +24,7 @@ public class Login extends JFrame {
     public Login() {
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
-        setSize(600,500);   // window resolution
+        setSize(600,400);   // window resolution
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
@@ -41,13 +41,6 @@ public class Login extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String username = usernameTextField.getText().trim();
                 String password = passwordTextField.getText().trim();
-
-                /*if (username.equals("CTI") && password.equals("test123")) {
-                    dispose();
-                    WelcomePage welcomePage = new WelcomePage();
-                }
-                else {} */
-
 
                 try {
                     FileReader fr = new FileReader("src/account/login.txt");
