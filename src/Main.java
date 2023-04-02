@@ -11,6 +11,7 @@ public class Main {
         System.out.println("Booting up... ATS System");    // terminal output test
         Login login = new Login();  // runs program
 
+        // database connection
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://smcse-stuproj00.city.ac.uk:3306/in2018g21";
