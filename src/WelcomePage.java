@@ -57,6 +57,13 @@ public class WelcomePage extends JFrame {
                 StockControl stockControl = new StockControl();
             }
         });
+        salesControlButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                SaleControl saleControl = new SaleControl();
+            }
+        });
     }
 
 }
