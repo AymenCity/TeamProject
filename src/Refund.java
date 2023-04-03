@@ -10,6 +10,7 @@ public class Refund extends JFrame {
     private JTable refundTable;
     private JButton returnButton;
     private JButton confirmButton;
+    private JLabel UserLabel;
 
     public Refund() {
         setContentPane(mainPanel);
