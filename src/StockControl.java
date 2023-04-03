@@ -34,6 +34,7 @@ public class StockControl extends JFrame {
     private JButton searchButton;
     private JTextField typeTextField;
     private JScrollPane SPblankTable;
+    private JTextField searchTextField;
     Connection con;
     PreparedStatement pst;
     Main main = new Main();
@@ -60,8 +61,9 @@ public class StockControl extends JFrame {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String ticketBlankType, ticketBlankNumber, ticketPrice, ticketFlightDate, ticketFlightTime, ticketStatus;
+                String ticketID, ticketBlankType, ticketBlankNumber, ticketPrice, ticketFlightDate, ticketFlightTime, ticketStatus;
 
+                ticketID = blankIdTextField.getText();
                 ticketBlankType = typeTextField.getText();
                 ticketBlankNumber = numberTextField.getText();
                 ticketPrice = priceTextField.getText();
@@ -76,15 +78,17 @@ public class StockControl extends JFrame {
 
 
                 try {
-                    pst = main.con.prepareStatement("insert into Ticket(ticketBlankType, ticketBlankNumber, ticketPrice, ticketFlightDate, ticketFlightTime, ticketStatus)values(?,?,?,?,?,?)");
-                    pst.setString(1, ticketBlankType);
-                    pst.setString(2, ticketBlankNumber);
-                    pst.setString(3, ticketPrice);
-                    pst.setString(4, ticketFlightDate);
-                    pst.setString(5, ticketFlightTime);
-                    pst.setString(6, ticketStatus);
+                    pst = main.con.prepareStatement("insert into Ticket(ticketID, ticketBlankType, ticketBlankNumber, ticketPrice, ticketStatus)values(?,?,?,?,?)");
+                    pst.setString(1, ticketID);
+                    pst.setString(2, ticketBlankType);
+                    pst.setString(3, ticketBlankNumber);
+                    pst.setString(4, ticketPrice);
+                    // pst.setString(5, ticketFlightDate);
+                    // pst.setString(6, ticketFlightTime);
+                    pst.setString(5, ticketStatus);
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(mainPanel, "Record Added");
+                    load_table();
                     blankIdTextField.setText("");
                     typeTextField.setText("");
                     numberTextField.setText("");
@@ -92,6 +96,7 @@ public class StockControl extends JFrame {
                     dateTextField.setText("");
                     timeTextField.setText("");
                     statusTextField.setText("");
+                    blankIdTextField.requestFocus();
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }
@@ -131,6 +136,113 @@ public class StockControl extends JFrame {
         });
 
 
+        searchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    String ticketID = searchTextField.getText();
+
+                    pst = main.con.prepareStatement("select ticketID, ticketBlankType, ticketBlankNumber, ticketPrice, ticketStatus from Ticket where ticketID = ?");
+                    pst.setString(1, ticketID);
+                    ResultSet rs = pst.executeQuery();
+
+                    if(rs.next()==true) {
+                        String ticketBlankType = rs.getString(2);
+                        String ticketBlankNumber = rs.getString(3);
+                        String ticketPrice = rs.getString(4);
+                        String ticketStatus = rs.getString(5);
+
+                        typeTextField.setText(ticketBlankType);
+                        numberTextField.setText(ticketBlankNumber);
+                        priceTextField.setText(ticketPrice);
+                        statusTextField.setText(ticketStatus);
+
+                    } else {
+                        typeTextField.setText("");
+                        numberTextField.setText("");
+                        priceTextField.setText("");
+                        statusTextField.setText("");
+                        JOptionPane.showMessageDialog(mainPanel, "Invalid Ticket ID");
+                    }
+
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
+            }
+        });
+
+
+        updateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String ticketID, ticketBlankType, ticketBlankNumber, ticketPrice, ticketFlightDate, ticketFlightTime, ticketStatus;
+
+                ticketID = blankIdTextField.getText();
+                ticketBlankType = typeTextField.getText();
+                ticketBlankNumber = numberTextField.getText();
+                ticketPrice = priceTextField.getText();
+                ticketFlightDate = dateTextField.getText();
+                ticketFlightTime = timeTextField.getText();
+                ticketStatus = statusTextField.getText();
+
+                try {
+                    pst = main.con.prepareStatement("update Ticket set ticketBlankType = ?, ticketBlankNumber = ?, ticketPrice = ?, ticketStatus = ? where ticketID = ?");
+                    pst.setString(1, ticketBlankType);
+                    pst.setString(2, ticketBlankNumber);
+                    pst.setString(3, ticketPrice);
+                    // pst.setString(5, ticketFlightDate);
+                    // pst.setString(6, ticketFlightTime);
+                    pst.setString(4, ticketStatus);
+                    pst.setString(5, ticketID);
+                    pst.executeUpdate();
+                    JOptionPane.showMessageDialog(mainPanel, "Record Updated");
+                    load_table();
+                    blankIdTextField.setText("");
+                    typeTextField.setText("");
+                    numberTextField.setText("");
+                    priceTextField.setText("");
+                    //dateTextField.setText("");
+                    //timeTextField.setText("");
+                    statusTextField.setText("");
+                    blankIdTextField.requestFocus();
+
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
+
+            }
+        });
+
+
+        deleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String ticketID;
+                ticketID = searchTextField.getText();
+
+                try {
+                    pst = main.con.prepareStatement("delete from Ticket where ticketID = ?");
+                    pst.setString(1,ticketID);
+                    pst.executeUpdate();
+                    JOptionPane.showMessageDialog(mainPanel, "Record Deleted");
+                    load_table();
+                    blankIdTextField.setText("");
+                    typeTextField.setText("");
+                    numberTextField.setText("");
+                    priceTextField.setText("");
+                    //dateTextField.setText("");
+                    //timeTextField.setText("");
+                    statusTextField.setText("");
+                    blankIdTextField.requestFocus();
+                    searchTextField.setText("");
+
+
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
+
+            }
+        });
     }
     void load_table() {
         try {
