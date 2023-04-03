@@ -44,9 +44,8 @@ public class StockControl extends JFrame {
         setSize(600, 600);   // window resolution
         setVisible(true);
 
-        // calling database connection from Main
-        main.connect();
-        load_table();
+        main.connect(); // calling database connection from Main
+        load_table();   // loads table from database Ticket
 
         // cancel button
         cancelButton.addActionListener(new ActionListener() {

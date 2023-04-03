@@ -15,6 +15,7 @@
     <connection id="e8ee5340-0064-43cb-adb8-33bc79cfa6f0">
       <console name="Connection" type="STANDARD" schema="in2018g21" session="Main"><![CDATA[select *
     FROM `Ticket`]]></console>
+      <console name="DB_Admin" type="STANDARD" schema="in2018g21" session="Main" />
     </connection>
     <connection id="7eb35b68-6b2b-43f9-9bb0-0406fa7b41d5">
       <console name="DB_Data" type="STANDARD" schema="in2018g21" session="Main" />
