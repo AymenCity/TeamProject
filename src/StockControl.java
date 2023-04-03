@@ -35,6 +35,7 @@ public class StockControl extends JFrame {
     private JTextField typeTextField;
     private JScrollPane SPblankTable;
     private JTextField searchTextField;
+    private JLabel infoLabel;
     Connection con;
     PreparedStatement pst;
     Main main = new Main();
