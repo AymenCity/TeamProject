@@ -1,3 +1,4 @@
+import com.toedter.calendar.JDateChooser;
 import net.proteanit.sql.DbUtils;
 
 import javax.swing.*;
@@ -70,6 +71,7 @@ public class StockControl extends JFrame {
                 ticketPrice = priceTextField.getText();
                 ticketFlightDate = dateTextField.getText();
                 ticketFlightTime = timeTextField.getText();
+                Timestamp ts = Timestamp.valueOf(ticketFlightTime);
                 ticketStatus = statusTextField.getText();
 
                 /*LocalDateTime ticketFlightDate = LocalDateTime.parse(dateTextField.getText(),
@@ -79,14 +81,14 @@ public class StockControl extends JFrame {
 
 
                 try {
-                    pst = main.con.prepareStatement("insert into Ticket(ticketID, ticketBlankType, ticketBlankNumber, ticketPrice, ticketStatus)values(?,?,?,?,?)");
+                    pst = main.con.prepareStatement("insert into Ticket(ticketID, ticketBlankType, ticketBlankNumber, ticketPrice, ticketFlightDate, ticketFlightTime, ticketStatus)values(?,?,?,?,?,?,?)");
                     pst.setString(1, ticketID);
                     pst.setString(2, ticketBlankType);
                     pst.setString(3, ticketBlankNumber);
                     pst.setString(4, ticketPrice);
-                    // pst.setString(5, ticketFlightDate);
-                    // pst.setString(6, ticketFlightTime);
-                    pst.setString(5, ticketStatus);
+                    pst.setString(5, ticketFlightDate);
+                    pst.setString(6, ticketFlightTime);
+                    pst.setString(7, ticketStatus);
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(mainPanel, "Record Added");
                     load_table();
