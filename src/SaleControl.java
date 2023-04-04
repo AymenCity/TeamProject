@@ -54,7 +54,39 @@ public class SaleControl extends JFrame {
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Search Button activated!");
+                try {
+                    String saleID = searchTextField.getText();
+
+                    pst = main.con.prepareStatement("select saleID, saleType, saleTotal, saleCommission, saleGrandTotal, saleInterlineCurrencyRate from Air_Ticket_Sale where saleID = ?");
+                    pst.setString(1, saleID);
+                    ResultSet rs = pst.executeQuery();
+
+                    if(rs.next()==true) {
+                        String saleType = rs.getString(2);
+                        String saleTotal = rs.getString(3);
+                        String saleCommission = rs.getString(4);
+                        String saleGrandTotal = rs.getString(5);
+                        String saleInterlineCurrencyRate = rs.getString(6);
+
+                        saleTypeTextField.setText(saleType);
+                        saleTotalTextField.setText(saleTotal);
+                        commisTextField.setText(saleCommission);
+                        grandTotTextField.setText(saleGrandTotal);
+                        currRateTextField.setText(saleInterlineCurrencyRate);
+
+                    } else {
+                        saleTypeTextField.setText("");
+                        saleTotalTextField.setText("");
+                        commisTextField.setText("");
+                        grandTotTextField.setText("");
+                        currRateTextField.setText("");
+                        JOptionPane.showMessageDialog(mainPanel, "Invalid Ticket ID");
+                    }
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
+
+
             }
         });
 
@@ -62,7 +94,26 @@ public class SaleControl extends JFrame {
         deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Delete Button activated!");
+                String saleID;
+                saleID = searchTextField.getText();
+
+                try {
+                    pst = main.con.prepareStatement("delete from Air_Ticket_Sale where saleID = ?");
+                    pst.setString(1,saleID);
+                    pst.executeUpdate();
+                    JOptionPane.showMessageDialog(mainPanel, "Record Deleted");
+                    load_table();
+                    saleIDTextField.setText("");
+                    saleTypeTextField.setText("");
+                    saleTotalTextField.setText("");
+                    commisTextField.setText("");
+                    grandTotTextField.setText("");
+                    currRateTextField.setText("");
+                    saleIDTextField.requestFocus();
+                    searchTextField.setText("");
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
             }
         });
 
@@ -107,7 +158,36 @@ public class SaleControl extends JFrame {
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Information Updated!");
+                String saleID, saleType, saleTotal, saleCommission, saleGrandTotal, saleInterlineCurrencyRate;
+
+                saleID = saleIDTextField.getText();
+                saleType = saleTypeTextField.getText();
+                saleTotal = saleTotalTextField.getText();
+                saleCommission = commisTextField.getText();
+                saleGrandTotal = grandTotTextField.getText();
+                saleInterlineCurrencyRate = currRateTextField.getText();
+
+                try {
+                    pst = main.con.prepareStatement("update Air_Ticket_Sale set saleType = ?, saleTotal = ?, saleCommission = ?, saleGrandTotal = ?, saleInterlineCurrencyRate = ? where saleID = ?");
+                    pst.setString(1, saleType);
+                    pst.setString(2, saleTotal);
+                    pst.setString(3, saleCommission);
+                    pst.setString(4, saleGrandTotal);
+                    pst.setString(5, saleInterlineCurrencyRate);
+                    pst.setString(6, saleID);
+                    pst.executeUpdate();
+                    JOptionPane.showMessageDialog(mainPanel, "Record Updated");
+                    load_table();
+                    saleIDTextField.setText("");
+                    saleTypeTextField.setText("");
+                    saleTotalTextField.setText("");
+                    commisTextField.setText("");
+                    grandTotTextField.setText("");
+                    currRateTextField.setText("");
+                    saleIDTextField.requestFocus();
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
             }
         });
 
