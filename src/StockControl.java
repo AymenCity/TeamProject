@@ -32,6 +32,7 @@ public class StockControl extends JFrame {
     private JTextField searchTextField;
     private JLabel infoLabel;
     private JButton generateStockTurnoverReportButton;
+    private JComboBox typeComboBox;
     Connection con;
     PreparedStatement pst;
     Main main = new Main();
@@ -67,10 +68,9 @@ public class StockControl extends JFrame {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String ticketID, ticketBlankType, ticketBlankNumber, ticketPrice, ticketFlightDate, ticketFlightTime, ticketStatus;
+                String ticketBlankType, ticketBlankNumber, ticketPrice, ticketFlightDate, ticketFlightTime, ticketStatus;
 
-                ticketID = blankIdTextField.getText();
-                ticketBlankType = typeTextField.getText();
+                ticketBlankType = typeComboBox.getSelectedItem().toString();
                 ticketBlankNumber = numberTextField.getText();
                 ticketPrice = priceTextField.getText();
                 ticketFlightDate = dateTextField.getText();
@@ -81,6 +81,7 @@ public class StockControl extends JFrame {
                 try {
                     pst = main.con.prepareStatement("insert into Ticket(ticketBlankType, ticketBlankNumber, ticketPrice, ticketFlightDate, ticketFlightTime, ticketStatus)values(?,?,?,?,?,?)");
                     //pst.setString(1, ticketID);
+                    //String typeValue = typeComboBox.getSelectedItem().toString();
                     pst.setString(1, ticketBlankType);
                     pst.setString(2, ticketBlankNumber);
                     pst.setString(3, ticketPrice);
@@ -90,14 +91,11 @@ public class StockControl extends JFrame {
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(mainPanel, "Record Added");
                     load_table();
-                    blankIdTextField.setText("");
-                    typeTextField.setText("");
                     numberTextField.setText("");
                     priceTextField.setText("");
                     dateTextField.setText("");
                     timeTextField.setText("");
                     statusTextField.setText("");
-                    blankIdTextField.requestFocus();
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }
