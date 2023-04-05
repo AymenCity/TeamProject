@@ -2,9 +2,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
-import java.util.Scanner;
 
 public class Login extends JFrame {
     private JPanel mainPanel;
@@ -39,8 +37,9 @@ public class Login extends JFrame {
         loginButton.addActionListener(new ActionListener() {    // detects if user credentials are correct
             @Override
             public void actionPerformed(ActionEvent e) {
-                String username = usernameTextField.getText().trim();
-                String password = passwordTextField.getText().trim();
+                String username, password;
+                username = usernameTextField.getText().trim();
+                password = passwordTextField.getText().trim();
 
                 try {
                     FileReader fr = new FileReader("src/account/login.txt");
@@ -60,6 +59,7 @@ public class Login extends JFrame {
                 if (matched) {
                     dispose();
                     WelcomePage welcomePage = new WelcomePage();
+                    welcomePage.static_label.setText(usernameTextField.getText());
                 }
                 else {
                     JOptionPane.showMessageDialog(mainPanel, "Invalid Username / Password", "Error", JOptionPane.ERROR_MESSAGE);
@@ -72,9 +72,7 @@ public class Login extends JFrame {
     public JPanel getMainPanel(){
         return mainPanel;
     }
-    public JTextField getUsernameTextField() {
-        return usernameTextField;
-    }
+
 }
 
 

@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -6,7 +7,7 @@ public class WelcomePage extends JFrame {
     private JPanel mainPanel;
     private JLabel welcomeLabel;
     private JLabel SupportingLabel;
-    private JButton UserManagementButton;
+    private JButton CustomerManagementButton;
     private JButton stockControlButton;
     private JButton alertsButton;
     private JButton refundsButton;
@@ -15,19 +16,19 @@ public class WelcomePage extends JFrame {
     private JButton salesControlButton;
     private JButton salesReportButton;
     private JButton backupButton;
-    private Login login;
+    private JLabel userLabel;
     public Main main;
 
+    public static JLabel static_label;
+
     public WelcomePage() {
-        this.login = login;
+        Login login = new Login();
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
         setSize(600,600);   // window resolution
         setVisible(true);
 
-        // TestNameLabel.setText(login.getUsernameTextField().toString());
-
-
+        static_label = userLabel;
 
         signOutButton.addActionListener(new ActionListener() {
             @Override
@@ -36,7 +37,7 @@ public class WelcomePage extends JFrame {
                 Login login = new Login();
             }
         });
-        UserManagementButton.addActionListener(new ActionListener() {
+        CustomerManagementButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
@@ -64,11 +65,18 @@ public class WelcomePage extends JFrame {
                 SaleControl saleControl = new SaleControl();
             }
         });
+//        salesReportButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                dispose();
+//                SaleReport saleReport = new SaleReport();
+//            }
+//        });
         salesReportButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                SaleReport saleReport = new SaleReport();
+                AdminLogin adminLogin = new AdminLogin();
             }
         });
     }
