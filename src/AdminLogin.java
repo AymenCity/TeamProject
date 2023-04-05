@@ -15,6 +15,7 @@ public class AdminLogin extends JFrame {
     private JTextField passwordTextField;
     private JLabel passwordLabel;
     private JLabel copyrightLabel;
+    private JButton cancelButton;
     boolean matched = false;
 
     public AdminLogin() {
@@ -52,6 +53,13 @@ public class AdminLogin extends JFrame {
                 else {
                     JOptionPane.showMessageDialog(mainPanel, "Invalid Username / Password", "Error", JOptionPane.ERROR_MESSAGE);
                 }
+            }
+        });
+        cancelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                WelcomePage welcomePage = new WelcomePage();
             }
         });
     }
