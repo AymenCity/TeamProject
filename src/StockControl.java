@@ -1,14 +1,9 @@
-import com.toedter.calendar.JDateChooser;
 import net.proteanit.sql.DbUtils;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 
 
 public class StockControl extends JFrame {
@@ -22,7 +17,6 @@ public class StockControl extends JFrame {
     private JTextField dateTextField;
     private JTextField timeTextField;
     private JTextField statusTextField;
-    private JLabel blankIdLabel;
     private JLabel typeLabel;
     private JLabel numberLabel;
     private JLabel priceLabel;
@@ -37,6 +31,7 @@ public class StockControl extends JFrame {
     private JScrollPane SPblankTable;
     private JTextField searchTextField;
     private JLabel infoLabel;
+    private JButton generateStockTurnoverReportButton;
     Connection con;
     PreparedStatement pst;
     Main main = new Main();
@@ -50,7 +45,7 @@ public class StockControl extends JFrame {
         main.connect(); // calling database connection from Main
         load_table();   // loads table from database Ticket
 
-        // cancel button
+        // CANCEL button
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -59,7 +54,16 @@ public class StockControl extends JFrame {
             }
         });
 
-        // save button
+        // GENERATE REPORT button
+        generateStockTurnoverReportButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                SaleReport saleReport = new SaleReport();
+            }
+        });
+
+        // SAVE button
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -74,21 +78,15 @@ public class StockControl extends JFrame {
                 Timestamp ts = Timestamp.valueOf(ticketFlightTime);
                 ticketStatus = statusTextField.getText();
 
-                /*LocalDateTime ticketFlightDate = LocalDateTime.parse(dateTextField.getText(),
-                    DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"));
-                LocalDateTime flightTime = LocalDateTime.parse(timeTextField.getText(),
-                    DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"));*/
-
-
                 try {
-                    pst = main.con.prepareStatement("insert into Ticket(ticketID, ticketBlankType, ticketBlankNumber, ticketPrice, ticketFlightDate, ticketFlightTime, ticketStatus)values(?,?,?,?,?,?,?)");
-                    pst.setString(1, ticketID);
-                    pst.setString(2, ticketBlankType);
-                    pst.setString(3, ticketBlankNumber);
-                    pst.setString(4, ticketPrice);
-                    pst.setString(5, ticketFlightDate);
-                    pst.setString(6, ticketFlightTime);
-                    pst.setString(7, ticketStatus);
+                    pst = main.con.prepareStatement("insert into Ticket(ticketBlankType, ticketBlankNumber, ticketPrice, ticketFlightDate, ticketFlightTime, ticketStatus)values(?,?,?,?,?,?)");
+                    //pst.setString(1, ticketID);
+                    pst.setString(1, ticketBlankType);
+                    pst.setString(2, ticketBlankNumber);
+                    pst.setString(3, ticketPrice);
+                    pst.setString(4, ticketFlightDate);
+                    pst.setString(5, ticketFlightTime);
+                    pst.setString(6, ticketStatus);
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(mainPanel, "Record Added");
                     load_table();
@@ -103,42 +101,10 @@ public class StockControl extends JFrame {
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }
-
-
-               /* try {
-
-                    pst = main.con.prepareStatement("insert into Ticket(ticketID,ticketBlankType, ticketBlankNumber, ticketPrice, ticketFlightDate, ticketFlightTime, ticketStatus)values(?,?,?,?,?,?,?)");
-                    pst.setInt(1, 1);
-                    pst.setInt(2, Integer.parseInt(type));
-                    pst.setInt(3, Integer.parseInt(blankID));
-                    pst.setInt(4, Integer.parseInt(number));
-                    pst.setDate(5, new java.sql.Date(flightDate.atZone(ZoneId.systemDefault())
-                            .toInstant().toEpochMilli()));
-                    pst.setDate(6, new java.sql.Date(flightTime.atZone(ZoneId.systemDefault())
-                            .toInstant().toEpochMilli()));
-                    pst.setString(7, status);
-                    //pst.setInt(8, 11001);
-                    //pst.setString(9, "Jeremy Clarky");
-
-                    pst.executeUpdate();
-                    JOptionPane.showMessageDialog(mainPanel, "Record Added");
-                    blankIdTextField.setText("");
-                    typeTextField.setText("");
-                    numberTextField.setText("");
-                    priceTextField.setText("");
-                    dateTextField.setText("");
-                    timeTextField.setText("");
-                    statusTextField.setText("");
-
-
-                } catch (Exception exception) {
-                    exception.printStackTrace();
-                } */
-
             }
         });
 
-
+        // SEARCH button
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -153,11 +119,16 @@ public class StockControl extends JFrame {
                         String ticketBlankType = rs.getString(2);
                         String ticketBlankNumber = rs.getString(3);
                         String ticketPrice = rs.getString(4);
+                        //String ticketFlightDate = rs.getString(5);
+                        //S ticketFlightTime = rs.getTimestamp(6);
                         String ticketStatus = rs.getString(5);
 
                         typeTextField.setText(ticketBlankType);
                         numberTextField.setText(ticketBlankNumber);
                         priceTextField.setText(ticketPrice);
+                        //dateTextField = setText(ticketFlightDate);
+                        //timeTextField = setType(ticketFlightTime);
+                        //Timestamp ts = Timestamp.valueOf(ticketFlightTime);
                         statusTextField.setText(ticketStatus);
 
                     } else {
@@ -174,7 +145,7 @@ public class StockControl extends JFrame {
             }
         });
 
-
+        // UPDATE button
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -208,15 +179,13 @@ public class StockControl extends JFrame {
                     //timeTextField.setText("");
                     statusTextField.setText("");
                     blankIdTextField.requestFocus();
-
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }
-
             }
         });
 
-
+        // DELETE button
         deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -238,15 +207,13 @@ public class StockControl extends JFrame {
                     statusTextField.setText("");
                     blankIdTextField.requestFocus();
                     searchTextField.setText("");
-
-
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }
-
             }
         });
     }
+
     void load_table() {
         try {
             pst = main.con.prepareStatement("select * from Ticket");

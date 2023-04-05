@@ -16,7 +16,6 @@ public class SaleControl extends JFrame {
     private JTable table1;
     private JLabel FlavourTextLabel;
     private JTextField saleIDTextField;
-    private JLabel saleIDLabel;
     private JLabel saleTypeLabel;
     private JTextField saleTotalTextField;
     private JLabel saleTotalButton;
@@ -131,13 +130,12 @@ public class SaleControl extends JFrame {
                 saleInterlineCurrencyRate = currRateTextField.getText();
 
                 try {
-                    pst = main.con.prepareStatement("insert into Air_Ticket_Sale(saleID, saleType, saleTotal, saleCommission, saleGrandTotal, saleInterlineCurrencyRate)values(?,?,?,?,?,?)");
-                    pst.setString(1, saleID);
-                    pst.setString(2, saleType);
-                    pst.setString(3, saleTotal);
-                    pst.setString(4, saleCommission);
-                    pst.setString(5, saleGrandTotal);
-                    pst.setString(6, saleInterlineCurrencyRate);
+                    pst = main.con.prepareStatement("insert into Air_Ticket_Sale(saleType, saleTotal, saleCommission, saleGrandTotal, saleInterlineCurrencyRate)values(?,?,?,?,?)");
+                    pst.setString(1, saleType);
+                    pst.setString(2, saleTotal);
+                    pst.setString(3, saleCommission);
+                    pst.setString(4, saleGrandTotal);
+                    pst.setString(5, saleInterlineCurrencyRate);
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(mainPanel, "Record Added");
                     load_table();
@@ -206,8 +204,6 @@ public class SaleControl extends JFrame {
             pst = main.con.prepareStatement("select * from Air_Ticket_Sale");
             ResultSet rs = pst.executeQuery();
             table1.setModel(DbUtils.resultSetToTableModel(rs));
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
