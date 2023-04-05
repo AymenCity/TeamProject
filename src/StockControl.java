@@ -33,6 +33,7 @@ public class StockControl extends JFrame {
     private JLabel infoLabel;
     private JButton generateStockTurnoverReportButton;
     private JComboBox typeComboBox;
+    private JComboBox statusComboBox;
     Connection con;
     PreparedStatement pst;
     Main main = new Main();
@@ -45,6 +46,9 @@ public class StockControl extends JFrame {
 
         main.connect(); // calling database connection from Main
         load_table();   // loads table from database Ticket
+
+        dateTextField.setText("YYYY-MM-DD");
+        timeTextField.setText("YYYY-MM-DD HH:MM:SS");
 
         // CANCEL button
         cancelButton.addActionListener(new ActionListener() {
@@ -76,12 +80,10 @@ public class StockControl extends JFrame {
                 ticketFlightDate = dateTextField.getText();
                 ticketFlightTime = timeTextField.getText();
                 Timestamp ts = Timestamp.valueOf(ticketFlightTime);
-                ticketStatus = statusTextField.getText();
+                ticketStatus = statusComboBox.getSelectedItem().toString();
 
                 try {
                     pst = main.con.prepareStatement("insert into Ticket(ticketBlankType, ticketBlankNumber, ticketPrice, ticketFlightDate, ticketFlightTime, ticketStatus)values(?,?,?,?,?,?)");
-                    //pst.setString(1, ticketID);
-                    //String typeValue = typeComboBox.getSelectedItem().toString();
                     pst.setString(1, ticketBlankType);
                     pst.setString(2, ticketBlankNumber);
                     pst.setString(3, ticketPrice);
@@ -91,14 +93,14 @@ public class StockControl extends JFrame {
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(mainPanel, "Record Added");
                     load_table();
+                    typeComboBox.setSelectedIndex(0);
                     numberTextField.setText("");
                     priceTextField.setText("");
-                    dateTextField.setText("");
-                    timeTextField.setText("");
-                    statusTextField.setText("");
+                    dateTextField.setText("YYYY-MM-DD");
+                    timeTextField.setText("YYYY-MM-DD HH:MM:SS");
+                    statusComboBox.setSelectedIndex(0);
                 } catch (Exception exception) {
                     exception.printStackTrace();
-
                 }
             }
         });
@@ -110,7 +112,7 @@ public class StockControl extends JFrame {
                 try {
                     String ticketID = searchTextField.getText();
 
-                    pst = main.con.prepareStatement("select ticketID, ticketBlankType, ticketBlankNumber, ticketPrice, ticketStatus from Ticket where ticketID = ?");
+                    pst = main.con.prepareStatement("select ticketID, ticketBlankType, ticketBlankNumber, ticketPrice, ticketFlightDate, ticketFlightTime, ticketStatus from Ticket where ticketID = ?");
                     pst.setString(1, ticketID);
                     ResultSet rs = pst.executeQuery();
 
@@ -118,26 +120,24 @@ public class StockControl extends JFrame {
                         String ticketBlankType = rs.getString(2);
                         String ticketBlankNumber = rs.getString(3);
                         String ticketPrice = rs.getString(4);
-                        //String ticketFlightDate = rs.getString(5);
-                        //S ticketFlightTime = rs.getTimestamp(6);
-                        String ticketStatus = rs.getString(5);
+                        String ticketFlightDate = rs.getString(5);
+                        String ticketFlightTime = rs.getString(6);
+                        String ticketStatus = rs.getString(7);
 
-                        typeTextField.setText(ticketBlankType);
+                        typeComboBox.setSelectedItem(ticketBlankType);
                         numberTextField.setText(ticketBlankNumber);
                         priceTextField.setText(ticketPrice);
-                        //dateTextField = setText(ticketFlightDate);
-                        //timeTextField = setType(ticketFlightTime);
-                        //Timestamp ts = Timestamp.valueOf(ticketFlightTime);
-                        statusTextField.setText(ticketStatus);
+                        dateTextField.setText(ticketFlightDate);
+                        timeTextField.setText(ticketFlightTime);
+                        statusComboBox.setSelectedItem(ticketStatus);
 
                     } else {
-                        typeTextField.setText("");
+                        typeComboBox.setSelectedIndex(0);
                         numberTextField.setText("");
                         priceTextField.setText("");
-                        statusTextField.setText("");
+                        statusComboBox.setSelectedIndex(0);
                         JOptionPane.showMessageDialog(mainPanel, "Invalid Ticket ID");
                     }
-
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }
@@ -150,34 +150,33 @@ public class StockControl extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String ticketID, ticketBlankType, ticketBlankNumber, ticketPrice, ticketFlightDate, ticketFlightTime, ticketStatus;
 
-                ticketID = blankIdTextField.getText();
-                ticketBlankType = typeTextField.getText();
+                ticketID = searchTextField.getText();
+                ticketBlankType = typeComboBox.getSelectedItem().toString();
                 ticketBlankNumber = numberTextField.getText();
                 ticketPrice = priceTextField.getText();
                 ticketFlightDate = dateTextField.getText();
                 ticketFlightTime = timeTextField.getText();
-                ticketStatus = statusTextField.getText();
+                ticketStatus = statusComboBox.getSelectedItem().toString();
 
                 try {
-                    pst = main.con.prepareStatement("update Ticket set ticketBlankType = ?, ticketBlankNumber = ?, ticketPrice = ?, ticketStatus = ? where ticketID = ?");
+                    pst = main.con.prepareStatement("update Ticket set ticketBlankType = ?, ticketBlankNumber = ?, ticketPrice = ?, ticketFlightDate = ?, ticketFlightTime = ?, ticketStatus = ? where ticketID = ?");
                     pst.setString(1, ticketBlankType);
                     pst.setString(2, ticketBlankNumber);
                     pst.setString(3, ticketPrice);
-                    // pst.setString(5, ticketFlightDate);
-                    // pst.setString(6, ticketFlightTime);
-                    pst.setString(4, ticketStatus);
-                    pst.setString(5, ticketID);
+                    pst.setString(4, ticketFlightDate);
+                    pst.setString(5, ticketFlightTime);
+                    pst.setString(6, ticketStatus);
+                    pst.setString(7, ticketID);
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(mainPanel, "Record Updated");
                     load_table();
-                    blankIdTextField.setText("");
-                    typeTextField.setText("");
+                    searchTextField.setText("");
+                    typeComboBox.setSelectedIndex(0);
                     numberTextField.setText("");
                     priceTextField.setText("");
-                    //dateTextField.setText("");
-                    //timeTextField.setText("");
-                    statusTextField.setText("");
-                    blankIdTextField.requestFocus();
+                    dateTextField.setText("YYYY-MM-DD");
+                    timeTextField.setText("YYYY-MM-DD HH:MM:SS");
+                    statusComboBox.setSelectedIndex(0);
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }
@@ -197,14 +196,12 @@ public class StockControl extends JFrame {
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(mainPanel, "Record Deleted");
                     load_table();
-                    blankIdTextField.setText("");
-                    typeTextField.setText("");
+                    typeComboBox.setSelectedIndex(0);
                     numberTextField.setText("");
                     priceTextField.setText("");
-                    //dateTextField.setText("");
-                    //timeTextField.setText("");
-                    statusTextField.setText("");
-                    blankIdTextField.requestFocus();
+                    dateTextField.setText("YYYY-MM-DD");
+                    timeTextField.setText("YYYY-MM-DD HH:MM:SS");
+                    statusComboBox.setSelectedIndex(0);
                     searchTextField.setText("");
                 } catch (Exception exception) {
                     exception.printStackTrace();
