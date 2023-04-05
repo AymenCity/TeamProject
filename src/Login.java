@@ -59,7 +59,8 @@ public class Login extends JFrame {
                 if (matched) {
                     dispose();
                     WelcomePage welcomePage = new WelcomePage();
-                    welcomePage.static_label.setText(usernameTextField.getText());
+                    WelcomePage.static_label.setText(usernameTextField.getText());
+
                 }
                 else {
                     JOptionPane.showMessageDialog(mainPanel, "Invalid Username / Password", "Error", JOptionPane.ERROR_MESSAGE);

@@ -22,7 +22,6 @@ public class WelcomePage extends JFrame {
     public static JLabel static_label;
 
     public WelcomePage() {
-        Login login = new Login();
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
         setSize(600,600);   // window resolution
