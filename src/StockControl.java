@@ -98,7 +98,6 @@ public class StockControl extends JFrame {
                     statusTextField.setText("");
                 } catch (Exception exception) {
                     exception.printStackTrace();
-
                 }
             }
         });
