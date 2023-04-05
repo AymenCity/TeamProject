@@ -36,6 +36,7 @@ public class SaleControl extends JFrame {
     private JLabel AgentIDLabel;
     private JLabel custIDLabel;
     private JScrollPane saleControlTable;
+    private JComboBox typeComboBox;
     Connection con;
     PreparedStatement pst;
     Main main = new Main();
@@ -49,6 +50,7 @@ public class SaleControl extends JFrame {
         main.connect(); // calling database connection from Main
         load_table();   // loads table from database Air_Ticket_Sale
 
+
         // SEARCH button
         searchButton.addActionListener(new ActionListener() {
             @Override
@@ -56,7 +58,7 @@ public class SaleControl extends JFrame {
                 try {
                     String saleID = searchTextField.getText();
 
-                    pst = main.con.prepareStatement("select saleID, saleType, saleTotal, saleCommission, saleGrandTotal, saleInterlineCurrencyRate from Air_Ticket_Sale where saleID = ?");
+                    pst = main.con.prepareStatement("select saleID, saleType, saleTotal, saleCommission, saleGrandTotal, saleInterlineCurrencyRate, ticketID, agentID, customerID from Air_Ticket_Sale where saleID = ?");
                     pst.setString(1, saleID);
                     ResultSet rs = pst.executeQuery();
 
@@ -66,19 +68,28 @@ public class SaleControl extends JFrame {
                         String saleCommission = rs.getString(4);
                         String saleGrandTotal = rs.getString(5);
                         String saleInterlineCurrencyRate = rs.getString(6);
+                        String ticketID = rs.getString(7);
+                        String agentID = rs.getString(8);
+                        String customerID = rs.getString(9);
 
-                        saleTypeTextField.setText(saleType);
+                        typeComboBox.setSelectedItem(saleType);
                         saleTotalTextField.setText(saleTotal);
                         commisTextField.setText(saleCommission);
                         grandTotTextField.setText(saleGrandTotal);
                         currRateTextField.setText(saleInterlineCurrencyRate);
+                        tickIDTextField.setText(ticketID);
+                        agentIDTextField.setText(agentID);
+                        custIDTextField.setText(customerID);
 
                     } else {
-                        saleTypeTextField.setText("");
+                        typeComboBox.setSelectedIndex(0);
                         saleTotalTextField.setText("");
                         commisTextField.setText("");
                         grandTotTextField.setText("");
                         currRateTextField.setText("");
+                        tickIDTextField.setText("");
+                        agentIDTextField.setText("");
+                        custIDTextField.setText("");
                         JOptionPane.showMessageDialog(mainPanel, "Invalid Ticket ID");
                     }
                 } catch (Exception exception) {
@@ -102,13 +113,11 @@ public class SaleControl extends JFrame {
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(mainPanel, "Record Deleted");
                     load_table();
-                    saleIDTextField.setText("");
-                    saleTypeTextField.setText("");
+                    typeComboBox.setSelectedIndex(0);
                     saleTotalTextField.setText("");
                     commisTextField.setText("");
                     grandTotTextField.setText("");
                     currRateTextField.setText("");
-                    saleIDTextField.requestFocus();
                     searchTextField.setText("");
                 } catch (Exception exception) {
                     exception.printStackTrace();
@@ -120,32 +129,38 @@ public class SaleControl extends JFrame {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String saleID, saleType, saleTotal, saleCommission, saleGrandTotal, saleInterlineCurrencyRate;
+                String saleType, saleTotal, saleCommission, saleGrandTotal, saleInterlineCurrencyRate, ticketID, agentID, customerID;
 
-                saleID = saleIDTextField.getText();
-                saleType = saleTypeTextField.getText();
+                saleType = typeComboBox.getSelectedItem().toString();
                 saleTotal = saleTotalTextField.getText();
                 saleCommission = commisTextField.getText();
                 saleGrandTotal = grandTotTextField.getText();
                 saleInterlineCurrencyRate = currRateTextField.getText();
+                ticketID = tickIDTextField.getText();
+                agentID = agentIDTextField.getText();
+                customerID = custIDTextField.getText();
 
                 try {
-                    pst = main.con.prepareStatement("insert into Air_Ticket_Sale(saleType, saleTotal, saleCommission, saleGrandTotal, saleInterlineCurrencyRate)values(?,?,?,?,?)");
+                    pst = main.con.prepareStatement("insert into Air_Ticket_Sale(saleType, saleTotal, saleCommission, saleGrandTotal, saleInterlineCurrencyRate, ticketID, agentID, customerID)values(?,?,?,?,?,?,?,?)");
                     pst.setString(1, saleType);
                     pst.setString(2, saleTotal);
                     pst.setString(3, saleCommission);
                     pst.setString(4, saleGrandTotal);
                     pst.setString(5, saleInterlineCurrencyRate);
+                    pst.setString(6, ticketID);
+                    pst.setString(7, agentID);
+                    pst.setString(8, customerID);
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(mainPanel, "Record Added");
                     load_table();
-                    saleIDTextField.setText("");
-                    saleTypeTextField.setText("");
+                    typeComboBox.setSelectedIndex(0);
                     saleTotalTextField.setText("");
                     commisTextField.setText("");
                     grandTotTextField.setText("");
                     currRateTextField.setText("");
-                    saleIDTextField.requestFocus();
+                    tickIDTextField.setText("");
+                    agentIDTextField.setText("");
+                    custIDTextField.setText("");
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }
@@ -156,33 +171,41 @@ public class SaleControl extends JFrame {
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String saleID, saleType, saleTotal, saleCommission, saleGrandTotal, saleInterlineCurrencyRate;
+                String saleID, saleType, saleTotal, saleCommission, saleGrandTotal, saleInterlineCurrencyRate, ticketID, agentID, customerID;
 
-                saleID = saleIDTextField.getText();
-                saleType = saleTypeTextField.getText();
+                saleID = searchTextField.getText();
+                saleType = typeComboBox.getSelectedItem().toString();
                 saleTotal = saleTotalTextField.getText();
                 saleCommission = commisTextField.getText();
                 saleGrandTotal = grandTotTextField.getText();
                 saleInterlineCurrencyRate = currRateTextField.getText();
+                ticketID = tickIDTextField.getText();
+                agentID = agentIDTextField.getText();
+                customerID = custIDTextField.getText();
 
                 try {
-                    pst = main.con.prepareStatement("update Air_Ticket_Sale set saleType = ?, saleTotal = ?, saleCommission = ?, saleGrandTotal = ?, saleInterlineCurrencyRate = ? where saleID = ?");
+                    pst = main.con.prepareStatement("update Air_Ticket_Sale set saleType = ?, saleTotal = ?, saleCommission = ?, saleGrandTotal = ?, saleInterlineCurrencyRate = ?, ticketID = ?, agentID = ?, customerID = ? where saleID = ?");
                     pst.setString(1, saleType);
                     pst.setString(2, saleTotal);
                     pst.setString(3, saleCommission);
                     pst.setString(4, saleGrandTotal);
                     pst.setString(5, saleInterlineCurrencyRate);
-                    pst.setString(6, saleID);
+                    pst.setString(6, ticketID);
+                    pst.setString(7, agentID);
+                    pst.setString(8, customerID);
+                    pst.setString(9, saleID);
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(mainPanel, "Record Updated");
                     load_table();
-                    saleIDTextField.setText("");
-                    saleTypeTextField.setText("");
+                    searchTextField.setText("");
+                    typeComboBox.setSelectedIndex(0);
                     saleTotalTextField.setText("");
                     commisTextField.setText("");
                     grandTotTextField.setText("");
                     currRateTextField.setText("");
-                    saleIDTextField.requestFocus();
+                    tickIDTextField.setText("");
+                    agentIDTextField.setText("");
+                    custIDTextField.setText("");
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }

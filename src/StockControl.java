@@ -50,6 +50,7 @@ public class StockControl extends JFrame {
         dateTextField.setText("YYYY-MM-DD");
         timeTextField.setText("YYYY-MM-DD HH:MM:SS");
 
+
         // CANCEL button
         cancelButton.addActionListener(new ActionListener() {
             @Override
