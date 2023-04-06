@@ -13,7 +13,7 @@ public class SaleReport extends JFrame {
     private JButton searchButton;
     private JButton deleteButton;
     private JTable table1;
-    private JLabel FlavourTextLabel;
+    private JLabel infoLabel;
     private JTextField timeGeneratedField;
     private JLabel timeGeneratedLabel;
     private JTextField agentIDTextField;
@@ -32,6 +32,9 @@ public class SaleReport extends JFrame {
     private JPanel salesReportMainPanel;
     private JTextField paymentCurrencyTextField;
     private JTextField ticketBlankTypeTextField;
+    private JComboBox StypeComboBox;
+    private JComboBox PtypeComboBox;
+    private JComboBox TicComboBox;
     Connection con;
     PreparedStatement pst;
     Main main = new Main();
@@ -70,47 +73,145 @@ public class SaleReport extends JFrame {
                         agentIDTextField.setText(agentID);
                         airlineIDTextField.setText(airlineID);
                         saleIDTextField.setText(saleID);
-                        saleTypeField.setText(saleType);
-                        paymentTypeTextField.setText(paymentType);
+                        StypeComboBox.setSelectedItem(saleType);
+                        PtypeComboBox.setSelectedItem(paymentType);
                         paymentCurrencyTextField.setText(paymentCurrency);
-                        ticketBlankTypeTextField.setText(ticketBlankType);
+                        TicComboBox.setSelectedItem(ticketBlankType);
 
                     } else {
                         timeGeneratedField.setText("");
                         agentIDTextField.setText("");
                         airlineIDTextField.setText("");
                         saleIDTextField.setText("");
-                        saleTypeField.setText("");
-                        paymentTypeTextField.setText("");
+                        StypeComboBox.setSelectedIndex(0);
+                        PtypeComboBox.setSelectedIndex(0);
                         paymentCurrencyTextField.setText("");
-                        ticketBlankTypeTextField.setText("");
+                        TicComboBox.setSelectedIndex(0);
                         JOptionPane.showMessageDialog(mainPanel, "Invalid Ticket ID");
                     }
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }
-
-
             }
         });
+
+        // DELETE button
         deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Delete Button activated!");
+                String reportID;
+                reportID = searchTextField.getText();
+
+                try {
+                    pst = main.con.prepareStatement("delete from Air_Ticket_Sales_Report where reportID = ?");
+                    pst.setString(1,reportID);
+                    pst.executeUpdate();
+                    JOptionPane.showMessageDialog(mainPanel, "Record Deleted");
+                    load_table();
+                    timeGeneratedField.setText("");
+                    agentIDTextField.setText("");
+                    airlineIDTextField.setText("");
+                    saleIDTextField.setText("");
+                    StypeComboBox.setSelectedIndex(0);
+                    PtypeComboBox.setSelectedIndex(0);
+                    paymentCurrencyTextField.setText("");
+                    TicComboBox.setSelectedIndex(0);
+                    searchTextField.setText("");
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
             }
         });
+
+
+
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Saved!");
+                String timeGenerated, agentID, airlineID, saleID, saleType, paymentType, paymentCurrency, ticketBlankType;
+
+                timeGenerated = timeGeneratedField.getText();
+                agentID = agentIDTextField.getText();
+                airlineID = airlineIDTextField.getText();
+                saleID = saleIDTextField.getText();
+                saleType = StypeComboBox.getSelectedItem().toString();
+                paymentType = PtypeComboBox.getSelectedItem().toString();
+                paymentCurrency = paymentCurrencyTextField.getText();
+                ticketBlankType = TicComboBox.getSelectedItem().toString();
+
+                try {
+                    pst = main.con.prepareStatement("insert into Air_Ticket_Sales_Report(timeGenerated, agentID, airlineID, saleID, saleType, paymentType, paymentCurrency, ticketBlankType)values(?,?,?,?,?,?,?,?)");
+                    pst.setString(1, timeGenerated);
+                    pst.setString(2, agentID);
+                    pst.setString(3, airlineID);
+                    pst.setString(4, saleID);
+                    pst.setString(5, saleType);
+                    pst.setString(6, paymentType);
+                    pst.setString(7, paymentCurrency);
+                    pst.setString(8, ticketBlankType);
+                    pst.executeUpdate();
+                    JOptionPane.showMessageDialog(mainPanel, "Record Added");
+                    load_table();
+                    timeGeneratedField.setText("");
+                    agentIDTextField.setText("");
+                    airlineIDTextField.setText("");
+                    saleIDTextField.setText("");
+                    StypeComboBox.setSelectedIndex(0);
+                    PtypeComboBox.setSelectedIndex(0);
+                    paymentCurrencyTextField.setText("");
+                    TicComboBox.setSelectedIndex(0);
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
             }
         });
+
+        // UPDATE
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Information Updated!");
+                String reportID, timeGenerated, agentID, airlineID, saleID, saleType, paymentType, paymentCurrency, ticketBlankType;
+
+                reportID = searchTextField.getText();
+                timeGenerated = timeGeneratedField.getText();
+                agentID = agentIDTextField.getText();
+                airlineID = airlineIDTextField.getText();
+                saleID = saleIDTextField.getText();
+                saleType = StypeComboBox.getSelectedItem().toString();
+                paymentType = PtypeComboBox.getSelectedItem().toString();
+                paymentCurrency = paymentCurrencyTextField.getText();
+                ticketBlankType = TicComboBox.getSelectedItem().toString();
+
+                try {
+                    pst = main.con.prepareStatement("update Air_Ticket_Sales_Report set timeGenerated = ?, agentID = ?, airlineID = ?, saleID = ?, saleType = ?, paymentType = ?, paymentCurrency = ?, ticketBlankType = ? where reportID = ?");
+                    pst.setString(1, timeGenerated);
+                    pst.setString(2, agentID);
+                    pst.setString(3, airlineID);
+                    pst.setString(4, saleID);
+                    pst.setString(5, saleType);
+                    pst.setString(6, paymentType);
+                    pst.setString(7, paymentCurrency);
+                    pst.setString(8, ticketBlankType);
+                    pst.setString(9, reportID);
+                    pst.executeUpdate();
+                    JOptionPane.showMessageDialog(mainPanel, "Record Updated");
+                    load_table();
+                    searchTextField.setText("");
+                    timeGeneratedField.setText("");
+                    agentIDTextField.setText("");
+                    airlineIDTextField.setText("");
+                    saleIDTextField.setText("");
+                    StypeComboBox.setSelectedIndex(0);
+                    PtypeComboBox.setSelectedIndex(0);
+                    paymentCurrencyTextField.setText("");
+                    TicComboBox.setSelectedIndex(0);
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
             }
         });
+
+        // CANCEL
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

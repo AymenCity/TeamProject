@@ -77,12 +77,12 @@
               <grid row="6" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
-          <component id="819a9" class="javax.swing.JLabel" binding="FlavourTextLabel">
+          <component id="819a9" class="javax.swing.JLabel" binding="infoLabel">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Please type the Ticket ID below to search or remove a ticket:"/>
+              <text value="Please type the Report ID below to search or remove a ticket:"/>
             </properties>
           </component>
           <vspacer id="dac0">
@@ -146,14 +146,6 @@
               <text value="Payment Type"/>
             </properties>
           </component>
-          <component id="b498b" class="javax.swing.JTextField" binding="paymentTypeTextField">
-            <constraints>
-              <grid row="14" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties/>
-          </component>
           <component id="67231" class="javax.swing.JButton" binding="saveButton" default-binding="true">
             <constraints>
               <grid row="18" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
@@ -207,14 +199,6 @@
               <text value="Sale Type"/>
             </properties>
           </component>
-          <component id="7531a" class="javax.swing.JTextField" binding="saleTypeField">
-            <constraints>
-              <grid row="13" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties/>
-          </component>
           <component id="c8612" class="javax.swing.JLabel">
             <constraints>
               <grid row="15" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -239,11 +223,27 @@
             </constraints>
             <properties/>
           </component>
-          <component id="f152f" class="javax.swing.JTextField" binding="ticketBlankTypeTextField">
+          <component id="2a603" class="javax.swing.JComboBox" binding="StypeComboBox">
             <constraints>
-              <grid row="16" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
+              <grid row="13" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value=""/>
+                <item value="DOMESTIC"/>
+                <item value="INTERNATIONAL"/>
+              </model>
+            </properties>
+          </component>
+          <component id="b9657" class="javax.swing.JComboBox" binding="PtypeComboBox">
+            <constraints>
+              <grid row="14" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="5286" class="javax.swing.JComboBox" binding="TicComboBox">
+            <constraints>
+              <grid row="16" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
           </component>
