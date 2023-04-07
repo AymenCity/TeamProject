@@ -16,6 +16,7 @@ public class Login extends JFrame {
     private JLabel orLabel;
     private JLabel infoLabel;
     private JLabel copyrightLabel;
+    private JCheckBox showPasswordCheckBox;
     private JButton clearButton;
     boolean matched = false;
 
@@ -67,11 +68,22 @@ public class Login extends JFrame {
                 }
             }
         });
+
+        
+        showPasswordCheckBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
 
 
     public JPanel getMainPanel(){
         return mainPanel;
+    }
+    public JTextField getUsernameTextField() {
+        return usernameTextField;
     }
 
 }

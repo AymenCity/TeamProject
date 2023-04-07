@@ -78,6 +78,13 @@ public class WelcomePage extends JFrame {
                 AdminLogin adminLogin = new AdminLogin();
             }
         });
+        alertsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                Alerts alerts = new Alerts();
+            }
+        });
     }
 
 }

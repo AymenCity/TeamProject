@@ -6,11 +6,22 @@ import java.awt.event.ActionListener;
 
 public class Refund extends JFrame {
     private JPanel mainPanel;
-    private JList CustomerList;
     private JTable refundTable;
+    private JTextField IDSearchField;
+    private JButton searchButton;
+    private JButton deleteButton;
+    private JTextField IDTextField;
+    private JTextField FullNameTextField;
+    private JTextField TicketTextField;
+    private JTextField USDTextField;
+    private JTextField CardNumTextField;
+    private JTextField DateTextField;
+    private JButton saveButton;
+    private JButton updateButton;
+    private JButton cancelButton;
+    private JPanel FlavourTextLabel;
     private JButton returnButton;
     private JButton confirmButton;
-    private JLabel UserLabel;
 
     public Refund() {
         setContentPane(mainPanel);
@@ -19,17 +30,35 @@ public class Refund extends JFrame {
         setVisible(true);
         createTable();
 
-        returnButton.addActionListener(new ActionListener() {
+        searchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Search confirmed!");
+            }
+        });
+        deleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Delete Confirmed");
+            }
+        });
+        saveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Save Confirmed!");
+            }
+        });
+        updateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Update Confirmed!");
+            }
+        });
+        cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
                 WelcomePage welcomePage = new WelcomePage();
-            }
-        });
-        confirmButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Refund Confirmed!");
             }
         });
     }

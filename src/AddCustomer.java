@@ -43,4 +43,8 @@ public class AddCustomer extends JFrame {
             }
         });
     }
+
+    public JPanel getMainPanel(){
+        return mainPanel;
+    }
 }

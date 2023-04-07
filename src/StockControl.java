@@ -80,7 +80,6 @@ public class StockControl extends JFrame {
                 ticketPrice = priceTextField.getText();
                 ticketFlightDate = dateTextField.getText();
                 ticketFlightTime = timeTextField.getText();
-                Timestamp ts = Timestamp.valueOf(ticketFlightTime);
                 ticketStatus = statusComboBox.getSelectedItem().toString();
 
                 try {

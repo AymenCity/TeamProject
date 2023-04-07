@@ -14,7 +14,7 @@
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="e8ee5340-0064-43cb-adb8-33bc79cfa6f0">
       <console name="Connection" type="STANDARD" schema="in2018g21" session="Main"><![CDATA[select *
-from `Ticket`]]></console>
+from `Customer`]]></console>
       <console name="DB_Admin" type="STANDARD" schema="in2018g21" session="Main" />
     </connection>
     <connection id="7eb35b68-6b2b-43f9-9bb0-0406fa7b41d5">
@@ -26,6 +26,9 @@ from `Ticket`]]></console>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
+  </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="e8ee5340-0064-43cb-adb8-33bc79cfa6f0" dataset="in2018g21.Air_Ticket_Sale" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
