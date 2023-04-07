@@ -53,6 +53,8 @@ public class SaleReport extends JFrame {
         update_AgentComboBox();
         update_AirlineComboBox();
         update_SaleComboBox();
+        saleComboBox_to_TextField();
+        saleTypeField.setEditable(false);
 
         // SEARCH button
         searchButton.addActionListener(new ActionListener() {
@@ -79,7 +81,7 @@ public class SaleReport extends JFrame {
                         agentIDTextField.setText(agentID);
                         airlineIDTextField.setText(airlineID);
                         saleIDTextField.setText(saleID);
-                        StypeComboBox.setSelectedItem(saleType);
+                        saleTypeField.setText(saleType);
                         PtypeComboBox.setSelectedItem(paymentType);
                         paymentCurrencyTextField.setText(paymentCurrency);
                         TicComboBox.setSelectedItem(ticketBlankType);
@@ -89,7 +91,7 @@ public class SaleReport extends JFrame {
                         agentIDTextField.setText("");
                         airlineIDTextField.setText("");
                         saleIDTextField.setText("");
-                        StypeComboBox.setSelectedIndex(0);
+                        saleTypeField.setText("");
                         PtypeComboBox.setSelectedIndex(0);
                         paymentCurrencyTextField.setText("");
                         TicComboBox.setSelectedIndex(0);
@@ -118,7 +120,7 @@ public class SaleReport extends JFrame {
                     agentIDTextField.setText("");
                     airlineIDTextField.setText("");
                     saleIDTextField.setText("");
-                    StypeComboBox.setSelectedIndex(0);
+                    saleTypeField.setText("");
                     PtypeComboBox.setSelectedIndex(0);
                     paymentCurrencyTextField.setText("");
                     TicComboBox.setSelectedIndex(0);
@@ -140,7 +142,7 @@ public class SaleReport extends JFrame {
                 agentID = agentIDTextField.getText();
                 airlineID = airlineIDTextField.getText();
                 saleID = saleIDTextField.getText();
-                saleType = StypeComboBox.getSelectedItem().toString();
+                saleType = saleTypeField.getText();
                 paymentType = PtypeComboBox.getSelectedItem().toString();
                 paymentCurrency = paymentCurrencyTextField.getText();
                 ticketBlankType = TicComboBox.getSelectedItem().toString();
@@ -162,7 +164,7 @@ public class SaleReport extends JFrame {
                     agentIDTextField.setText("");
                     airlineIDTextField.setText("");
                     saleIDTextField.setText("");
-                    StypeComboBox.setSelectedIndex(0);
+                    saleTypeField.setText("");
                     PtypeComboBox.setSelectedIndex(0);
                     paymentCurrencyTextField.setText("");
                     TicComboBox.setSelectedIndex(0);
@@ -183,7 +185,7 @@ public class SaleReport extends JFrame {
                 agentID = agentIDTextField.getText();
                 airlineID = airlineIDTextField.getText();
                 saleID = saleIDTextField.getText();
-                saleType = StypeComboBox.getSelectedItem().toString();
+                saleType = saleTypeField.getText();
                 paymentType = PtypeComboBox.getSelectedItem().toString();
                 paymentCurrency = paymentCurrencyTextField.getText();
                 ticketBlankType = TicComboBox.getSelectedItem().toString();
@@ -207,7 +209,7 @@ public class SaleReport extends JFrame {
                     agentIDTextField.setText("");
                     airlineIDTextField.setText("");
                     saleIDTextField.setText("");
-                    StypeComboBox.setSelectedIndex(0);
+                    saleTypeField.setText("");
                     PtypeComboBox.setSelectedIndex(0);
                     paymentCurrencyTextField.setText("");
                     TicComboBox.setSelectedIndex(0);
@@ -267,6 +269,21 @@ public class SaleReport extends JFrame {
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 saleIDComboBox.addItem(rs.getString("saleID"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    void saleComboBox_to_TextField() {
+        String item = saleIDComboBox.getSelectedItem().toString();
+        try {
+            pst = main.con.prepareStatement("select * from Air_Ticket_Sale where saleID = ?");
+            pst.setString(1,item);
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                saleTypeField.setText(item);
             }
         } catch (Exception e) {
             e.printStackTrace();
