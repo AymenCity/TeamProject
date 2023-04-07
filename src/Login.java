@@ -10,13 +10,13 @@ public class Login extends JFrame {
     private JLabel usernameLabel;
     private JTextField usernameTextField;
     private JLabel passwordLabel;
-    private JTextField passwordTextField;
     private JButton signUpButton;
     private JButton loginButton;
     private JLabel orLabel;
     private JLabel infoLabel;
     private JLabel copyrightLabel;
     private JCheckBox showPasswordCheckBox;
+    private JPasswordField passwordField;
     private JButton clearButton;
     boolean matched = false;
 
@@ -40,7 +40,7 @@ public class Login extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String username, password;
                 username = usernameTextField.getText().trim();
-                password = passwordTextField.getText().trim();
+                password = passwordField.getText().trim();
 
                 try {
                     FileReader fr = new FileReader("src/account/login.txt");
@@ -69,10 +69,16 @@ public class Login extends JFrame {
             }
         });
 
-        
+
         showPasswordCheckBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (showPasswordCheckBox.isSelected()) {
+                    passwordField.setEchoChar((char)0);
+                }
+                else {
+                    passwordField.setEchoChar('\u25cf');
+                }
 
             }
         });
