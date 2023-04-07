@@ -34,6 +34,10 @@ public class StockControl extends JFrame {
     private JButton generateStockTurnoverReportButton;
     private JComboBox typeComboBox;
     private JComboBox statusComboBox;
+    private JLabel airlineIDLabel;
+    private JLabel agentIDLabel;
+    private JComboBox airlineIDComboBox;
+    private JComboBox agentIDComboBox;
     Connection con;
     PreparedStatement pst;
     Main main = new Main();
@@ -46,6 +50,8 @@ public class StockControl extends JFrame {
 
         main.connect(); // calling database connection from Main
         load_table();   // loads table from database Ticket
+        update_AirlineComboBox();
+        update_AgentComboBox();
 
         dateTextField.setText("YYYY-MM-DD");
         timeTextField.setText("YYYY-MM-DD HH:MM:SS");
@@ -73,7 +79,7 @@ public class StockControl extends JFrame {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String ticketBlankType, ticketBlankNumber, ticketPrice, ticketFlightDate, ticketFlightTime, ticketStatus;
+                String ticketBlankType, ticketBlankNumber, ticketPrice, ticketFlightDate, ticketFlightTime, ticketStatus, airlineID, agentID;
 
                 ticketBlankType = typeComboBox.getSelectedItem().toString();
                 ticketBlankNumber = numberTextField.getText();
@@ -81,15 +87,19 @@ public class StockControl extends JFrame {
                 ticketFlightDate = dateTextField.getText();
                 ticketFlightTime = timeTextField.getText();
                 ticketStatus = statusComboBox.getSelectedItem().toString();
+                airlineID = airlineIDComboBox.getSelectedItem().toString();
+                agentID = agentIDComboBox.getSelectedItem().toString();
 
                 try {
-                    pst = main.con.prepareStatement("insert into Ticket(ticketBlankType, ticketBlankNumber, ticketPrice, ticketFlightDate, ticketFlightTime, ticketStatus)values(?,?,?,?,?,?)");
+                    pst = main.con.prepareStatement("insert into Ticket(ticketBlankType, ticketBlankNumber, ticketPrice, ticketFlightDate, ticketFlightTime, ticketStatus, airlineID, agentID)values(?,?,?,?,?,?,?,?)");
                     pst.setString(1, ticketBlankType);
                     pst.setString(2, ticketBlankNumber);
                     pst.setString(3, ticketPrice);
                     pst.setString(4, ticketFlightDate);
                     pst.setString(5, ticketFlightTime);
                     pst.setString(6, ticketStatus);
+                    pst.setString(7, airlineID);
+                    pst.setString(8, agentID);
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(mainPanel, "Record Added");
                     load_table();
@@ -99,6 +109,8 @@ public class StockControl extends JFrame {
                     dateTextField.setText("YYYY-MM-DD");
                     timeTextField.setText("YYYY-MM-DD HH:MM:SS");
                     statusComboBox.setSelectedIndex(0);
+                    airlineIDComboBox.setSelectedIndex(0);
+                    agentIDComboBox.setSelectedIndex(0);
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }
@@ -112,7 +124,7 @@ public class StockControl extends JFrame {
                 try {
                     String ticketID = searchTextField.getText();
 
-                    pst = main.con.prepareStatement("select ticketID, ticketBlankType, ticketBlankNumber, ticketPrice, ticketFlightDate, ticketFlightTime, ticketStatus from Ticket where ticketID = ?");
+                    pst = main.con.prepareStatement("select ticketID, ticketBlankType, ticketBlankNumber, ticketPrice, ticketFlightDate, ticketFlightTime, ticketStatus, airlineID, agentID from Ticket where ticketID = ?");
                     pst.setString(1, ticketID);
                     ResultSet rs = pst.executeQuery();
 
@@ -123,6 +135,8 @@ public class StockControl extends JFrame {
                         String ticketFlightDate = rs.getString(5);
                         String ticketFlightTime = rs.getString(6);
                         String ticketStatus = rs.getString(7);
+                        String airlineID = rs.getString(8);
+                        String agentID = rs.getString(9);
 
                         typeComboBox.setSelectedItem(ticketBlankType);
                         numberTextField.setText(ticketBlankNumber);
@@ -130,12 +144,18 @@ public class StockControl extends JFrame {
                         dateTextField.setText(ticketFlightDate);
                         timeTextField.setText(ticketFlightTime);
                         statusComboBox.setSelectedItem(ticketStatus);
+                        airlineIDComboBox.setSelectedItem(airlineID);
+                        agentIDComboBox.setSelectedItem(agentID);
 
                     } else {
                         typeComboBox.setSelectedIndex(0);
                         numberTextField.setText("");
                         priceTextField.setText("");
+                        dateTextField.setText("YYYY-MM-DD");
+                        timeTextField.setText("YYYY-MM-DD HH:MM:SS");
                         statusComboBox.setSelectedIndex(0);
+                        airlineIDComboBox.setSelectedIndex(0);
+                        agentIDComboBox.setSelectedIndex(0);
                         JOptionPane.showMessageDialog(mainPanel, "Invalid Ticket ID");
                     }
                 } catch (Exception exception) {
@@ -148,7 +168,7 @@ public class StockControl extends JFrame {
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String ticketID, ticketBlankType, ticketBlankNumber, ticketPrice, ticketFlightDate, ticketFlightTime, ticketStatus;
+                String ticketID, ticketBlankType, ticketBlankNumber, ticketPrice, ticketFlightDate, ticketFlightTime, ticketStatus, airlineID, agentID;
 
                 ticketID = searchTextField.getText();
                 ticketBlankType = typeComboBox.getSelectedItem().toString();
@@ -157,16 +177,20 @@ public class StockControl extends JFrame {
                 ticketFlightDate = dateTextField.getText();
                 ticketFlightTime = timeTextField.getText();
                 ticketStatus = statusComboBox.getSelectedItem().toString();
+                airlineID = airlineIDComboBox.getSelectedItem().toString();
+                agentID = agentIDComboBox.getSelectedItem().toString();
 
                 try {
-                    pst = main.con.prepareStatement("update Ticket set ticketBlankType = ?, ticketBlankNumber = ?, ticketPrice = ?, ticketFlightDate = ?, ticketFlightTime = ?, ticketStatus = ? where ticketID = ?");
+                    pst = main.con.prepareStatement("update Ticket set ticketBlankType = ?, ticketBlankNumber = ?, ticketPrice = ?, ticketFlightDate = ?, ticketFlightTime = ?, ticketStatus = ?, airlineID = ?, agentID = ? where ticketID = ?");
                     pst.setString(1, ticketBlankType);
                     pst.setString(2, ticketBlankNumber);
                     pst.setString(3, ticketPrice);
                     pst.setString(4, ticketFlightDate);
                     pst.setString(5, ticketFlightTime);
                     pst.setString(6, ticketStatus);
-                    pst.setString(7, ticketID);
+                    pst.setString(7, airlineID);
+                    pst.setString(8, agentID);
+                    pst.setString(9, ticketID);
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(mainPanel, "Record Updated");
                     load_table();
@@ -177,6 +201,8 @@ public class StockControl extends JFrame {
                     dateTextField.setText("YYYY-MM-DD");
                     timeTextField.setText("YYYY-MM-DD HH:MM:SS");
                     statusComboBox.setSelectedIndex(0);
+                    airlineIDComboBox.setSelectedIndex(0);
+                    agentIDComboBox.setSelectedIndex(0);
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }
@@ -202,6 +228,8 @@ public class StockControl extends JFrame {
                     dateTextField.setText("YYYY-MM-DD");
                     timeTextField.setText("YYYY-MM-DD HH:MM:SS");
                     statusComboBox.setSelectedIndex(0);
+                    airlineIDComboBox.setSelectedIndex(0);
+                    agentIDComboBox.setSelectedIndex(0);
                     searchTextField.setText("");
                 } catch (Exception exception) {
                     exception.printStackTrace();
@@ -217,6 +245,30 @@ public class StockControl extends JFrame {
             blankTable.setModel(DbUtils.resultSetToTableModel(rs));
 
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    void update_AirlineComboBox() {
+        try {
+            pst = main.con.prepareStatement("select * from Airline");
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                airlineIDComboBox.addItem(rs.getString("airlineID"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    void update_AgentComboBox() {
+        try {
+            pst = main.con.prepareStatement("select * from Travel_Agent");
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                agentIDComboBox.addItem(rs.getString("agentID"));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
