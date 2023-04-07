@@ -1,8 +1,13 @@
+import net.proteanit.sql.DbUtils;
+
 import javax.swing.*;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class Refund extends JFrame {
     private JPanel mainPanel;
@@ -10,25 +15,30 @@ public class Refund extends JFrame {
     private JTextField IDSearchField;
     private JButton searchButton;
     private JButton deleteButton;
-    private JTextField IDTextField;
     private JTextField FullNameTextField;
-    private JTextField TicketTextField;
-    private JTextField USDTextField;
-    private JTextField CardNumTextField;
-    private JTextField DateTextField;
     private JButton saveButton;
     private JButton updateButton;
     private JButton cancelButton;
     private JPanel FlavourTextLabel;
+    private JComboBox typeComboBox;
+    private JComboBox stateComboBox;
+    private JComboBox saleIDComboBox;
+    private JTextField currencyTextField;
     private JButton returnButton;
     private JButton confirmButton;
+    Connection con;
+    PreparedStatement pst;
+    Main main = new Main();
 
     public Refund() {
         setContentPane(mainPanel);
         setTitle("ATS System");        // name of software
-        setSize(600, 400);   // window resolution
+        setSize(600, 600);   // window resolution
         setVisible(true);
-        createTable();
+
+        main.connect();
+        load_table();
+        update_SaleComboBox();
 
         searchButton.addActionListener(new ActionListener() {
             @Override
@@ -62,12 +72,28 @@ public class Refund extends JFrame {
             }
         });
     }
-    private void createTable(){
-        refundTable.setModel(new DefaultTableModel(
-                null,
-                new String[]{"ID","Full Name","Ticket", "USD", "Card Number", "Date"}
-        ));
-        refundTable.setVisible(true);
+
+    void load_table() {
+        try {
+            pst = main.con.prepareStatement("select * from Payment");
+            ResultSet rs = pst.executeQuery();
+            refundTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
+    void update_SaleComboBox() {
+        try {
+            pst = main.con.prepareStatement("select * from Air_Ticket_Sale");
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                saleIDComboBox.addItem(rs.getString("saleID"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }
 
