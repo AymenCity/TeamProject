@@ -106,14 +106,6 @@
               <text value="Time Generated"/>
             </properties>
           </component>
-          <component id="80e3d" class="javax.swing.JTextField" binding="agentIDTextField">
-            <constraints>
-              <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties/>
-          </component>
           <component id="dce42" class="javax.swing.JLabel" binding="agentIDLabel">
             <constraints>
               <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -129,14 +121,6 @@
             <properties>
               <text value="Sale ID"/>
             </properties>
-          </component>
-          <component id="57864" class="javax.swing.JTextField" binding="saleIDTextField">
-            <constraints>
-              <grid row="12" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties/>
           </component>
           <component id="71dfd" class="javax.swing.JLabel" binding="paymentTypeLabel">
             <constraints>
@@ -174,14 +158,6 @@
             <properties>
               <text value="Cancel"/>
             </properties>
-          </component>
-          <component id="e14c7" class="javax.swing.JTextField" binding="airlineIDTextField">
-            <constraints>
-              <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties/>
           </component>
           <component id="fccbc" class="javax.swing.JLabel" binding="airlineIDLabel">
             <constraints>
@@ -246,6 +222,36 @@
               <grid row="16" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
+          </component>
+          <component id="a26d3" class="javax.swing.JComboBox" binding="agentIDComboBox">
+            <constraints>
+              <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value="SELECT"/>
+              </model>
+            </properties>
+          </component>
+          <component id="23f2f" class="javax.swing.JComboBox" binding="airlineIDComboBox">
+            <constraints>
+              <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value="SELECT"/>
+              </model>
+            </properties>
+          </component>
+          <component id="4506d" class="javax.swing.JComboBox" binding="saleIDComboBox">
+            <constraints>
+              <grid row="12" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value="SELECT"/>
+              </model>
+            </properties>
           </component>
         </children>
       </grid>

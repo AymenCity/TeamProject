@@ -35,6 +35,9 @@ public class SaleReport extends JFrame {
     private JComboBox StypeComboBox;
     private JComboBox PtypeComboBox;
     private JComboBox TicComboBox;
+    private JComboBox agentIDComboBox;
+    private JComboBox airlineIDComboBox;
+    private JComboBox saleIDComboBox;
     Connection con;
     PreparedStatement pst;
     Main main = new Main();
@@ -47,6 +50,9 @@ public class SaleReport extends JFrame {
 
         main.connect(); // calling database connection from Main
         load_table();   // loads table from database Ticket
+        update_AgentComboBox();
+        update_AirlineComboBox();
+        update_SaleComboBox();
 
         // SEARCH button
         searchButton.addActionListener(new ActionListener() {
@@ -230,4 +236,42 @@ public class SaleReport extends JFrame {
             e.printStackTrace();
         }
     }
+
+    void update_AgentComboBox() {
+        try {
+            pst = main.con.prepareStatement("select * from Travel_Agent");
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                agentIDComboBox.addItem(rs.getString("agentID"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    void update_AirlineComboBox() {
+        try {
+            pst = main.con.prepareStatement("select * from Airline");
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                airlineIDComboBox.addItem(rs.getString("airlineID"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    void update_SaleComboBox() {
+        try {
+            pst = main.con.prepareStatement("select * from Air_Ticket_Sale");
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                saleIDComboBox.addItem(rs.getString("saleID"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
