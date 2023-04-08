@@ -152,7 +152,7 @@ public class Refund extends JFrame {        // This refund class wil only be acc
                 saleID = saleIDComboBox.getSelectedItem().toString();
 
                 try {
-                    pst = main.con.prepareStatement("update Payment(paymentAmount = ?, paymentCurrency = ?, paymentType = ?, paymentState = ?, saleID = ? where paymentID = ?");
+                    pst = main.con.prepareStatement("update Payment set paymentAmount = ?, paymentCurrency = ?, paymentType = ?, paymentState = ?, saleID = ? where paymentID = ?");
                     pst.setString(1, paymentAmount);
                     pst.setString(2, paymentCurrency);
                     pst.setString(3, paymentType);
