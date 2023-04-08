@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="WelcomePageManager">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="20" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="437" height="606"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="6c329" class="javax.swing.JLabel" binding="welcomeLabel">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font size="36" style="1"/>
+          <text value="Welcome,"/>
+        </properties>
+      </component>
+      <component id="3cf96" class="javax.swing.JButton" binding="CustomerManagementButton">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16776961"/>
+          <foreground color="-1"/>
+          <text value="Customer Management"/>
+        </properties>
+      </component>
+      <vspacer id="59c9b">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <vspacer id="d862">
+        <constraints>
+          <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <vspacer id="bdccc">
+        <constraints>
+          <grid row="18" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <component id="fcf4d" class="javax.swing.JLabel" binding="copyrightLabel">
+        <constraints>
+          <grid row="19" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font size="10"/>
+          <text value="©2023 AirVia Ltd."/>
+        </properties>
+      </component>
+      <component id="42614" class="javax.swing.JButton" binding="signOutButton" default-binding="true">
+        <constraints>
+          <grid row="17" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-262152"/>
+          <text value="Sign Out"/>
+        </properties>
+      </component>
+      <component id="3b2f6" class="javax.swing.JButton" binding="refundsButton">
+        <constraints>
+          <grid row="8" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16776961"/>
+          <foreground color="-1"/>
+          <text value="Refunds"/>
+        </properties>
+      </component>
+      <component id="92aea" class="javax.swing.JLabel" binding="SupportingLabel">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font size="14"/>
+          <text value="What would you like to access?"/>
+        </properties>
+      </component>
+      <component id="45e15" class="javax.swing.JButton" binding="stockControlButton">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16776961"/>
+          <foreground color="-1"/>
+          <text value="Stock Control"/>
+        </properties>
+      </component>
+      <component id="780fb" class="javax.swing.JButton" binding="alertsButton">
+        <constraints>
+          <grid row="9" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16776961"/>
+          <foreground color="-1"/>
+          <text value="Alerts"/>
+        </properties>
+      </component>
+      <component id="4dbdf" class="javax.swing.JButton" binding="salesControlButton" default-binding="true">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16776961"/>
+          <foreground color="-1"/>
+          <text value="Sales Control"/>
+        </properties>
+      </component>
+      <component id="8e840" class="javax.swing.JButton" binding="salesReportButton" default-binding="true">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16776961"/>
+          <foreground color="-1"/>
+          <text value="Sales Report"/>
+        </properties>
+      </component>
+      <vspacer id="308d7">
+        <constraints>
+          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <grid id="7a0e8" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children/>
+      </grid>
+      <grid id="7d3ad" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children/>
+      </grid>
+      <component id="4dc67" class="javax.swing.JButton" binding="backupButton" default-binding="true">
+        <constraints>
+          <grid row="11" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16776961"/>
+          <foreground color="-1"/>
+          <text value="Backup"/>
+        </properties>
+      </component>
+      <vspacer id="bea15">
+        <constraints>
+          <grid row="16" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <component id="cd4c5" class="javax.swing.JLabel" binding="userLabel">
+        <constraints>
+          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font size="36"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="bf289" class="javax.swing.JButton" binding="travelAgentDetailsButton" default-binding="true">
+        <constraints>
+          <grid row="13" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Travel Agent Details"/>
+        </properties>
+      </component>
+      <vspacer id="9ff63">
+        <constraints>
+          <grid row="12" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <component id="bcd54" class="javax.swing.JButton" binding="systemAdminstratorDetailsButton" default-binding="true">
+        <constraints>
+          <grid row="14" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="System Adminstrator Details"/>
+        </properties>
+      </component>
+      <component id="8c8d1" class="javax.swing.JButton" binding="managerDetailsButton" default-binding="true">
+        <constraints>
+          <grid row="15" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Manager Details"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

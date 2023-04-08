@@ -224,7 +224,6 @@ public class SaleReport extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                WelcomePage welcomePage = new WelcomePage();
             }
         });
     }

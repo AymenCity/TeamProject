@@ -40,7 +40,7 @@ public class Alerts extends JFrame {
     public Alerts() {
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
-        setSize(600,400);   // window resolution
+        setSize(600,600);   // window resolution
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
@@ -52,7 +52,6 @@ public class Alerts extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                WelcomePage welcomePage = new WelcomePage();
             }
         });
 

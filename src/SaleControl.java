@@ -217,7 +217,6 @@ public class SaleControl extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                WelcomePage welcomePage = new WelcomePage();
             }
         });
     }

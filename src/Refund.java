@@ -2,7 +2,6 @@ import net.proteanit.sql.DbUtils;
 
 import javax.swing.*;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -180,7 +179,6 @@ public class Refund extends JFrame {        // This refund class wil only be acc
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                WelcomePage welcomePage = new WelcomePage();
             }
         });
     }
