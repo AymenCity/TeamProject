@@ -7,10 +7,25 @@ public class Alerts extends JFrame {
 
     private JLabel alertsLabel;
     private JTable table1;
-    private JTextField searchTextField;
-    private JComboBox typeComboBox;
-    private JLabel severityTypeLabel;
     private JPanel mainPanel;
+    private JTextField alertSearchField;
+    private JButton searchButton;
+    private JButton deleteButton;
+    private JTextField alertIDTextField;
+    private JTextField alertSevTextField;
+    private JLabel alertSevLabel;
+    private JLabel alertIDLabel;
+    private JLabel flavourTextLabel;
+    private JTextField alertDescTextField;
+    private JLabel alertDescLabel;
+    private JLabel alertStatusLabel;
+    private JTextField alertStatusTextField;
+    private JLabel dateCreatedLabel;
+    private JTextField dateCreatedTextField;
+    private JLabel lastModLabel;
+    private JTextField lastModTextField;
+    private JButton saveButton;
+    private JButton updateButton;
     private JButton printButton;
     private JButton cancelButton;
 
@@ -29,14 +44,30 @@ public class Alerts extends JFrame {
             }
         });
 
-        printButton.addActionListener(new ActionListener() {
+        searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Print Prompted!");
-
+                System.out.println("Search done!");
             }
         });
-
+        deleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Delete Complete!");
+            }
+        });
+        saveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Save Done!");
+            }
+        });
+        updateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Updated!");
+            }
+        });
     }
 
 }

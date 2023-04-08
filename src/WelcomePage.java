@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -47,7 +46,7 @@ public class WelcomePage extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                Refund refund = new Refund();
+                Refund adminRefund = new Refund();
             }
         });
         stockControlButton.addActionListener(new ActionListener() {
