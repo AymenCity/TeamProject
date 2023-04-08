@@ -109,51 +109,73 @@ public class Refund extends JFrame {        // This refund class wil only be acc
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String timeGenerated, agentID, airlineID, saleID, saleType, paymentType, paymentCurrency, ticketBlankType;
+                String paymentAmount, paymentCurrency, paymentType, paymentState, saleID;
 
-                timeGenerated = timeGeneratedField.getText();
-                agentID = agentIDTextField.getText();
-                airlineID = airlineIDTextField.getText();
-                saleID = saleIDTextField.getText();
-                saleType = saleTypeField.getText();
-                paymentType = PtypeComboBox.getSelectedItem().toString();
-                paymentCurrency = paymentCurrencyTextField.getText();
-                ticketBlankType = TicComboBox.getSelectedItem().toString();
+                paymentAmount = amountTextField.getText();
+                paymentCurrency = currencyTextField.getText();
+                paymentType = typeComboBox.getSelectedItem().toString();
+                paymentState = stateComboBox.getSelectedItem().toString();
+                saleID = saleIDComboBox.getSelectedItem().toString();
 
                 try {
-                    pst = main.con.prepareStatement("insert into Air_Ticket_Sales_Report(timeGenerated, agentID, airlineID, saleID, saleType, paymentType, paymentCurrency, ticketBlankType)values(?,?,?,?,?,?,?,?)");
-                    pst.setString(1, timeGenerated);
-                    pst.setString(2, agentID);
-                    pst.setString(3, airlineID);
-                    pst.setString(4, saleID);
-                    pst.setString(5, saleType);
-                    pst.setString(6, paymentType);
-                    pst.setString(7, paymentCurrency);
-                    pst.setString(8, ticketBlankType);
+                    pst = main.con.prepareStatement("insert into Payment(paymentAmount, paymentCurrency, paymentType, paymentState, saleID)values(?,?,?,?,?)");
+                    pst.setString(1, paymentAmount);
+                    pst.setString(2, paymentCurrency);
+                    pst.setString(3, paymentType);
+                    pst.setString(4, paymentState);
+                    pst.setString(5, saleID);
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(mainPanel, "Record Added");
                     load_table();
-                    timeGeneratedField.setText("");
-                    agentIDTextField.setText("");
-                    airlineIDTextField.setText("");
-                    saleIDTextField.setText("");
-                    saleTypeField.setText("");
-                    PtypeComboBox.setSelectedIndex(0);
-                    paymentCurrencyTextField.setText("");
-                    TicComboBox.setSelectedIndex(0);
+                    amountTextField.setText("");
+                    currencyTextField.setText("");
+                    typeComboBox.setSelectedIndex(0);
+                    saleIDComboBox.setSelectedIndex(0);
+                    stateComboBox.setSelectedIndex(0);
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }
             }
         });
 
-        
+        // UPDATE
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Update Confirmed!");
+                String paymentID, paymentAmount, paymentCurrency, paymentType, paymentState, saleID;
+
+                paymentID = searchTextField.getText();
+                paymentAmount = amountTextField.getText();
+                paymentCurrency = currencyTextField.getText();
+                paymentType = typeComboBox.getSelectedItem().toString();
+                paymentState = stateComboBox.getSelectedItem().toString();
+                saleID = saleIDComboBox.getSelectedItem().toString();
+
+                try {
+                    pst = main.con.prepareStatement("update Payment(paymentAmount = ?, paymentCurrency = ?, paymentType = ?, paymentState = ?, saleID = ? where paymentID = ?");
+                    pst.setString(1, paymentAmount);
+                    pst.setString(2, paymentCurrency);
+                    pst.setString(3, paymentType);
+                    pst.setString(4, paymentState);
+                    pst.setString(5, saleID);
+                    pst.setString(6, paymentID);
+                    pst.executeUpdate();
+                    JOptionPane.showMessageDialog(mainPanel, "Record Updated");
+                    load_table();
+                    searchTextField.setText("");
+                    amountTextField.setText("");
+                    currencyTextField.setText("");
+                    typeComboBox.setSelectedIndex(0);
+                    saleIDComboBox.setSelectedIndex(0);
+                    stateComboBox.setSelectedIndex(0);
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
             }
         });
+
+
+        // CANCEL
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -184,6 +206,5 @@ public class Refund extends JFrame {        // This refund class wil only be acc
             e.printStackTrace();
         }
     }
-
 }
 
