@@ -19,11 +19,14 @@ public class Refund extends JFrame {        // This refund class wil only be acc
     private JButton saveButton;
     private JButton updateButton;
     private JButton cancelButton;
-    private JPanel FlavourTextLabel;
+    private JPanel LowerPanel;
     private JComboBox typeComboBox;
     private JComboBox stateComboBox;
     private JComboBox saleIDComboBox;
     private JTextField currencyTextField;
+    private JLabel flavourTextLabel;
+    private JLabel TitleLabel;
+    private JLabel SearchTextLabel;
     private JButton returnButton;
     private JButton confirmButton;
     Connection con;

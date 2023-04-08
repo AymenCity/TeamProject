@@ -60,7 +60,7 @@ public class WelcomePage2 extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                Refund refund = new Refund();
+                Refund2 refund2 = new Refund2();
             }
         });
         alertsButton.addActionListener(new ActionListener() {
