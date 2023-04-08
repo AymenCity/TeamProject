@@ -48,10 +48,15 @@ public class Login extends JFrame {
         loginButton.addActionListener(new ActionListener() {    // detects if user credentials are correct
             @Override
             public void actionPerformed(ActionEvent e) {
-                String managerUsername, managerPassword;
+                String managerUsername, managerPassword, adminUsername, adminPassword, agentUsername, agentPassword;
                 managerUsername = usernameTextField.getText().trim();
                 managerPassword = passwordField.getText().trim();
+                adminUsername = usernameTextField.getText().trim();
+                adminPassword = passwordField.getText().trim();
+                agentUsername = usernameTextField.getText().trim();
+                agentPassword = passwordField.getText().trim();
 
+                // MANAGER
                 if (managerUsername.equals("") || managerPassword.equals("")) {
                     JOptionPane.showMessageDialog(mainPanel, "Some Fields are Empty", "Error", 1);
                 } else {
@@ -66,9 +71,52 @@ public class Login extends JFrame {
                             WelcomePageManager welcomePageManager = new WelcomePageManager();
                             WelcomePageManager.static_label.setText(usernameTextField.getText());
                         } else {
-                            JOptionPane.showMessageDialog(mainPanel, "Invalid Username / Password", "Error", JOptionPane.ERROR_MESSAGE);
+                            //JOptionPane.showMessageDialog(mainPanel, "Invalid Username / Password", "Error", JOptionPane.ERROR_MESSAGE);
                         }
+                    } catch (Exception exception) {
+                        exception.printStackTrace();
+                    }
+                }
 
+                // ADMIN
+                if (adminUsername.equals("") || adminPassword.equals("")) {
+                    JOptionPane.showMessageDialog(mainPanel, "Some Fields are Empty", "Error", 1);
+                } else {
+                    try {
+                        pst = main.con.prepareStatement("select * from Admin where adminUsername = ? and adminPassword = ?");
+                        pst.setString(1, adminUsername);
+                        pst.setString(2, adminPassword);
+                        ResultSet rs = pst.executeQuery();
+
+                        if(rs.next() == true) {
+                            dispose();
+                            WelcomePageAdmin welcomePageAdmin = new WelcomePageAdmin();
+                            //WelcomePageAdmin.static_label.setText(usernameTextField.getText());
+                        } else {
+                            //JOptionPane.showMessageDialog(mainPanel, "Invalid Username / Password", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                    } catch (Exception exception) {
+                        exception.printStackTrace();
+                    }
+                }
+
+                // AGENT
+                if (agentUsername.equals("") || agentPassword.equals("")) {
+                    JOptionPane.showMessageDialog(mainPanel, "Some Fields are Empty", "Error", 1);
+                } else {
+                    try {
+                        pst = main.con.prepareStatement("select * from Travel_Agent where agentUsername = ? and agentPassword = ?");
+                        pst.setString(1, agentUsername);
+                        pst.setString(2, agentPassword);
+                        ResultSet rs = pst.executeQuery();
+
+                        if(rs.next() == true) {
+                            dispose();
+                            WelcomePageAgent welcomePageAdmin = new WelcomePageAgent();
+                            //WelcomePageAdmin.static_label.setText(usernameTextField.getText());
+                        } else {
+                            //JOptionPane.showMessageDialog(mainPanel, "Invalid Username / Password", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
                     } catch (Exception exception) {
                         exception.printStackTrace();
                     }
