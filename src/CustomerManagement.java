@@ -41,7 +41,7 @@ public class CustomerManagement extends JFrame {
     public CustomerManagement() {
         setContentPane(mainPanel);
         setTitle("ATS System");
-        setSize(600, 600);
+        setSize(1000, 600);
         setVisible(true);
 
         main.connect(); // calling database connection from Main
