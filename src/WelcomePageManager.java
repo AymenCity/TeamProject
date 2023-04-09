@@ -75,6 +75,24 @@ public class WelcomePageManager extends JFrame {
                 Alerts alerts = new Alerts();
             }
         });
+        travelAgentDetailsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EditTravelAgent travelAgent = new EditTravelAgent();
+            }
+        });
+        systemAdminstratorDetailsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EditAdmin admin = new EditAdmin();
+            }
+        });
+        managerDetailsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EditOfficeManager officeManager = new EditOfficeManager();
+            }
+        });
     }
 
 }

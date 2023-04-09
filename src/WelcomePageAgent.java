@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Ref;
 
-public class WelcomePage3 extends JFrame {
+public class WelcomePageAgent extends JFrame {
     private JLabel welcomeLabel;
     private JLabel flavourTextLabel;
     private JButton customerManagementButton;
@@ -14,12 +14,11 @@ public class WelcomePage3 extends JFrame {
     private JButton salesReportButton;
     private JButton refundsButton;
     private JButton alertsButton;
-    private JButton backupButton;
     private JButton signOutButton;
     private JLabel copyrightLabel;
     private JPanel mainPanel;
 
-    public WelcomePage3() {
+    public WelcomePageAgent() {
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
         setSize(600,600);   // window resolution
@@ -39,7 +38,7 @@ public class WelcomePage3 extends JFrame {
                 CustomerManagement customerManagement = new CustomerManagement();
             }
         });
-        stockControlButton.addActionListener(new ActionListener() {
+        /*stockControlButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
@@ -59,7 +58,7 @@ public class WelcomePage3 extends JFrame {
                 dispose();
                 SaleReport saleReport = new SaleReport();
             }
-        });
+        }); */
         refundsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
