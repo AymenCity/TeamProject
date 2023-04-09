@@ -10,6 +10,7 @@ public class Login extends JFrame {
     private JLabel loginLabel;
     private JLabel usernameLabel;
     private JTextField usernameTextField;
+    private JLabel passwordLabel;
     private JButton loginButton;
     private JLabel infoLabel;
     private JLabel copyrightLabel;
