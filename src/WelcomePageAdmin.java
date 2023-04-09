@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class WelcomePage2 extends JFrame {
+public class WelcomePageAdmin extends JFrame {
     private JLabel welcomeLabel;
     private JLabel flavourText;
     private JButton customerManagementButton;
@@ -14,8 +14,11 @@ public class WelcomePage2 extends JFrame {
     private JButton backupButton;
     private JButton signOutButton;
     private JPanel mainPanel;
+    private JButton travelAgentDetailsButton;
+    private JButton managerDetailsButton;
+    private JButton systemAdminstratorDetailsButton;
 
-    public WelcomePage2() {
+    public WelcomePageAdmin() {
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
         setSize(600,600);   // window resolution
@@ -31,44 +34,57 @@ public class WelcomePage2 extends JFrame {
         customerManagementButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
                 CustomerManagement customerManagement = new CustomerManagement();
             }
         });
         stockControlButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
                 StockControl stockControl = new StockControl();
             }
         });
         salesControlButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
                 SaleControl saleControl = new SaleControl();
             }
         });
         salesReportButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
                 SaleReport saleReport = new SaleReport();
             }
         });
         refundsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
                 Refund2 refund2 = new Refund2();
             }
         });
         alertsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
                 Alerts alerts = new Alerts();
             }
         });
+        travelAgentDetailsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EditTravelAgent travelAgent = new EditTravelAgent();
+            }
+        });
+        systemAdminstratorDetailsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EditAdmin admin = new EditAdmin();
+            }
+        });
+        managerDetailsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EditOfficeManager officeManager = new EditOfficeManager();
+            }
+        });
     }
-}
+    }
+

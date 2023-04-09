@@ -1,28 +1,36 @@
-import com.mysql.cj.log.Log;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Ref;
 
 public class WelcomePageAgent extends JFrame {
-    private JLabel welcomeLabel;
+    private JPanel mainPanel;
     private JLabel flavourTextLabel;
+    private JLabel welcomeLabel;
+    private JLabel SupportingLabel;
     private JButton customerManagementButton;
     private JButton stockControlButton;
-    private JButton salesControlButton;
-    private JButton salesReportButton;
-    private JButton refundsButton;
     private JButton alertsButton;
+    private JButton refundButton;
     private JButton signOutButton;
     private JLabel copyrightLabel;
-    private JPanel mainPanel;
+    private JButton salesControlButton;
+    private JButton salesReportButton;
+    private JButton backupButton;
+    private JLabel userLabel;
+    private JButton travelAgentDetailsButton;
+    private JButton systemAdminstratorDetailsButton;
+    private JButton managerDetailsButton;
+    public Main main;
+
+    public static JLabel static_label;
 
     public WelcomePageAgent() {
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
         setSize(600,600);   // window resolution
         setVisible(true);
+
+        static_label = userLabel;
 
         signOutButton.addActionListener(new ActionListener() {
             @Override
@@ -31,47 +39,37 @@ public class WelcomePageAgent extends JFrame {
                 Login login = new Login();
             }
         });
+
         customerManagementButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
                 CustomerManagement customerManagement = new CustomerManagement();
             }
         });
-        /*stockControlButton.addActionListener(new ActionListener() {
+        stockControlButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
                 StockControl stockControl = new StockControl();
             }
         });
         salesControlButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
                 SaleControl saleControl = new SaleControl();
             }
         });
         salesReportButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
                 SaleReport saleReport = new SaleReport();
-            }
-        }); */
-        refundsButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                Refund refund = new Refund();
             }
         });
         alertsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dispose();
                 Alerts alerts = new Alerts();
             }
         });
     }
+
 }
