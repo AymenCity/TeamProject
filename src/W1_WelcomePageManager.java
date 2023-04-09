@@ -15,7 +15,6 @@ public class W1_WelcomePageManager extends JFrame {
     private JButton salesControlButton;
     private JButton salesReportButton;
     private JButton backupButton;
-    private JLabel userLabel;
     private JButton travelAgentDetailsButton;
     private JButton systemAdminstratorDetailsButton;
     private JButton managerDetailsButton;
@@ -26,10 +25,10 @@ public class W1_WelcomePageManager extends JFrame {
     public W1_WelcomePageManager() {
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
-        setSize(600,600);   // window resolution
+        setSize(600,700);   // window resolution
         setVisible(true);
 
-        static_label = userLabel;
+        static_label = welcomeLabel;
 
         signOutButton.addActionListener(new ActionListener() {
             @Override
