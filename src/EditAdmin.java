@@ -197,7 +197,7 @@ public class EditAdmin extends JFrame {
 
     void load_table() {
         try {
-            pst = main.con.prepareStatement("select * from Ticket");
+            pst = main.con.prepareStatement("select * from Admin");
             ResultSet rs = pst.executeQuery();
             blankTable.setModel(DbUtils.resultSetToTableModel(rs));
 
