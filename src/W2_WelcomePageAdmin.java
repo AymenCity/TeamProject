@@ -18,11 +18,15 @@ public class W2_WelcomePageAdmin extends JFrame {
     private JButton managerDetailsButton;
     private JButton systemAdminstratorDetailsButton;
 
+    public static JLabel static_label;
+
     public W2_WelcomePageAdmin() {
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
         setSize(600,600);   // window resolution
         setVisible(true);
+
+        static_label = welcomeLabel;
 
         signOutButton.addActionListener(new ActionListener() {
             @Override

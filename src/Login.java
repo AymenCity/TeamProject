@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -25,7 +26,7 @@ public class Login extends JFrame {
     public Login() {
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
-        setSize(600, 400);   // window resolution
+        setSize(600, 500);   // window resolution
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
@@ -57,7 +58,8 @@ public class Login extends JFrame {
                         if(rs.next() == true) {
                             dispose();
                             W1_WelcomePageManager welcomePageManager = new W1_WelcomePageManager();
-                            W1_WelcomePageManager.static_label.setText(usernameTextField.getText());
+                            W1_WelcomePageManager.static_label.setText("Welcome, "+usernameTextField.getText());
+                            W1_WelcomePageManager.static_label.setForeground(Color.WHITE);
                         } else {
                             //JOptionPane.showMessageDialog(mainPanel, "Invalid Username / Password", "Error", JOptionPane.ERROR_MESSAGE);
                         }
@@ -79,7 +81,8 @@ public class Login extends JFrame {
                         if(rs.next() == true) {
                             dispose();
                             W2_WelcomePageAdmin w1WelcomePageAdmin = new W2_WelcomePageAdmin();
-                            //WelcomePageAdmin.static_label.setText(usernameTextField.getText());
+                            W2_WelcomePageAdmin.static_label.setText("Welcome, "+usernameTextField.getText());
+                            W2_WelcomePageAdmin.static_label.setForeground(Color.WHITE);
                         } else {
                             //JOptionPane.showMessageDialog(mainPanel, "Invalid Username / Password", "Error", JOptionPane.ERROR_MESSAGE);
                         }
