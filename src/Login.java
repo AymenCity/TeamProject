@@ -1,8 +1,6 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,10 +10,7 @@ public class Login extends JFrame {
     private JLabel loginLabel;
     private JLabel usernameLabel;
     private JTextField usernameTextField;
-    private JLabel passwordLabel;
-    private JButton signUpButton;
     private JButton loginButton;
-    private JLabel orLabel;
     private JLabel infoLabel;
     private JLabel copyrightLabel;
     private JCheckBox showPasswordCheckBox;
@@ -35,14 +30,6 @@ public class Login extends JFrame {
 
         main.connect();
 
-
-        signUpButton.addActionListener(new ActionListener() {   // replaces Login page with Signup page
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();                      // removes Login page
-                Signup signup = new Signup();   // adds Signup page
-            }
-        });
 
 
         loginButton.addActionListener(new ActionListener() {    // detects if user credentials are correct
@@ -68,8 +55,8 @@ public class Login extends JFrame {
 
                         if(rs.next() == true) {
                             dispose();
-                            WelcomePageManager welcomePageManager = new WelcomePageManager();
-                            WelcomePageManager.static_label.setText(usernameTextField.getText());
+                            W1_WelcomePageManager welcomePageManager = new W1_WelcomePageManager();
+                            W1_WelcomePageManager.static_label.setText(usernameTextField.getText());
                         } else {
                             //JOptionPane.showMessageDialog(mainPanel, "Invalid Username / Password", "Error", JOptionPane.ERROR_MESSAGE);
                         }
@@ -90,7 +77,7 @@ public class Login extends JFrame {
 
                         if(rs.next() == true) {
                             dispose();
-                            WelcomePageAdmin welcomePageAdmin = new WelcomePageAdmin();
+                            W2_WelcomePageAdmin w1WelcomePageAdmin = new W2_WelcomePageAdmin();
                             //WelcomePageAdmin.static_label.setText(usernameTextField.getText());
                         } else {
                             //JOptionPane.showMessageDialog(mainPanel, "Invalid Username / Password", "Error", JOptionPane.ERROR_MESSAGE);
@@ -112,7 +99,7 @@ public class Login extends JFrame {
 
                         if(rs.next() == true) {
                             dispose();
-                            WelcomePageAgent welcomePageAdmin = new WelcomePageAgent();
+                            W3_WelcomePageAgent welcomePageAdmin = new W3_WelcomePageAgent();
                             //WelcomePageAdmin.static_label.setText(usernameTextField.getText());
                         } else {
                             //JOptionPane.showMessageDialog(mainPanel, "Invalid Username / Password", "Error", JOptionPane.ERROR_MESSAGE);
