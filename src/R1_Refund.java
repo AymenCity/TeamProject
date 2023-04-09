@@ -8,7 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class Refund extends JFrame {        // This refund class wil only be accessed by the "Admins".
+public class R1_Refund extends JFrame {        // This refund class wil only be accessed by the "Admins".
     private JPanel mainPanel;
     private JTable refundTable;
     private JTextField searchTextField;
@@ -32,7 +32,7 @@ public class Refund extends JFrame {        // This refund class wil only be acc
     PreparedStatement pst;
     Main main = new Main();
 
-    public Refund() {
+    public R1_Refund() {
         setContentPane(mainPanel);
         setTitle("ATS System");        // name of software
         setSize(600, 600);   // window resolution
