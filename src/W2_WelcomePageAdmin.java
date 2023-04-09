@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class WelcomePageAdmin extends JFrame {
+public class W2_WelcomePageAdmin extends JFrame {
     private JLabel welcomeLabel;
     private JLabel flavourText;
     private JButton customerManagementButton;
@@ -18,7 +18,7 @@ public class WelcomePageAdmin extends JFrame {
     private JButton managerDetailsButton;
     private JButton systemAdminstratorDetailsButton;
 
-    public WelcomePageAdmin() {
+    public W2_WelcomePageAdmin() {
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
         setSize(600,600);   // window resolution
@@ -58,7 +58,7 @@ public class WelcomePageAdmin extends JFrame {
         refundsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Refund2 refund2 = new Refund2();
+                R1_Refund refund = new R1_Refund();
             }
         });
         alertsButton.addActionListener(new ActionListener() {

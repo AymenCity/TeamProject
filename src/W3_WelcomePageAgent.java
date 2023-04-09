@@ -2,14 +2,15 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class WelcomePageManager extends JFrame {
+public class W3_WelcomePageAgent extends JFrame {
     private JPanel mainPanel;
+    private JLabel flavourTextLabel;
     private JLabel welcomeLabel;
     private JLabel SupportingLabel;
-    private JButton CustomerManagementButton;
+    private JButton customerManagementButton;
     private JButton stockControlButton;
     private JButton alertsButton;
-    private JButton refundsButton;
+    private JButton refundButton;
     private JButton signOutButton;
     private JLabel copyrightLabel;
     private JButton salesControlButton;
@@ -23,7 +24,7 @@ public class WelcomePageManager extends JFrame {
 
     public static JLabel static_label;
 
-    public WelcomePageManager() {
+    public W3_WelcomePageAgent() {
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
         setSize(600,600);   // window resolution
@@ -39,16 +40,10 @@ public class WelcomePageManager extends JFrame {
             }
         });
 
-        CustomerManagementButton.addActionListener(new ActionListener() {
+        customerManagementButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CustomerManagement customerManagement = new CustomerManagement();
-            }
-        });
-        refundsButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Refund adminRefund = new Refund();
             }
         });
         stockControlButton.addActionListener(new ActionListener() {
@@ -75,22 +70,10 @@ public class WelcomePageManager extends JFrame {
                 Alerts alerts = new Alerts();
             }
         });
-        travelAgentDetailsButton.addActionListener(new ActionListener() {
+        refundButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EditTravelAgent travelAgent = new EditTravelAgent();
-            }
-        });
-        systemAdminstratorDetailsButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                EditAdmin admin = new EditAdmin();
-            }
-        });
-        managerDetailsButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                EditOfficeManager officeManager = new EditOfficeManager();
+                R3_Refund refund = new R3_Refund();
             }
         });
     }
