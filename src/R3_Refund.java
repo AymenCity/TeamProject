@@ -22,7 +22,7 @@ public class R3_Refund extends JFrame {
     public R3_Refund() {
         setContentPane(mainPanel);
         setTitle("ATS System");        // name of software
-        setSize(600, 600);   // window resolution
+        setSize(600, 700);   // window resolution
         setVisible(true);
 
         main.connect();

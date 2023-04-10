@@ -4,22 +4,17 @@ import java.awt.event.ActionListener;
 
 public class W3_WelcomePageAgent extends JFrame {
     private JPanel mainPanel;
-    private JLabel flavourTextLabel;
     private JLabel welcomeLabel;
     private JLabel SupportingLabel;
-    private JButton customerManagementButton;
     private JButton stockControlButton;
     private JButton alertsButton;
-    private JButton refundButton;
     private JButton signOutButton;
-    private JLabel copyrightLabel;
     private JButton salesControlButton;
     private JButton salesReportButton;
-    private JButton backupButton;
     private JLabel userLabel;
-    private JButton travelAgentDetailsButton;
-    private JButton systemAdminstratorDetailsButton;
-    private JButton managerDetailsButton;
+    private JLabel copyrightLabel;
+    private JButton CustomerManagementButton;
+    private JButton refundsButton;
     public Main main;
 
     public static JLabel static_label;
@@ -27,10 +22,10 @@ public class W3_WelcomePageAgent extends JFrame {
     public W3_WelcomePageAgent() {
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
-        setSize(600,600);   // window resolution
+        setSize(600,550);   // window resolution
         setVisible(true);
 
-        static_label = userLabel;
+        static_label = welcomeLabel;
 
         signOutButton.addActionListener(new ActionListener() {
             @Override
@@ -40,7 +35,7 @@ public class W3_WelcomePageAgent extends JFrame {
             }
         });
 
-        customerManagementButton.addActionListener(new ActionListener() {
+        CustomerManagementButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CustomerManagement customerManagement = new CustomerManagement();
@@ -70,7 +65,7 @@ public class W3_WelcomePageAgent extends JFrame {
                 Alerts alerts = new Alerts();
             }
         });
-        refundButton.addActionListener(new ActionListener() {
+        refundsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 R3_Refund refund = new R3_Refund();

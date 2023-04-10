@@ -77,19 +77,19 @@ public class W1_WelcomePageManager extends JFrame {
         travelAgentDetailsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EditTravelAgent travelAgent = new EditTravelAgent();
+                E3_EditTravelAgent travelAgent = new E3_EditTravelAgent();
             }
         });
         systemAdminstratorDetailsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EditAdmin admin = new EditAdmin();
+                E2_EditAdmin admin = new E2_EditAdmin();
             }
         });
         managerDetailsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EditOfficeManager officeManager = new EditOfficeManager();
+                E1_EditOfficeManager officeManager = new E1_EditOfficeManager();
             }
         });
     }

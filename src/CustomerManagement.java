@@ -34,6 +34,7 @@ public class CustomerManagement extends JFrame {
     private JTextField emailTextField;
     private JComboBox agentIDComboBox;
     private JLabel agentIDLabel;
+    private JButton printButton;
     Connection con;
     PreparedStatement pst;
     Main main = new Main();
@@ -41,7 +42,7 @@ public class CustomerManagement extends JFrame {
     public CustomerManagement() {
         setContentPane(mainPanel);
         setTitle("ATS System");
-        setSize(1000, 600);
+        setSize(1000, 700);
         setVisible(true);
 
         main.connect(); // calling database connection from Main

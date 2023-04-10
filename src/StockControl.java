@@ -38,6 +38,7 @@ public class StockControl extends JFrame {
     private JLabel agentIDLabel;
     private JComboBox airlineIDComboBox;
     private JComboBox agentIDComboBox;
+    private JButton printButton;
     Connection con;
     PreparedStatement pst;
     Main main = new Main();
@@ -45,7 +46,7 @@ public class StockControl extends JFrame {
     public StockControl() {
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
-        setSize(600, 600);   // window resolution
+        setSize(1000, 700);   // window resolution
         setVisible(true);
 
         main.connect(); // calling database connection from Main
@@ -65,14 +66,6 @@ public class StockControl extends JFrame {
             }
         });
 
-        // GENERATE REPORT button
-        generateStockTurnoverReportButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                SaleReport saleReport = new SaleReport();
-            }
-        });
 
         // SAVE button
         saveButton.addActionListener(new ActionListener() {

@@ -3,251 +3,372 @@
   <grid id="27dc6" binding="salesReportMainPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="732"/>
+      <xy x="20" y="20" width="500" height="873"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="8036d" binding="mainPanel" layout-manager="GridLayoutManager" row-count="22" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="f855b" binding="mainPanel" layout-manager="GridLayoutManager" row-count="27" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
         <children>
-          <component id="31490" class="javax.swing.JLabel" binding="TitleLabel">
+          <component id="77585" class="javax.swing.JTextField" binding="searchTextField">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <font size="36" style="1"/>
-              <text value="Sales Report"/>
-            </properties>
-          </component>
-          <vspacer id="4e8c0">
-            <constraints>
-              <grid row="21" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-            </constraints>
-          </vspacer>
-          <component id="5583" class="javax.swing.JTextField" binding="searchTextField">
-            <constraints>
-              <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+              <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <font name="Helvetica Neue" size="16"/>
+            </properties>
           </component>
-          <vspacer id="1209b">
+          <vspacer id="dd187">
             <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
-          <component id="11759" class="javax.swing.JButton" binding="searchButton" default-binding="true">
+          <component id="2976a" class="javax.swing.JButton" binding="searchButton" default-binding="true">
             <constraints>
-              <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <background color="-16776961"/>
+              <font name="Helvetica Neue" size="16"/>
+              <foreground color="-1"/>
               <text value="Search"/>
             </properties>
           </component>
-          <component id="e81c7" class="javax.swing.JButton" binding="deleteButton" default-binding="true">
+          <component id="3260e" class="javax.swing.JButton" binding="deleteButton" default-binding="true">
             <constraints>
-              <grid row="5" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="5" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <background color="-65536"/>
+              <font name="Helvetica Neue" size="16"/>
+              <foreground color="-1"/>
               <text value="Delete"/>
             </properties>
           </component>
-          <scrollpane id="3ee68">
+          <scrollpane id="1c48e">
             <constraints>
-              <grid row="7" column="0" row-span="1" col-span="2" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="8" column="0" row-span="1" col-span="4" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
             <children>
-              <component id="8df5f" class="javax.swing.JTable" binding="table1" default-binding="true">
+              <component id="86b9f" class="javax.swing.JTable" binding="table1" default-binding="true">
                 <constraints/>
                 <properties/>
               </component>
             </children>
           </scrollpane>
-          <vspacer id="4fcd3">
+          <vspacer id="78b3d">
             <constraints>
-              <grid row="6" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="7" column="1" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
-          <component id="819a9" class="javax.swing.JLabel" binding="infoLabel">
+          <component id="ae7b4" class="javax.swing.JLabel" binding="infoLabel">
             <constraints>
-              <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Please type the Report ID below to search or remove a ticket:"/>
+              <font name="Helvetica Neue" size="16"/>
+              <text value="Please type the Report ID below to search or remove a report:"/>
             </properties>
           </component>
-          <vspacer id="dac0">
+          <vspacer id="c3a87">
             <constraints>
-              <grid row="8" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="9" column="1" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
-          <component id="8165d" class="javax.swing.JTextField" binding="timeGeneratedField">
+          <component id="d7ae8" class="javax.swing.JTextField" binding="timeGeneratedField">
             <constraints>
-              <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+              <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <font name="Helvetica Neue" size="16"/>
+            </properties>
           </component>
-          <component id="22696" class="javax.swing.JLabel" binding="timeGeneratedLabel">
+          <component id="204a7" class="javax.swing.JLabel" binding="timeGeneratedLabel">
             <constraints>
-              <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <font name="Helvetica Neue" size="16"/>
               <text value="Time Generated"/>
             </properties>
           </component>
-          <component id="dce42" class="javax.swing.JLabel" binding="agentIDLabel">
+          <component id="e3bd6" class="javax.swing.JLabel" binding="agentIDLabel">
             <constraints>
-              <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <font name="Helvetica Neue" size="16"/>
               <text value="Agent ID"/>
             </properties>
           </component>
-          <component id="262c0" class="javax.swing.JLabel" binding="saleIDLabel">
+          <component id="f7d41" class="javax.swing.JLabel" binding="saleIDLabel">
             <constraints>
-              <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="13" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <font name="Helvetica Neue" size="16"/>
               <text value="Sale ID"/>
             </properties>
           </component>
-          <component id="71dfd" class="javax.swing.JLabel" binding="paymentTypeLabel">
+          <component id="fd224" class="javax.swing.JLabel" binding="paymentTypeLabel">
             <constraints>
-              <grid row="14" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="15" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <font name="Helvetica Neue" size="16"/>
               <text value="Payment Type"/>
             </properties>
           </component>
-          <component id="67231" class="javax.swing.JButton" binding="saveButton" default-binding="true">
+          <component id="35731" class="javax.swing.JButton" binding="saveButton" default-binding="true">
             <constraints>
-              <grid row="18" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="20" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <background color="-16776961"/>
+              <font name="Helvetica Neue" size="16"/>
+              <foreground color="-1"/>
               <text value="Save"/>
             </properties>
           </component>
-          <vspacer id="4150f">
+          <vspacer id="30135">
             <constraints>
-              <grid row="17" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="19" column="1" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
-          <component id="c1796" class="javax.swing.JButton" binding="updateButton" default-binding="true">
+          <component id="d64a3" class="javax.swing.JButton" binding="updateButton" default-binding="true">
             <constraints>
-              <grid row="19" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="21" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <background color="-16776961"/>
+              <font name="Helvetica Neue" size="16"/>
+              <foreground color="-1"/>
               <text value="Update"/>
             </properties>
           </component>
-          <component id="b14ed" class="javax.swing.JButton" binding="cancelButton" default-binding="true">
+          <component id="b285" class="javax.swing.JButton" binding="cancelButton" default-binding="true">
             <constraints>
-              <grid row="20" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="25" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <background color="-1"/>
+              <enabled value="true"/>
+              <font name="Helvetica Neue" size="16"/>
+              <foreground color="-16777216"/>
               <text value="Cancel"/>
             </properties>
           </component>
-          <component id="fccbc" class="javax.swing.JLabel" binding="airlineIDLabel">
+          <component id="6676f" class="javax.swing.JLabel" binding="airlineIDLabel">
             <constraints>
-              <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="12" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <font name="Helvetica Neue" size="16"/>
               <text value="Airline ID"/>
             </properties>
           </component>
-          <component id="bcc81" class="javax.swing.JLabel" binding="saleTypeLabel">
+          <component id="396b0" class="javax.swing.JLabel" binding="saleTypeLabel">
             <constraints>
-              <grid row="13" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="14" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <font name="Helvetica Neue" size="16"/>
               <text value="Sale Type"/>
             </properties>
           </component>
-          <component id="c8612" class="javax.swing.JLabel">
+          <component id="4bb36" class="javax.swing.JLabel">
             <constraints>
-              <grid row="15" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="16" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <font name="Helvetica Neue" size="16"/>
               <text value="Payment Currency"/>
             </properties>
           </component>
-          <component id="29720" class="javax.swing.JLabel">
+          <component id="a453d" class="javax.swing.JLabel">
             <constraints>
-              <grid row="16" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="17" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <font name="Helvetica Neue" size="16"/>
               <text value="Ticket Blank Type"/>
             </properties>
           </component>
-          <component id="8e6fc" class="javax.swing.JTextField" binding="paymentCurrencyTextField">
+          <component id="e1290" class="javax.swing.JTextField" binding="paymentCurrencyTextField">
             <constraints>
-              <grid row="15" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+              <grid row="16" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <font name="Helvetica Neue" size="16"/>
+            </properties>
           </component>
-          <component id="b9657" class="javax.swing.JComboBox" binding="PtypeComboBox">
+          <component id="e02a6" class="javax.swing.JComboBox" binding="PtypeComboBox">
             <constraints>
-              <grid row="14" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties/>
-          </component>
-          <component id="5286" class="javax.swing.JComboBox" binding="TicComboBox">
-            <constraints>
-              <grid row="16" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties/>
-          </component>
-          <component id="a26d3" class="javax.swing.JComboBox" binding="agentIDComboBox">
-            <constraints>
-              <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="15" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <font name="Helvetica Neue" size="16"/>
               <model>
                 <item value="SELECT"/>
               </model>
             </properties>
           </component>
-          <component id="23f2f" class="javax.swing.JComboBox" binding="airlineIDComboBox">
+          <component id="56881" class="javax.swing.JComboBox" binding="TicComboBox">
             <constraints>
-              <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="17" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <font name="Helvetica Neue" size="16"/>
               <model>
                 <item value="SELECT"/>
               </model>
             </properties>
           </component>
-          <component id="4506d" class="javax.swing.JComboBox" binding="saleIDComboBox">
+          <component id="7a5c5" class="javax.swing.JComboBox" binding="agentIDComboBox">
             <constraints>
-              <grid row="12" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="11" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <font name="Helvetica Neue" size="16"/>
               <model>
                 <item value="SELECT"/>
               </model>
             </properties>
           </component>
-          <component id="7c4d9" class="javax.swing.JTextField" binding="saleTypeField">
+          <component id="b2bd3" class="javax.swing.JComboBox" binding="airlineIDComboBox">
             <constraints>
-              <grid row="13" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+              <grid row="12" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Helvetica Neue" size="16"/>
+              <model>
+                <item value="SELECT"/>
+              </model>
+            </properties>
+          </component>
+          <component id="a5da8" class="javax.swing.JComboBox" binding="saleIDComboBox">
+            <constraints>
+              <grid row="13" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Helvetica Neue" size="16"/>
+              <model>
+                <item value="SELECT"/>
+              </model>
+            </properties>
+          </component>
+          <component id="e58" class="javax.swing.JTextField" binding="saleTypeField">
+            <constraints>
+              <grid row="14" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
+            <properties>
+              <font name="Helvetica Neue" size="16"/>
+            </properties>
+          </component>
+          <grid id="eda22" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-16776961"/>
+              <foreground color="-1"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="fb45c" class="javax.swing.JLabel" binding="TitleLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Helvetica Neue" size="48" style="1"/>
+                  <foreground color="-1"/>
+                  <text value="Sales Report"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <hspacer id="15700">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <hspacer id="3b898">
+            <constraints>
+              <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
+          <grid id="34a3b" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
             <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="dbd89" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="18" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="cc6b8" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="24" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="299f9" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="22" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <component id="cebcd" class="javax.swing.JButton" binding="printButton" default-binding="true">
+            <constraints>
+              <grid row="23" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-16776961"/>
+              <font name="Helvetica Neue" size="16"/>
+              <foreground color="-1"/>
+              <text value="Print"/>
+            </properties>
+          </component>
+          <component id="6368f" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="26" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font size="8"/>
+              <text value="©2023 AirVia Ltd."/>
+            </properties>
           </component>
         </children>
       </grid>

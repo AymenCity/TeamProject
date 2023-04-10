@@ -37,6 +37,7 @@ public class SaleControl extends JFrame {
     private JLabel custIDLabel;
     private JScrollPane saleControlTable;
     private JComboBox typeComboBox;
+    private JButton printButton;
     Connection con;
     PreparedStatement pst;
     Main main = new Main();
@@ -44,7 +45,7 @@ public class SaleControl extends JFrame {
     public SaleControl(){
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
-        setSize(600,600);   // window resolution
+        setSize(1000,700);   // window resolution
         setVisible(true);
 
         main.connect(); // calling database connection from Main

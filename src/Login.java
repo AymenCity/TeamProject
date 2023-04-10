@@ -104,7 +104,8 @@ public class Login extends JFrame {
                         if(rs.next() == true) {
                             dispose();
                             W3_WelcomePageAgent welcomePageAdmin = new W3_WelcomePageAgent();
-                            //WelcomePageAdmin.static_label.setText(usernameTextField.getText());
+                            W3_WelcomePageAgent.static_label.setText("Welcome, "+usernameTextField.getText());
+                            W3_WelcomePageAgent.static_label.setForeground(Color.WHITE);
                         } else {
                             //JOptionPane.showMessageDialog(mainPanel, "Invalid Username / Password", "Error", JOptionPane.ERROR_MESSAGE);
                         }

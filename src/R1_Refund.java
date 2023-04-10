@@ -26,6 +26,7 @@ public class R1_Refund extends JFrame {        // This refund class wil only be 
     private JLabel flavourTextLabel;
     private JLabel TitleLabel;
     private JLabel SearchTextLabel;
+    private JButton printButton;
     private JButton returnButton;
     private JButton confirmButton;
     Connection con;
@@ -35,7 +36,7 @@ public class R1_Refund extends JFrame {        // This refund class wil only be 
     public R1_Refund() {
         setContentPane(mainPanel);
         setTitle("ATS System");        // name of software
-        setSize(600, 600);   // window resolution
+        setSize(1000, 700);   // window resolution
         setVisible(true);
 
         main.connect();

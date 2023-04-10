@@ -40,7 +40,7 @@ public class Alerts extends JFrame {
     public Alerts() {
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
-        setSize(600,600);   // window resolution
+        setSize(1000,700);   // window resolution
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 

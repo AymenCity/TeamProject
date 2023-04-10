@@ -8,26 +8,18 @@ import java.sql.*;
 
 public class SaleReport extends JFrame {
     private JPanel mainPanel;
-    private JLabel TitleLabel;
     private JTextField searchTextField;
     private JButton searchButton;
     private JButton deleteButton;
     private JTable table1;
-    private JLabel infoLabel;
     private JTextField timeGeneratedField;
-    private JLabel timeGeneratedLabel;
     private JTextField agentIDTextField;
-    private JLabel agentIDLabel;
-    private JLabel saleIDLabel;
     private JTextField saleIDTextField;
-    private JLabel paymentTypeLabel;
     private JTextField paymentTypeTextField;
     private JButton saveButton;
     private JButton updateButton;
     private JButton cancelButton;
     private JTextField airlineIDTextField;
-    private JLabel airlineIDLabel;
-    private JLabel saleTypeLabel;
     private JTextField saleTypeField;
     private JPanel salesReportMainPanel;
     private JTextField paymentCurrencyTextField;
@@ -38,6 +30,15 @@ public class SaleReport extends JFrame {
     private JComboBox agentIDComboBox;
     private JComboBox airlineIDComboBox;
     private JComboBox saleIDComboBox;
+    private JLabel infoLabel;
+    private JLabel timeGeneratedLabel;
+    private JLabel agentIDLabel;
+    private JLabel saleIDLabel;
+    private JLabel paymentTypeLabel;
+    private JLabel airlineIDLabel;
+    private JLabel saleTypeLabel;
+    private JLabel TitleLabel;
+    private JButton printButton;
     Connection con;
     PreparedStatement pst;
     Main main = new Main();
@@ -45,7 +46,7 @@ public class SaleReport extends JFrame {
     public SaleReport() {
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
-        setSize(600, 600);   // window resolution
+        setSize(1000, 750);   // window resolution
         setVisible(true);
 
         main.connect(); // calling database connection from Main

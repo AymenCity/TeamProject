@@ -4,26 +4,27 @@ import java.awt.event.ActionListener;
 
 public class W2_WelcomePageAdmin extends JFrame {
     private JLabel welcomeLabel;
-    private JLabel flavourText;
-    private JButton customerManagementButton;
+    private JButton CustomerManagementButton;
     private JButton stockControlButton;
     private JButton salesControlButton;
     private JButton salesReportButton;
     private JButton refundsButton;
     private JButton alertsButton;
-    private JButton backupButton;
     private JButton signOutButton;
     private JPanel mainPanel;
     private JButton travelAgentDetailsButton;
     private JButton managerDetailsButton;
     private JButton systemAdminstratorDetailsButton;
+    private JLabel SupportingLabel;
+    private JLabel copyrightLabel;
+    private JButton backupButton;
 
     public static JLabel static_label;
 
     public W2_WelcomePageAdmin() {
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
-        setSize(600,600);   // window resolution
+        setSize(600,700);   // window resolution
         setVisible(true);
 
         static_label = welcomeLabel;
@@ -35,7 +36,7 @@ public class W2_WelcomePageAdmin extends JFrame {
                 Login login = new Login();
             }
         });
-        customerManagementButton.addActionListener(new ActionListener() {
+        CustomerManagementButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CustomerManagement customerManagement = new CustomerManagement();
@@ -74,19 +75,19 @@ public class W2_WelcomePageAdmin extends JFrame {
         travelAgentDetailsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EditTravelAgent travelAgent = new EditTravelAgent();
+                E3_EditTravelAgent travelAgent = new E3_EditTravelAgent();
             }
         });
         systemAdminstratorDetailsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EditAdmin admin = new EditAdmin();
+                E2_EditAdmin admin = new E2_EditAdmin();
             }
         });
         managerDetailsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EditOfficeManager officeManager = new EditOfficeManager();
+                E1_EditOfficeManager officeManager = new E1_EditOfficeManager();
             }
         });
     }

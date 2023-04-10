@@ -7,10 +7,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class EditTravelAgent extends JFrame {
+public class E1_EditOfficeManager extends JFrame {
     private JPanel mainPanel;
     private JLabel stockControlLabel;
-    private JLabel nameLabel;
+    private JLabel managerNameLabel;
     private JLabel usernameLabel;
     private JButton saveButton;
     private JButton cancelButton;
@@ -25,21 +25,22 @@ public class EditTravelAgent extends JFrame {
     private JTextField searchTextField;
     private JButton updateButton;
     private JLabel passwordLabel;
+    private JLabel addressLabel;
+    private JLabel emailLabel;
     private JTextField addressTextField;
     private JTextField emailTextField;
-    private JPanel parentPanel;
-    private JLabel emailLabel;
-    private JLabel addressLabel;
-    private JTextField phoneTextField;
-    private JLabel phoneNumberLabel;
+    private JTextField phoneNumberTextField;
+    private JLabel phoneNUmberLabel;
+    private JButton printButton;
+
     Connection con;
     PreparedStatement pst;
     Main main = new Main();
 
-    public EditTravelAgent() {
+    public E1_EditOfficeManager() {
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
-        setSize(600, 600);   // window resolution
+        setSize(1000, 700);   // window resolution
         setVisible(true);
 
         main.connect(); // calling database connection from Main
@@ -57,28 +58,28 @@ public class EditTravelAgent extends JFrame {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String agentName, agentPhone, agentAddress, agentEmail, agentUsername, agentPassword;
+                String managerName, managerPhone, managerAddress, managerEmail, managerUsername, managerPassword;
 
-                agentName = nameTextField.getText();
-                agentPhone = phoneTextField.getText();
-                agentAddress = addressTextField.getText();
-                agentEmail = emailTextField.getText();
-                agentUsername = usernameTextField.getText();
-                agentPassword = passwordTextField.getText();
+                managerName = nameTextField.getText();
+                managerPhone = phoneNumberTextField.getText();
+                managerAddress = addressTextField.getText();
+                managerEmail = emailTextField.getText();
+                managerUsername = usernameTextField.getText();
+                managerPassword = passwordTextField.getText();
 
                 try {
-                    pst = main.con.prepareStatement("insert into Travel_Agent(agentName, agentPhone, agentAddress, agentEmail, agentUsername, agentPassword)values(?,?,?,?,?,?)");
-                    pst.setString(1, agentName);
-                    pst.setString(2, agentPhone);
-                    pst.setString(3, agentAddress);
-                    pst.setString(4, agentEmail);
-                    pst.setString(5, agentUsername);
-                    pst.setString(6, agentPassword);
+                    pst = main.con.prepareStatement("insert into Office_Manager(managerName, managerPhone, managerAddress, managerEmail, managerUsername, managerPassword)values(?,?,?,?,?,?)");
+                    pst.setString(1, managerName);
+                    pst.setString(2, managerPhone);
+                    pst.setString(3, managerAddress);
+                    pst.setString(4, managerEmail);
+                    pst.setString(5, managerUsername);
+                    pst.setString(6, managerPassword);
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(mainPanel, "Record Added");
                     load_table();
                     nameTextField.setText("");
-                    phoneTextField.setText("");
+                    phoneNumberTextField.setText("");
                     addressTextField.setText("");
                     emailTextField.setText("");
                     usernameTextField.setText("");
@@ -94,29 +95,29 @@ public class EditTravelAgent extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    String agentID = searchTextField.getText();
+                    String managerID = searchTextField.getText();
 
-                    pst = main.con.prepareStatement("select agentID, agentName, agentPhone, agentAddress, agentEmail, agentUsername, agentPassword from Travel_Agent where agentID = ?");
-                    pst.setString(1, agentID);
+                    pst = main.con.prepareStatement("select managerID, managerName, managerPhone, managerAddress, managerEmail, managerUsername, managerPassword from manager where managerID = ?");
+                    pst.setString(1, managerID);
                     ResultSet rs = pst.executeQuery();
 
                     if(rs.next()==true) {
-                        String agentName = rs.getString(2);
-                        String agentPhone = rs.getString(3);
-                        String agentAddress = rs.getString(4);
-                        String agentEmail = rs.getString(5);
-                        String agentUsername = rs.getString(6);
-                        String agentPassword = rs.getString(7);
+                        String managerName = rs.getString(2);
+                        String managerPhone = rs.getString(3);
+                        String managerAddress = rs.getString(4);
+                        String managerEmail = rs.getString(5);
+                        String managerUsername = rs.getString(6);
+                        String managerPassword = rs.getString(7);
 
-                        nameTextField.setText(agentName);
-                        phoneTextField.setText(agentPhone);
-                        addressTextField.setText(agentAddress);
-                        emailTextField.setText(agentEmail);
-                        usernameTextField.setText(agentUsername);
-                        passwordTextField.setText(agentPassword);
+                        nameTextField.setText(managerName);
+                        phoneNumberTextField.setText(managerPhone);
+                        addressTextField.setText(managerAddress);
+                        emailTextField.setText(managerEmail);
+                        usernameTextField.setText(managerUsername);
+                        passwordTextField.setText(managerPassword);
                     } else {
                         nameTextField.setText("");
-                        phoneTextField.setText("");
+                        phoneNumberTextField.setText("");
                         addressTextField.setText("");
                         emailTextField.setText("");
                         usernameTextField.setText("");
@@ -133,31 +134,31 @@ public class EditTravelAgent extends JFrame {
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String agentID, agentName, agentPhone, agentAddress, agentEmail, agentUsername, agentPassword;
+                String managerID, managerName, managerPhone, managerAddress, managerEmail, managerUsername, managerPassword;
 
-                agentID = searchTextField.getText();
-                agentName = nameTextField.getText();
-                agentPhone = phoneTextField.getText();
-                agentAddress = addressTextField.getText();
-                agentEmail = emailTextField.getText();
-                agentUsername = usernameTextField.getText();
-                agentPassword = passwordTextField.getText();
+                managerID = searchTextField.getText();
+                managerName = nameTextField.getText();
+                managerPhone = phoneNumberTextField.getText();
+                managerAddress = addressTextField.getText();
+                managerEmail = emailTextField.getText();
+                managerUsername = usernameTextField.getText();
+                managerPassword = passwordTextField.getText();
 
                 try {
-                    pst = main.con.prepareStatement("update Travel_Agent set agentName = ?, agentPhone = ?, agentAddress = ?, agentEmail = ?, agentUsername = ?, agentPassword = ? where agentID = ?");
-                    pst.setString(1, agentName);
-                    pst.setString(2, agentPhone);
-                    pst.setString(3, agentAddress);
-                    pst.setString(4, agentEmail);
-                    pst.setString(5, agentUsername);
-                    pst.setString(6, agentPassword);
-                    pst.setString(7, agentID);
+                    pst = main.con.prepareStatement("update Office_Manager set managerName = ?, managerPhone = ?, managerAddress = ?, managerEmail = ?, managerUsername = ?, managerPassword = ? where managerID = ?");
+                    pst.setString(1, managerName);
+                    pst.setString(2, managerPhone);
+                    pst.setString(3, managerAddress);
+                    pst.setString(4, managerEmail);
+                    pst.setString(5, managerUsername);
+                    pst.setString(6, managerPassword);
+                    pst.setString(7, managerID);
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(mainPanel, "Record Updated");
                     load_table();
                     searchTextField.setText("");
                     nameTextField.setText("");
-                    phoneTextField.setText("");
+                    phoneNumberTextField.setText("");
                     addressTextField.setText("");
                     emailTextField.setText("");
                     usernameTextField.setText("");
@@ -172,18 +173,18 @@ public class EditTravelAgent extends JFrame {
         deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String agentID;
-                agentID = searchTextField.getText();
+                String managerID;
+                managerID = searchTextField.getText();
 
                 try {
-                    pst = main.con.prepareStatement("delete from Travel_Agent where agentID = ?");
-                    pst.setString(1,agentID);
+                    pst = main.con.prepareStatement("delete from Office_Manager where managerID = ?");
+                    pst.setString(1,managerID);
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(mainPanel, "Record Deleted");
                     load_table();
                     searchTextField.setText("");
                     nameTextField.setText("");
-                    phoneTextField.setText("");
+                    phoneNumberTextField.setText("");
                     addressTextField.setText("");
                     emailTextField.setText("");
                     usernameTextField.setText("");
@@ -197,7 +198,7 @@ public class EditTravelAgent extends JFrame {
 
     void load_table() {
         try {
-            pst = main.con.prepareStatement("select * from Travel_Agent");
+            pst = main.con.prepareStatement("select * from Office_Manager");
             ResultSet rs = pst.executeQuery();
             blankTable.setModel(DbUtils.resultSetToTableModel(rs));
 
@@ -207,3 +208,4 @@ public class EditTravelAgent extends JFrame {
         }
     }
 }
+

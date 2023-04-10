@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class EditAdmin extends JFrame {
+public class E2_EditAdmin extends JFrame {
     private JPanel parentPanel;
     private JPanel mainPanel;
     private JLabel stockControlLabel;
@@ -32,14 +32,15 @@ public class EditAdmin extends JFrame {
     private JLabel phoneLabel;
     private JLabel addressLabel;
     private JLabel emailLabel;
+    private JButton printButton;
     Connection con;
     PreparedStatement pst;
     Main main = new Main();
 
-    public EditAdmin() {
+    public E2_EditAdmin() {
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
-        setSize(600, 600);   // window resolution
+        setSize(1000, 700);   // window resolution
         setVisible(true);
 
         main.connect(); // calling database connection from Main
