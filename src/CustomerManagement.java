@@ -1,11 +1,22 @@
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.pdf.PdfWriter;
 import net.proteanit.sql.DbUtils;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
 
+import javax.print.Doc;
 import javax.swing.*;
+import javax.swing.event.DocumentListener;
+import javax.swing.event.UndoableEditListener;
+import javax.swing.text.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class CustomerManagement extends JFrame {
     private JButton newButton;
@@ -211,6 +222,48 @@ public class CustomerManagement extends JFrame {
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }
+            }
+        });
+
+
+        // PRINT
+        printButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    JOptionPane.showMessageDialog(mainPanel, "Exporting to PDF is Successful");
+                    String path = "database/customer.pdf";       // where the pdf will be located
+                    Document document = new Document();
+                    PdfWriter.getInstance(document, new FileOutputStream(path));
+
+                    document.open();
+                    main.connect();
+
+                    pst = main.con.prepareStatement("select * from Customer");
+                    ResultSet rs = pst.executeQuery();
+                    while (rs.next()) {
+                        Paragraph paragraph = new Paragraph(rs.getString("customerID") + " ~ " +
+                                rs.getString("customerName") + " ~ " +
+                                rs.getString("customerType") + " ~ " +
+                                rs.getString("customerAddress") + " ~ " +
+                                rs.getString("customerEmail") + " ~ " +
+                                rs.getString("customerDateOfBirth") + " ~ " +
+                                rs.getString("customerDayJoined") + " ~ " +
+                                rs.getString("agentID"));
+                        document.add(paragraph);
+                        document.add(new Paragraph(" "));
+                    }
+                    document.close();
+
+                } catch (DocumentException ex) {
+                    ex.printStackTrace();
+                } catch (FileNotFoundException ex) {
+                    ex.printStackTrace();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+
+
             }
         });
     }
