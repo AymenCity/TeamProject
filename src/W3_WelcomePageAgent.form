@@ -103,7 +103,7 @@
                   <background color="-16776961"/>
                   <font name="Helvetica Neue" size="16"/>
                   <foreground color="-1"/>
-                  <text value="Refunds"/>
+                  <text value="Refund Management"/>
                 </properties>
               </component>
               <component id="7ecba" class="javax.swing.JButton" binding="alertsButton">
@@ -114,7 +114,7 @@
                   <background color="-16776961"/>
                   <font name="Helvetica Neue" size="16"/>
                   <foreground color="-1"/>
-                  <text value="Alerts"/>
+                  <text value="Create Alert"/>
                 </properties>
               </component>
               <grid id="8ba2e" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">

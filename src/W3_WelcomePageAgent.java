@@ -62,7 +62,7 @@ public class W3_WelcomePageAgent extends JFrame {
         alertsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Alerts alerts = new Alerts();
+                A3_Alerts a3_alerts = new A3_Alerts();
             }
         });
         refundsButton.addActionListener(new ActionListener() {

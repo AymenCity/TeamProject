@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class Alerts extends JFrame {
+public class A1_Alerts extends JFrame {
 
 
     private JLabel alertsLabel;
@@ -37,7 +37,7 @@ public class Alerts extends JFrame {
     PreparedStatement pst;
     Main main = new Main();
 
-    public Alerts() {
+    public A1_Alerts() {
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
         setSize(1000,700);   // window resolution

@@ -71,7 +71,7 @@ public class W1_WelcomePageManager extends JFrame {
         alertsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Alerts alerts = new Alerts();
+                A1_Alerts a1Alerts = new A1_Alerts();
             }
         });
         travelAgentDetailsButton.addActionListener(new ActionListener() {
