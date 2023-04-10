@@ -92,6 +92,14 @@ public class W1_WelcomePageManager extends JFrame {
                 E1_EditOfficeManager officeManager = new E1_EditOfficeManager();
             }
         });
+        backupButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(mainPanel, "Backup is Successful");
+                Main main = new Main();
+                main.backup();
+            }
+        });
     }
 
 }

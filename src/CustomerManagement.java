@@ -232,7 +232,8 @@ public class CustomerManagement extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 try {
                     JOptionPane.showMessageDialog(mainPanel, "Exporting to PDF is Successful");
-                    String path = "database/customer.pdf";       // where the pdf will be located
+                    String path = "database/print/customer.pdf";       // where the pdf will be located
+                    String skip = "\n";
                     Document document = new Document();
                     PdfWriter.getInstance(document, new FileOutputStream(path));
 
@@ -242,16 +243,16 @@ public class CustomerManagement extends JFrame {
                     pst = main.con.prepareStatement("select * from Customer");
                     ResultSet rs = pst.executeQuery();
                     while (rs.next()) {
-                        Paragraph paragraph = new Paragraph(rs.getString("customerID") + " ~ " +
-                                rs.getString("customerName") + " ~ " +
-                                rs.getString("customerType") + " ~ " +
-                                rs.getString("customerAddress") + " ~ " +
-                                rs.getString("customerEmail") + " ~ " +
-                                rs.getString("customerDateOfBirth") + " ~ " +
-                                rs.getString("customerDayJoined") + " ~ " +
-                                rs.getString("agentID"));
+                        Paragraph paragraph = new Paragraph("customerID: " + rs.getString("customerID") + skip +
+                                "customerName: " + rs.getString("customerName") + skip +
+                                "customerType: " + rs.getString("customerType") + skip +
+                                "customerAddress: " + rs.getString("customerAddress") + skip +
+                                "customerEmail: " + rs.getString("customerEmail") + skip +
+                                "customerDateOfBirth: " + rs.getString("customerDateOfBirth") + skip +
+                                "customerDayJoined: " + rs.getString("customerDayJoined") + skip +
+                                "agentID: " + rs.getString("agentID"));
                         document.add(paragraph);
-                        document.add(new Paragraph(" "));
+                        document.add(new Paragraph(" " + skip));
                     }
                     document.close();
 
@@ -262,8 +263,6 @@ public class CustomerManagement extends JFrame {
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 }
-
-
             }
         });
     }
