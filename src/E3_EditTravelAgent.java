@@ -1,11 +1,18 @@
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import net.proteanit.sql.DbUtils;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class E3_EditTravelAgent extends JFrame {
     private JPanel mainPanel;
@@ -191,6 +198,43 @@ public class E3_EditTravelAgent extends JFrame {
                     passwordTextField.setText("");
                 } catch (Exception exception) {
                     exception.printStackTrace();
+                }
+            }
+        });
+        printButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    JOptionPane.showMessageDialog(mainPanel, "Exporting to PDF is Successful");
+                    String path = "database/print/agent.pdf";       // where the pdf will be located
+                    String skip = "\n";
+                    Document document = new Document();
+                    PdfWriter.getInstance(document, new FileOutputStream(path));
+
+                    document.open();
+                    main.connect();
+
+                    pst = main.con.prepareStatement("select * from Travel_Agent");
+                    ResultSet rs = pst.executeQuery();
+                    while (rs.next()) {
+                        Paragraph paragraph = new Paragraph("agentID: " + rs.getString("agentID") + skip +
+                                "agentName: " + rs.getString("agentName") + skip +
+                                "agentPhone: " + rs.getString("agentPhone") + skip +
+                                "agentAddress: " + rs.getString("agentAddress") + skip +
+                                "agentEmail: " + rs.getString("agentEmail") + skip +
+                                "agentUsername: " + rs.getString("agentUsername") + skip +
+                                "agentPassword: " + rs.getString("agentPassword"));
+                        document.add(paragraph);
+                        document.add(new Paragraph(" " + skip));
+                    }
+                    document.close();
+
+                } catch (DocumentException ex) {
+                    ex.printStackTrace();
+                } catch (FileNotFoundException ex) {
+                    ex.printStackTrace();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
                 }
             }
         });

@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b18befd0-c850-4d8b-ba04-07d940c2dfad" name="Changes" comment="Aymen - created Airline class which links to database">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace-MacBook Air (A)-2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace-MacBook Air (A)-3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace-MacBook Air (A)-4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace-MacBook Air (A)-5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace-MacBook Air (A)-6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace-MacBook Air (A)-7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace-MacBook Air (A)-8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace-MacBook Air (A).xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace-Rati’s MacBook Pro-4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace-Rati’s MacBook Pro-5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace-Rati’s MacBook Pro-6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace-Rati’s MacBook Pro-7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Use Test Cases - Ishmail Hoque.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Use test cases - uzair mahmood.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/backup/admin.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/backup/customer.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/print/customer.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/itextpdf-5.5.9.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Airline-MacBook Air (A).java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace-LAPTOP-KPA5KT6Q.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace-LAPTOP-KPA5KT6Q.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace-Rati’s MacBook Pro-2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace-Rati’s MacBook Pro-2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace-Rati’s MacBook Pro-3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace-Rati’s MacBook Pro-3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace-Rati’s MacBook Pro.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace-Rati’s MacBook Pro.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AdminRefund.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deliverable 2 - Project Plan.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Deliverable 2 - Project Plan.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI Design.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/GUI Design.pptx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test plan.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Test plan.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/customer.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/runConfigurations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/.idea/runConfigurations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AddCustomer.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AddCustomer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AdminLogin.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AdminLogin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Airline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Airline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ChangePassword.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ChangePassword.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Deliverable 2 (Development and testing.iml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Deliverable 2 (Development and testing.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/R1_Refund.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/R1_Refund.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/R1_Refund.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/R1_Refund.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/R3_Refund.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/R3_Refund.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Signup.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Signup.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/W1_WelcomePageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/W1_WelcomePageManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/W2_WelcomePageAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/W2_WelcomePageAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/W3_WelcomePageAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/W3_WelcomePageAgent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/account/adminLogin.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/account/login.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/logo.png" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2NL7LtOOEK0nTfxofhgbr5HEqmf" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="149" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="226" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Deliverable 2 (Development and testing" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Deliverable 2 (Development and testing" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b18befd0-c850-4d8b-ba04-07d940c2dfad" name="Changes" comment="Rati Sturua - 08/04/2023 - Created Froms and Classes for EditTravelAgent, EditOfficeManager, EditAdmin." />
+      <created>1679431455328</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1679431455328</updated>
+      <workItem from="1679431456876" duration="2006000" />
+      <workItem from="1679439995932" duration="918000" />
+      <workItem from="1679440920927" duration="4012000" />
+      <workItem from="1679481661715" duration="1955000" />
+      <workItem from="1679488224764" duration="131000" />
+      <workItem from="1679567166086" duration="35000" />
+      <workItem from="1679568132293" duration="793000" />
+      <workItem from="1679699258653" duration="30000" />
+      <workItem from="1679859444448" duration="6235000" />
+      <workItem from="1679871445835" duration="343000" />
+      <workItem from="1679872463294" duration="1492000" />
+      <workItem from="1679922695944" duration="2207000" />
+      <workItem from="1679931306223" duration="985000" />
+      <workItem from="1679998847634" duration="60000" />
+      <workItem from="1679998913005" duration="1250000" />
+      <workItem from="1680000173074" duration="27000" />
+      <workItem from="1680000220337" duration="1629000" />
+      <workItem from="1680005350251" duration="2109000" />
+      <workItem from="1680030971834" duration="2680000" />
+      <workItem from="1680091735722" duration="7000" />
+      <workItem from="1680092035059" duration="684000" />
+      <workItem from="1680116995268" duration="1137000" />
+      <workItem from="1680118141971" duration="638000" />
+      <workItem from="1680264897163" duration="4079000" />
+      <workItem from="1680306122429" duration="47000" />
+      <workItem from="1680439865543" duration="343000" />
+      <workItem from="1680442856102" duration="565000" />
+      <workItem from="1680444114743" duration="161000" />
+      <workItem from="1680444378100" duration="65000" />
+      <workItem from="1680444485885" duration="666000" />
+      <workItem from="1680704080689" duration="3551000" />
+      <workItem from="1680713909554" duration="96000" />
+      <workItem from="1680717182676" duration="2640000" />
+      <workItem from="1680721494128" duration="7624000" />
+      <workItem from="1680790939662" duration="2438000" />
+      <workItem from="1680796768920" duration="10368000" />
+      <workItem from="1680883923900" duration="7233000" />
+      <workItem from="1680949744467" duration="865000" />
+      <workItem from="1680951794609" duration="1562000" />
+      <workItem from="1680954219261" duration="1231000" />
+      <workItem from="1680957277921" duration="7907000" />
+      <workItem from="1680974886208" duration="63000" />
+      <workItem from="1680974959583" duration="57000" />
+      <workItem from="1680998334261" duration="1916000" />
+      <workItem from="1681033157778" duration="833000" />
+      <workItem from="1681048879062" duration="16278000" />
+      <workItem from="1681087096739" duration="3476000" />
+      <workItem from="1681124401344" duration="1473000" />
+      <workItem from="1681140307975" duration="386000" />
+      <workItem from="1681201699628" duration="6043000" />
+      <workItem from="1681209449623" duration="1637000" />
+    </task>
+    <task id="LOCAL-00030" summary="Aymen - combo box functionality works with database">
+      <created>1680713892091</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1680713892091</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Aymen - combo box functionality works with database">
+      <created>1680713976466</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1680713976466</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Aymen - combo box functionality works with database">
+      <created>1680717277769</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1680717277769</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Aymen - updating stockControl combobox">
+      <created>1680719343457</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1680719343457</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Aymen - fixed/improved flightDate, flightTime">
+      <created>1680732891057</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1680732891057</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Aymen - outputs the [username] on WelcomePage">
+      <created>1680734426158</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1680734426158</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Aymen - fixed a minor bug that caused duplicate Login pages">
+      <created>1680736279794</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1680736279794</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Aymen - foreign keys, combo box onto database functionality">
+      <created>1680738421084</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1680738421084</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Aymen - finished all 4 database functionality  for SaleReport (update, search, add, delete)">
+      <created>1680818649451</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1680818649451</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Aymen - Load_table">
+      <created>1680824946748</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1680824946748</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Aymen - Linked jComboBox foreign ids with database">
+      <created>1680826178036</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1680826178036</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Ethan - 07/04/23 - Updated Refund page to match other pages">
+      <created>1680867607745</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1680867607745</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Aymen - hide/show password functionality">
+      <created>1680868135292</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1680868135292</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Aymen - fixed a minor bug on update button where details weren't being updated">
+      <created>1680884207357</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1680884207357</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Aymen - load_table, updated saleID combo box to match with database">
+      <created>1680888542516</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1680888542516</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Ethan - 08/04/23 - Updated Alerts page to match other pages">
+      <created>1680950608025</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1680950608025</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Ethan - 08/04/23 - Added welcome page 2 and 3 for agent and admin">
+      <created>1680953334529</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1680953334529</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Ethan - 08/04/23 - Added refund 2 and functionality of welcome page 2 button to redirect to refund 2">
+      <created>1680955449205</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1680955449205</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Aymen - finished database functionality (update, save, delete, search)">
+      <created>1680957268481</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1680957268481</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Aymen - updated combo box model, fixed minor bug with update functionality">
+      <created>1680958140409</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1680958140409</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Aymen - Finished database functionality (update, save, search, delete)">
+      <created>1680960537235</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1680960537236</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Aymen - Finished database functionality (update, save, search, delete)">
+      <created>1680961966026</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1680961966026</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Rati Sturua - 08/04/2023 - Created Froms and Classes for EditTravelAgent, EditOfficeManager, EditAdmin.">
+      <created>1680974856422</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1680974856424</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Rati Sturua - 08/04/2023 - Created Froms and Classes for EditTravelAgent, EditOfficeManager, EditAdmin.">
+      <created>1680974973913</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1680974973914</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Aymen - Updated login functionality to be recognised from database instead of text file">
+      <created>1680983688935</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1680983688935</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Aymen - Finished Multi-User Login functionality (each role will have a different welcome page when logged in)">
+      <created>1680984208186</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1680984208186</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Aymen - Finished database functionality (update, save, search, delete)">
+      <created>1680995613758</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1680995613758</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Aymen - Finished database functionality (update, save, search, delete)">
+      <created>1680995892446</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1680995892447</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Aymen - Finished database functionality (update, save, search, delete)">
+      <created>1680996138881</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1680996138881</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Aymen - Updated button functionality by removing dispose on WelcomePage &amp; only having dispose with Cancel button">
+      <created>1680996876680</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1680996876680</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Aymen - Created three new buttons where each will lead to a new page (EditAgent/EditAdmin/EditManager)">
+      <created>1680998579322</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1680998579322</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Aymen - Fixed a minor bug with load_table">
+      <created>1680998615143</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1680998615143</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Aymen - Each welcome page serves a different functionality depending on the role">
+      <created>1681000430263</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1681000430263</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Aymen - Made these refund classes unique to each other as it depends on the staff role">
+      <created>1681050355629</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1681050355629</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Aymen - renamed it to make it easy to know the order of admin level between the three classes">
+      <created>1681050419162</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1681050419162</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Aymen - removed Signup as it serves no purpose. The admin/manager creates the account for the agent instead.">
+      <created>1681050508006</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1681050508006</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Aymen - removed Signup as it serves no purpose. The admin/manager creates the account for the agent instead.">
+      <created>1681050551047</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1681050551047</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Aymen - added panel for titleLabel so it has a background colour, changed the font to Helvetica Neue, made text bigger (titleLabel = 48, all labels = 16)">
+      <created>1681051774298</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1681051774298</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Aymen - added panel for titleLabel so it has a background colour, changed the font to Helvetica Neue, made text bigger (titleLabel = 48, all labels = 16)">
+      <created>1681053442712</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1681053442712</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Aymen - updating design layout to make it attractive">
+      <created>1681059698517</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1681059698517</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Aymen - updating design layout to make it attractive">
+      <created>1681069394452</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1681069394452</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Aymen - finished updating design layout to make it attractive">
+      <created>1681124246765</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1681124246765</updated>
+    </task>
+    <task id="LOCAL-00072" summary="Aymen - got Print functionality to work - exports database into pdf format">
+      <created>1681167629151</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1681167629151</updated>
+    </task>
+    <task id="LOCAL-00073" summary="Aymen - Backup functionality works, updated layout of pdf paragraph">
+      <created>1681169710998</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1681169710998</updated>
+    </task>
+    <task id="LOCAL-00074" summary="Aymen - Added new sale report only for agent where agent has the ability to create individual reports based on their agent ID">
+      <created>1681204963118</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1681204963119</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Aymen - updated refund classes based on the changes I have made on Refund database">
+      <created>1681209347817</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1681209347817</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Aymen - added more blank types">
+      <created>1681209579066</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1681209579066</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Aymen - removed ID label/text fields">
+      <created>1681209788843</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1681209788843</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Aymen - created Airline class which links to database">
+      <created>1681210848642</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1681210848642</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Aymen - finished database functionality (update, save, delete, search)" />
+    <MESSAGE value="Aymen - updated combo box model, fixed minor bug with update functionality" />
+    <MESSAGE value="Rati Sturua - 08/04/2023 - Created Froms and Classes for EditTravelAgent, EditOfficeManager, EditAdmin." />
+    <MESSAGE value="Aymen - Updated login functionality to be recognised from database instead of text file" />
+    <MESSAGE value="Aymen - Finished Multi-User Login functionality (each role will have a different welcome page when logged in)" />
+    <MESSAGE value="Aymen - Finished database functionality (update, save, search, delete)" />
+    <MESSAGE value="Aymen - Updated button functionality by removing dispose on WelcomePage &amp; only having dispose with Cancel button" />
+    <MESSAGE value="Aymen - Created three new buttons where each will lead to a new page (EditAgent/EditAdmin/EditManager)" />
+    <MESSAGE value="Aymen - Fixed a minor bug with load_table" />
+    <MESSAGE value="Aymen - Each welcome page serves a different functionality depending on the role" />
+    <MESSAGE value="Aymen - Made these refund classes unique to each other as it depends on the staff role" />
+    <MESSAGE value="Aymen - renamed it to make it easy to know the order of admin level between the three classes" />
+    <MESSAGE value="Aymen - removed Signup as it serves no purpose. The admin/manager creates the account for the agent instead." />
+    <MESSAGE value="Aymen - added panel for titleLabel so it has a background colour, changed the font to Helvetica Neue, made text bigger (titleLabel = 48, all labels = 16)" />
+    <MESSAGE value="Aymen - updating design layout to make it attractive" />
+    <MESSAGE value="Aymen - finished updating design layout to make it attractive" />
+    <MESSAGE value="Aymen - added variation of Alert class for Agent, finished updating design layout to make it attractive" />
+    <MESSAGE value="Aymen - got Print functionality to work - exports it into pdf format" />
+    <MESSAGE value="Aymen - got Print functionality to work - exports database into pdf format" />
+    <MESSAGE value="Aymen - Backup functionality works, updated layout of pdf paragraph" />
+    <MESSAGE value="Aymen - Added new sale report only for agent where agent has the ability to create individual reports based on their agent ID" />
+    <MESSAGE value="Aymen - updated refund classes based on the changes I have made on Refund database" />
+    <MESSAGE value="Aymen - added more blank types" />
+    <MESSAGE value="Aymen - removed ID label/text fields" />
+    <MESSAGE value="Aymen - created Airline class which links to database" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aymen - created Airline class which links to database" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

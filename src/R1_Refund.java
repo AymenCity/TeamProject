@@ -89,7 +89,7 @@ public class R1_Refund extends JFrame {        // This refund class wil only be 
                 refundID = searchTextField.getText();
 
                 try {
-                    pst = main.con.prepareStatement("delete from Refund where RefundID = ?");
+                    pst = main.con.prepareStatement("delete from Refund where refundID = ?");
                     pst.setString(1, refundID);
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(mainPanel, "Refund Accepted!");
@@ -182,7 +182,7 @@ public class R1_Refund extends JFrame {        // This refund class wil only be 
 
     void load_table() {
         try {
-            pst = main.con.prepareStatement("select * from Payment");
+            pst = main.con.prepareStatement("select * from Refund");
             ResultSet rs = pst.executeQuery();
             refundTable.setModel(DbUtils.resultSetToTableModel(rs));
         } catch (Exception e) {

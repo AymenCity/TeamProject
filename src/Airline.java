@@ -1,11 +1,18 @@
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import net.proteanit.sql.DbUtils;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Airline extends JFrame {
     private JPanel mainPanel;
@@ -144,11 +151,44 @@ public class Airline extends JFrame {
                 dispose();
             }
         });
+        printButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    JOptionPane.showMessageDialog(mainPanel, "Exporting to PDF is Successful");
+                    String path = "database/print/airline.pdf";       // where the pdf will be located
+                    String skip = "\n";
+                    Document document = new Document();
+                    PdfWriter.getInstance(document, new FileOutputStream(path));
+
+                    document.open();
+                    main.connect();
+
+                    pst = main.con.prepareStatement("select * from Airline");
+                    ResultSet rs = pst.executeQuery();
+                    while (rs.next()) {
+                        Paragraph paragraph = new Paragraph("airlineID: " + rs.getString("airlineID") + skip +
+                                "airlineName: " + rs.getString("airlineName") + skip +
+                                "airlineContactInfo: " + rs.getString("airlineContactInfo"));
+                        document.add(paragraph);
+                        document.add(new Paragraph(" " + skip));
+                    }
+                    document.close();
+
+                } catch (DocumentException ex) {
+                    ex.printStackTrace();
+                } catch (FileNotFoundException ex) {
+                    ex.printStackTrace();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+            }
+        });
     }
 
     void load_table() {
         try {
-            pst = main.con.prepareStatement("select * from Payment");
+            pst = main.con.prepareStatement("select * from Airline");
             ResultSet rs = pst.executeQuery();
             table1.setModel(DbUtils.resultSetToTableModel(rs));
         } catch (Exception e) {

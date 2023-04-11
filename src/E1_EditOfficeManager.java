@@ -1,11 +1,18 @@
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import net.proteanit.sql.DbUtils;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class E1_EditOfficeManager extends JFrame {
     private JPanel mainPanel;
@@ -191,6 +198,43 @@ public class E1_EditOfficeManager extends JFrame {
                     passwordTextField.setText("");
                 } catch (Exception exception) {
                     exception.printStackTrace();
+                }
+            }
+        });
+        printButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    JOptionPane.showMessageDialog(mainPanel, "Exporting to PDF is Successful");
+                    String path = "database/print/manager.pdf";       // where the pdf will be located
+                    String skip = "\n";
+                    Document document = new Document();
+                    PdfWriter.getInstance(document, new FileOutputStream(path));
+
+                    document.open();
+                    main.connect();
+
+                    pst = main.con.prepareStatement("select * from Office_Manager");
+                    ResultSet rs = pst.executeQuery();
+                    while (rs.next()) {
+                        Paragraph paragraph = new Paragraph("managerID: " + rs.getString("managerID") + skip +
+                                "managerName: " + rs.getString("managerName") + skip +
+                                "managerPhone: " + rs.getString("managerPhone") + skip +
+                                "managerAddress: " + rs.getString("managerAddress") + skip +
+                                "managerEmail: " + rs.getString("managerEmail") + skip +
+                                "managerUsername: " + rs.getString("managerUsername") + skip +
+                                "managerPassword: " + rs.getString("managerPassword"));
+                        document.add(paragraph);
+                        document.add(new Paragraph(" " + skip));
+                    }
+                    document.close();
+
+                } catch (DocumentException ex) {
+                    ex.printStackTrace();
+                } catch (FileNotFoundException ex) {
+                    ex.printStackTrace();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
                 }
             }
         });

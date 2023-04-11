@@ -7,7 +7,13 @@ import javax.swing.*;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.sql.*;
-// Runs the main program
+
+/**
+ * The main game entry point
+ * This class runs the whole program and handles the database connectivity
+ * @author Aymen Said, Rati Sturua, Ethan Brewer
+ * @version 133
+ */
 
 public class Main {
 

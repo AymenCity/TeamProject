@@ -37,7 +37,7 @@ public class R3_Refund extends JFrame {
                 refundID = SearchTextField.getText();
 
                 try {
-                    pst = main.con.prepareStatement("delete from Refund where RefundID = ?");
+                    pst = main.con.prepareStatement("delete from Refund where refundID = ?");
                     pst.setString(1, refundID);
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(mainPanel, "Refund Accepted!");
