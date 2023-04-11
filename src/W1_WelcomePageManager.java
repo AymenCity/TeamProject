@@ -18,6 +18,7 @@ public class W1_WelcomePageManager extends JFrame {
     private JButton travelAgentDetailsButton;
     private JButton systemAdminstratorDetailsButton;
     private JButton managerDetailsButton;
+    private JButton airlineButton;
     public Main main;
 
     public static JLabel static_label;
@@ -65,7 +66,7 @@ public class W1_WelcomePageManager extends JFrame {
         salesReportButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SaleReport saleReport = new SaleReport();
+                R1_SaleReport saleReport = new R1_SaleReport();
             }
         });
         alertsButton.addActionListener(new ActionListener() {
@@ -98,6 +99,12 @@ public class W1_WelcomePageManager extends JFrame {
                 JOptionPane.showMessageDialog(mainPanel, "Backup is Successful");
                 Main main = new Main();
                 main.backup();
+            }
+        });
+        airlineButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Airline airline = new Airline();
             }
         });
     }

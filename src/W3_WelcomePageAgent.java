@@ -56,7 +56,7 @@ public class W3_WelcomePageAgent extends JFrame {
         salesReportButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SaleReport saleReport = new SaleReport();
+                R3_SaleReport saleReport = new R3_SaleReport();
             }
         });
         alertsButton.addActionListener(new ActionListener() {

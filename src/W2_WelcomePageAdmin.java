@@ -18,6 +18,7 @@ public class W2_WelcomePageAdmin extends JFrame {
     private JLabel SupportingLabel;
     private JLabel copyrightLabel;
     private JButton backupButton;
+    private JButton airlineButton;
 
     public static JLabel static_label;
 
@@ -57,7 +58,7 @@ public class W2_WelcomePageAdmin extends JFrame {
         salesReportButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SaleReport saleReport = new SaleReport();
+                R3_SaleReport saleReport = new R3_SaleReport();
             }
         });
         refundsButton.addActionListener(new ActionListener() {
@@ -88,6 +89,12 @@ public class W2_WelcomePageAdmin extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 E1_EditOfficeManager officeManager = new E1_EditOfficeManager();
+            }
+        });
+        airlineButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Airline airline = new Airline();
             }
         });
     }
