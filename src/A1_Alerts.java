@@ -16,9 +16,7 @@ public class A1_Alerts extends JFrame {
     private JTextField searchTextField;
     private JButton searchButton;
     private JButton deleteButton;
-    private JTextField alertIDTextField;
     private JLabel alertSevLabel;
-    private JLabel alertIDLabel;
     private JLabel flavourTextLabel;
     private JTextField alertDescTextField;
     private JLabel alertDescLabel;

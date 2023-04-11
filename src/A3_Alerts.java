@@ -10,8 +10,6 @@ import java.sql.ResultSet;
 public class A3_Alerts extends JFrame {
     private JPanel mainPanel;
     private JTable table1;
-    private JLabel alertIDLabel;
-    private JTextField alertIDTextField;
     private JLabel alertSevLabel;
     private JLabel alertDescLabel;
     private JTextField alertDescTextField;
