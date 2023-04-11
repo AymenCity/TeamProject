@@ -33,12 +33,12 @@ public class R3_Refund extends JFrame {
         deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String paymentID;
-                paymentID = SearchTextField.getText();
+                String refundID;
+                refundID = SearchTextField.getText();
 
                 try {
-                    pst = main.con.prepareStatement("delete from Payment where paymentID = ?");
-                    pst.setString(1, paymentID);
+                    pst = main.con.prepareStatement("delete from Refund where RefundID = ?");
+                    pst.setString(1, refundID);
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(mainPanel, "Refund Accepted!");
                     load_table();
@@ -60,7 +60,7 @@ public class R3_Refund extends JFrame {
 
     void load_table() {
         try {
-            pst = main.con.prepareStatement("select * from Payment");
+            pst = main.con.prepareStatement("select * from Refund");
             ResultSet rs = pst.executeQuery();
             table1.setModel(DbUtils.resultSetToTableModel(rs));
         } catch (Exception e) {

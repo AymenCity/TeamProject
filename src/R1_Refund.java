@@ -14,7 +14,7 @@ public class R1_Refund extends JFrame {        // This refund class wil only be 
     private JTextField searchTextField;
     private JButton searchButton;
     private JButton deleteButton;
-    private JTextField amountTextField;
+    private JTextField dateTextField;
     private JButton saveButton;
     private JButton updateButton;
     private JButton cancelButton;
@@ -27,6 +27,7 @@ public class R1_Refund extends JFrame {        // This refund class wil only be 
     private JLabel TitleLabel;
     private JLabel SearchTextLabel;
     private JButton printButton;
+    private JTextField reasonTextField;
     private JButton returnButton;
     private JButton confirmButton;
     Connection con;
@@ -48,30 +49,30 @@ public class R1_Refund extends JFrame {        // This refund class wil only be 
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    String paymentID = searchTextField.getText();
+                    String refundID = searchTextField.getText();
 
-                    pst = main.con.prepareStatement("select paymentID, paymentAmount, paymentCurrency, paymentType, paymentState, saleID from Payment where paymentID = ?");
-                    pst.setString(1, paymentID);
+                    pst = main.con.prepareStatement("select refundID, refundReason, paymentDate, paymentCurrency, paymentType, saleID from Refund where refundID = ?");
+                    pst.setString(1, refundID);
                     ResultSet rs = pst.executeQuery();
 
                     if(rs.next()==true) {
-                        String paymentAmount = rs.getString(2);
-                        String paymentCurrency = rs.getString(3);
-                        String paymentType = rs.getString(4);
-                        String paymentState = rs.getString(5);
+                        String refundReason = rs.getString(2);
+                        String paymentDate = rs.getString(3);
+                        String paymentCurrency = rs.getString(4);
+                        String paymentType = rs.getString(5);
                         String saleID = rs.getString(6);
 
-                        amountTextField.setText(paymentAmount);
+                        reasonTextField.setText(refundReason);
+                        dateTextField.setText(paymentDate);
                         currencyTextField.setText(paymentCurrency);
                         typeComboBox.setSelectedItem(paymentType);
-                        stateComboBox.setSelectedItem(paymentState);
                         saleIDComboBox.setSelectedItem(saleID);
                     } else {
-                        amountTextField.setText("");
-                        currencyTextField.setText("");
+                        reasonTextField.setText("");
+                        dateTextField.setText("");
                         typeComboBox.setSelectedIndex(0);
                         saleIDComboBox.setSelectedIndex(0);
-                        stateComboBox.setSelectedIndex(0);
+                        currencyTextField.setText("");
                         JOptionPane.showMessageDialog(mainPanel, "Invalid Ticket ID");
                     }
                 } catch (Exception exception) {
@@ -84,20 +85,15 @@ public class R1_Refund extends JFrame {        // This refund class wil only be 
         deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String paymentID;
-                paymentID = searchTextField.getText();
+                String refundID;
+                refundID = searchTextField.getText();
 
                 try {
-                    pst = main.con.prepareStatement("delete from Payment where paymentID = ?");
-                    pst.setString(1,paymentID);
+                    pst = main.con.prepareStatement("delete from Refund where RefundID = ?");
+                    pst.setString(1, refundID);
                     pst.executeUpdate();
-                    JOptionPane.showMessageDialog(mainPanel, "Record Deleted");
+                    JOptionPane.showMessageDialog(mainPanel, "Refund Accepted!");
                     load_table();
-                    amountTextField.setText("");
-                    currencyTextField.setText("");
-                    typeComboBox.setSelectedIndex(0);
-                    saleIDComboBox.setSelectedIndex(0);
-                    stateComboBox.setSelectedIndex(0);
                     searchTextField.setText("");
                 } catch (Exception exception) {
                     exception.printStackTrace();
@@ -109,29 +105,29 @@ public class R1_Refund extends JFrame {        // This refund class wil only be 
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String paymentAmount, paymentCurrency, paymentType, paymentState, saleID;
+                String refundReason, paymentDate, paymentCurrency, paymentType, saleID;
 
-                paymentAmount = amountTextField.getText();
+                refundReason = reasonTextField.getText();
+                paymentDate = dateTextField.getText();
                 paymentCurrency = currencyTextField.getText();
                 paymentType = typeComboBox.getSelectedItem().toString();
-                paymentState = stateComboBox.getSelectedItem().toString();
                 saleID = saleIDComboBox.getSelectedItem().toString();
 
                 try {
-                    pst = main.con.prepareStatement("insert into Payment(paymentAmount, paymentCurrency, paymentType, paymentState, saleID)values(?,?,?,?,?)");
-                    pst.setString(1, paymentAmount);
-                    pst.setString(2, paymentCurrency);
-                    pst.setString(3, paymentType);
-                    pst.setString(4, paymentState);
+                    pst = main.con.prepareStatement("insert into Refund(refundReason, paymentDate, paymentCurrency, paymentType, saleID)values(?,?,?,?,?)");
+                    pst.setString(1, refundReason);
+                    pst.setString(2, paymentDate);
+                    pst.setString(3, paymentCurrency);
+                    pst.setString(4, paymentType);
                     pst.setString(5, saleID);
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(mainPanel, "Record Added");
                     load_table();
-                    amountTextField.setText("");
-                    currencyTextField.setText("");
+                    reasonTextField.setText("");
+                    dateTextField.setText("");
                     typeComboBox.setSelectedIndex(0);
                     saleIDComboBox.setSelectedIndex(0);
-                    stateComboBox.setSelectedIndex(0);
+                    currencyTextField.setText("");
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }
@@ -142,32 +138,32 @@ public class R1_Refund extends JFrame {        // This refund class wil only be 
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String paymentID, paymentAmount, paymentCurrency, paymentType, paymentState, saleID;
+                String refundID, refundReason, paymentDate, paymentCurrency, paymentType, saleID;
 
-                paymentID = searchTextField.getText();
-                paymentAmount = amountTextField.getText();
+                refundID = searchTextField.getText();
+                refundReason = reasonTextField.getText();
+                paymentDate = dateTextField.getText();
                 paymentCurrency = currencyTextField.getText();
                 paymentType = typeComboBox.getSelectedItem().toString();
-                paymentState = stateComboBox.getSelectedItem().toString();
                 saleID = saleIDComboBox.getSelectedItem().toString();
 
                 try {
-                    pst = main.con.prepareStatement("update Payment set paymentAmount = ?, paymentCurrency = ?, paymentType = ?, paymentState = ?, saleID = ? where paymentID = ?");
-                    pst.setString(1, paymentAmount);
-                    pst.setString(2, paymentCurrency);
-                    pst.setString(3, paymentType);
-                    pst.setString(4, paymentState);
+                    pst = main.con.prepareStatement("update Payment set refundReason = ?, paymentDate = ?, paymentCurrency = ?, paymentType = ?, saleID = ? where refundID = ?");
+                    pst.setString(1, refundReason);
+                    pst.setString(2, paymentDate);
+                    pst.setString(3, paymentCurrency);
+                    pst.setString(4, paymentType);
                     pst.setString(5, saleID);
-                    pst.setString(6, paymentID);
+                    pst.setString(6, refundID);
                     pst.executeUpdate();
                     JOptionPane.showMessageDialog(mainPanel, "Record Updated");
                     load_table();
                     searchTextField.setText("");
-                    amountTextField.setText("");
-                    currencyTextField.setText("");
+                    reasonTextField.setText("");
+                    dateTextField.setText("");
                     typeComboBox.setSelectedIndex(0);
                     saleIDComboBox.setSelectedIndex(0);
-                    stateComboBox.setSelectedIndex(0);
+                    currencyTextField.setText("");
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }
