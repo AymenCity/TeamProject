@@ -12,7 +12,7 @@ import java.sql.*;
  * The main game entry point
  * This class runs the whole program and handles the database connectivity
  * @author Aymen Said, Rati Sturua, Ethan Brewer
- * @version 133
+ * @version 134
  */
 
 public class Main {
@@ -20,12 +20,20 @@ public class Main {
     Connection con;
     PreparedStatement pst;
 
+    /**
+     * Runs the program
+     * Changes the UI to be Metal for all operating systems
+     */
     public static void main(String[] args) throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {
         UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());     // setting the UI to be Metal
         System.out.println("Booting up... ATS System");    // terminal output test
         Login login = new Login();  // runs program
     }
 
+    /**
+     * Establishes a database connection via url, user, pass
+     * Outputs a message if it detects a database connection
+     */
     public void connect() {
         // database connection
         try {
@@ -47,18 +55,22 @@ public class Main {
         }
     }
 
+    /**
+     * This exports all the database tables into a single pdf file
+     * Reference: https://www.youtube.com/watch?v=Zg7lS5sPN0M&ab_channel=jinujawadm
+     */
     public void backup() {      // exports whole table into pdf
         // CUSTOMER
         String skip = "\n";
         try {
-            String path = "database/backup/customer.pdf";       // where the pdf will be located
+            String path = "database/backup/backup.pdf";       // where the pdf will be located
             Document document = new Document();
             PdfWriter.getInstance(document, new FileOutputStream(path));
 
             document.open();
             connect();
 
-            pst = con.prepareStatement("select * from Customer");
+            pst = con.prepareStatement("select * from Customer select * from Admin");
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 Paragraph paragraph = new Paragraph("customerID: " + rs.getString("customerID") + skip +
@@ -68,7 +80,14 @@ public class Main {
                         "customerEmail: " + rs.getString("customerEmail") + skip +
                         "customerDateOfBirth: " + rs.getString("customerDateOfBirth") + skip +
                         "customerDayJoined: " + rs.getString("customerDayJoined") + skip +
-                        "agentID: " + rs.getString("agentID"));
+                        "agentID: " + rs.getString("agentID") + skip +
+                        rs.getString("adminID") + skip +
+                        rs.getString("adminName") + skip +
+                        rs.getString("adminPhone") + skip +
+                        rs.getString("adminAddress") + skip +
+                        rs.getString("adminEmail") + skip +
+                        rs.getString("adminUsername") + skip +
+                        rs.getString("adminPassword"));
 
                 document.add(paragraph);
                 document.add(new Paragraph(" " + skip));
@@ -83,6 +102,7 @@ public class Main {
         }
 
         // ADMIN
+        /*
         try {
             String path = "database/backup/admin.pdf";       // where the pdf will be located
             Document document2 = new Document();
@@ -113,6 +133,8 @@ public class Main {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+
+         */
 
         try {
             String path = "database/backup/sale.pdf";       // where the pdf will be located

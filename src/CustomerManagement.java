@@ -3,7 +3,6 @@ import com.itextpdf.text.pdf.PdfWriter;
 import net.proteanit.sql.DbUtils;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Paragraph;
-
 import javax.print.Doc;
 import javax.swing.*;
 import javax.swing.event.DocumentListener;
@@ -18,6 +17,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * A class which allows the employees to alter the information of the Customer database
+ * This allows the employees to create, update, search or delete a customer
+ * @author Aymen Said, Rati Sturua, Ethan Brewer
+ * @version 134
+ */
 public class CustomerManagement extends JFrame {
     private JButton newButton;
     private JButton cancelButton;
@@ -50,6 +55,10 @@ public class CustomerManagement extends JFrame {
     PreparedStatement pst;
     Main main = new Main();
 
+    /**
+     * A constructor which creates the GUI frame of Customer Management
+     * Includes the main panel, labels, button functionalities
+     */
     public CustomerManagement() {
         setContentPane(mainPanel);
         setTitle("ATS System");
@@ -63,6 +72,9 @@ public class CustomerManagement extends JFrame {
         dateOfBirthTextField.setText("YYYY-MM-DD");
         dayJoinedTextField.setText("YYYY-MM-DD");
 
+        /**
+         * An action listener which takes the user back to the Welcome page
+         */
         // CANCEL
         cancelButton.addActionListener(new ActionListener() {
             @Override
@@ -71,13 +83,15 @@ public class CustomerManagement extends JFrame {
             }
         });
 
+        /**
+         * An action listener which adds new data into the database
+         * This obtains any information from the text fields
+         * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+         */
         // ADD (SAVE)
         addNewCustomerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //dispose();
-                //AddCustomer addCustomer = new AddCustomer();
-
                 String customerName, customerType, customerAddress, customerEmail, customerDateOfBirth, customerDayJoined, agentID;
 
                 customerName = nameTextField.getText();
@@ -113,6 +127,11 @@ public class CustomerManagement extends JFrame {
             }
         });
 
+        /**
+         * An action listener which searches any data from the database from the search text field
+         * This results in the data being filled out automatically in the text fields
+         * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+         */
         // SEARCH
         searchButton.addActionListener(new ActionListener() {
             @Override
@@ -156,6 +175,11 @@ public class CustomerManagement extends JFrame {
             }
         });
 
+        /**
+         * An action listener which updates the data from the database
+         * This results in the data being edited and changed
+         * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+         */
         // UPDATE
         updateButton.addActionListener(new ActionListener() {
             @Override
@@ -198,7 +222,10 @@ public class CustomerManagement extends JFrame {
             }
         });
 
-        // DELETE
+        /**
+         * An action listener which removes a data from the database based on the search text field
+         * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+         */
         deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -225,7 +252,10 @@ public class CustomerManagement extends JFrame {
             }
         });
 
-
+        /**
+         * An action listener which exports a database into a pdf file
+         * Reference: https://www.youtube.com/watch?v=Zg7lS5sPN0M&ab_channel=jinujawadm
+         */
         // PRINT
         printButton.addActionListener(new ActionListener() {
             @Override
@@ -267,6 +297,10 @@ public class CustomerManagement extends JFrame {
         });
     }
 
+    /**
+     * A method which loads the data from the database
+     * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+     */
     void load_table() {
         try {
             pst = main.con.prepareStatement("select * from Customer");
@@ -277,6 +311,10 @@ public class CustomerManagement extends JFrame {
         }
     }
 
+    /**
+     * A method which automatically updates the combo box based on the total of 'agentID' on the database
+     * Recommended when using foreign keys
+     */
     void update_AgentComboBox() {
         try {
             pst = main.con.prepareStatement("select * from Travel_Agent");
