@@ -13,7 +13,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+/**
+ * A class which allows the employees to alter the information of the Alerts database
+ * This allows the employees to create, update, search or delete an Alert
+ * @author Aymen Said, Rati Sturua, Ethan Brewer
+ * @version 134
+ */
 public class A1_Alerts extends JFrame {
 
 
@@ -42,6 +47,10 @@ public class A1_Alerts extends JFrame {
     PreparedStatement pst;
     Main main = new Main();
 
+    /**
+     * A constructor which creates the GUI frame of Alerts for the Manager
+     * Includes the main panel, labels, button functionalities
+     */
     public A1_Alerts() {
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
@@ -52,6 +61,9 @@ public class A1_Alerts extends JFrame {
         main.connect();
         load_table();
 
+        /**
+         * An action listener which takes the user back to the Welcome page
+         */
         // CANCEL
         cancelButton.addActionListener(new ActionListener() {
             @Override
@@ -60,6 +72,11 @@ public class A1_Alerts extends JFrame {
             }
         });
 
+        /**
+         * An action listener which searches any data from the database from the search text field
+         * This results in the data being filled out automatically in the text fields
+         * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+         */
         // SEARCH
         searchButton.addActionListener(new ActionListener() {
             @Override
@@ -97,6 +114,10 @@ public class A1_Alerts extends JFrame {
             }
         });
 
+        /**
+         * An action listener which removes a data from the database based on the search text field
+         * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+         */
         // DELETE
         deleteButton.addActionListener(new ActionListener() {
             @Override
@@ -122,6 +143,11 @@ public class A1_Alerts extends JFrame {
             }
         });
 
+        /**
+         * An action listener which adds new data into the database
+         * This obtains any information from the text fields
+         * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+         */
         // SAVE
         saveButton.addActionListener(new ActionListener() {
             @Override
@@ -155,6 +181,11 @@ public class A1_Alerts extends JFrame {
             }
         });
 
+        /**
+         * An action listener which updates the data from the database
+         * This results in the data being edited and changed
+         * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+         */
         // UPDATE
         updateButton.addActionListener(new ActionListener() {
             @Override
@@ -190,6 +221,12 @@ public class A1_Alerts extends JFrame {
                 }
             }
         });
+
+        /**
+         * An action listener which exports a database into a pdf file
+         * Reference: https://www.youtube.com/watch?v=Zg7lS5sPN0M&ab_channel=jinujawadm
+         */
+        // PRINT Button
         printButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -228,6 +265,10 @@ public class A1_Alerts extends JFrame {
         });
     }
 
+    /**
+     * A method which loads the data from the database
+     * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+     */
     void load_table() {
         try {
             pst = main.con.prepareStatement("select * from Alerts");

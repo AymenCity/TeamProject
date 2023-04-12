@@ -28,7 +28,10 @@ public class R3_Refund extends JFrame {
         main.connect();
         load_table();
 
-
+        /**
+         * An action listener which removes a data from the database based on the search text field
+         * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+         */
         // DELETE
         deleteButton.addActionListener(new ActionListener() {
             @Override
@@ -49,6 +52,9 @@ public class R3_Refund extends JFrame {
             }
         });
 
+        /**
+         * An action listener which takes the user back to the Welcome page
+         */
         // CANCEL
         cancelButton.addActionListener(new ActionListener() {
             @Override
@@ -58,6 +64,10 @@ public class R3_Refund extends JFrame {
         });
     }
 
+    /**
+     * A method which loads the data from the database
+     * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+     */
     void load_table() {
         try {
             pst = main.con.prepareStatement("select * from Refund");

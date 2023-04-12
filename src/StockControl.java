@@ -1,11 +1,22 @@
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import net.proteanit.sql.DbUtils;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.sql.*;
 
-
+/**
+ * A class which allows the employees to alter the information of the Ticket database
+ * This allows the employees to create, update, search or delete a ticket
+ * @author Aymen Said, Rati Sturua, Ethan Brewer
+ * @version 134
+ */
 public class StockControl extends JFrame {
     private JPanel mainPanel;
     private JLabel stockControlLabel;
@@ -43,6 +54,10 @@ public class StockControl extends JFrame {
     PreparedStatement pst;
     Main main = new Main();
 
+    /**
+     * A constructor which creates the GUI frame of Stock Control
+     * Includes the main panel, labels, button functionalities
+     */
     public StockControl() {
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
@@ -57,7 +72,9 @@ public class StockControl extends JFrame {
         dateTextField.setText("YYYY-MM-DD");
         timeTextField.setText("YYYY-MM-DD HH:MM:SS");
 
-
+        /**
+         * An action listener which takes the user back to the Welcome page
+         */
         // CANCEL button
         cancelButton.addActionListener(new ActionListener() {
             @Override
@@ -66,7 +83,11 @@ public class StockControl extends JFrame {
             }
         });
 
-
+        /**
+         * An action listener which adds new data into the database
+         * This obtains any information from the text fields
+         * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+         */
         // SAVE button
         saveButton.addActionListener(new ActionListener() {
             @Override
@@ -108,7 +129,11 @@ public class StockControl extends JFrame {
                 }
             }
         });
-
+        /**
+         * An action listener which searches any data from the database from the search text field
+         * This results in the data being filled out automatically in the text fields
+         * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+         */
         // SEARCH button
         searchButton.addActionListener(new ActionListener() {
             @Override
@@ -155,7 +180,11 @@ public class StockControl extends JFrame {
                 }
             }
         });
-
+        /**
+         * An action listener which updates the data from the database
+         * This results in the data being edited and changed
+         * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+         */
         // UPDATE button
         updateButton.addActionListener(new ActionListener() {
             @Override
@@ -200,7 +229,10 @@ public class StockControl extends JFrame {
                 }
             }
         });
-
+        /**
+         * An action listener which removes a data from the database based on the search text field
+         * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+         */
         // DELETE button
         deleteButton.addActionListener(new ActionListener() {
             @Override
@@ -228,8 +260,56 @@ public class StockControl extends JFrame {
                 }
             }
         });
+        /**
+         * An action listener which exports a database into a pdf file
+         * Reference: https://www.youtube.com/watch?v=Zg7lS5sPN0M&ab_channel=jinujawadm
+         */
+        // PRINT
+        printButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    JOptionPane.showMessageDialog(mainPanel, "Exporting to PDF is Successful");
+                    String path = "database/print/ticket.pdf";       // where the pdf will be located
+                    String skip = "\n";
+                    Document document = new Document();
+                    PdfWriter.getInstance(document, new FileOutputStream(path));
+
+                    document.open();
+                    main.connect();
+
+                    pst = main.con.prepareStatement("select * from Ticket");
+                    ResultSet rs = pst.executeQuery();
+                    while (rs.next()) {
+                        Paragraph paragraph = new Paragraph("ticketID: " + rs.getString("ticketID") + skip +
+                                "ticketBlankType: " + rs.getString("ticketBlankType") + skip +
+                                "ticketBlankNumber: " + rs.getString("ticketBlankNumber") + skip +
+                                "ticketPrice: " + rs.getString("ticketPrice") + skip +
+                                "ticketFlightDate: " + rs.getString("ticketFlightDate") + skip +
+                                "ticketFlightTime: " + rs.getString("ticketFlightTime") + skip +
+                                "ticketStatus: " + rs.getString("ticketStatus") + skip +
+                                "airlineID: " + rs.getString("airlineID") + skip +
+                                "agentID: " + rs.getString("agentID"));
+                        document.add(paragraph);
+                        document.add(new Paragraph(" " + skip));
+                    }
+                    document.close();
+
+                } catch (DocumentException ex) {
+                    ex.printStackTrace();
+                } catch (FileNotFoundException ex) {
+                    ex.printStackTrace();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+            }
+        });
     }
 
+    /**
+     * A method which loads the data from the database
+     * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+     */
     void load_table() {
         try {
             pst = main.con.prepareStatement("select * from Ticket");
@@ -242,6 +322,10 @@ public class StockControl extends JFrame {
         }
     }
 
+    /**
+     * A method which automatically updates the combo box based on the total of 'airlineID' on the database
+     * Recommended when using foreign keys
+     */
     void update_AirlineComboBox() {
         try {
             pst = main.con.prepareStatement("select * from Airline");
@@ -254,6 +338,10 @@ public class StockControl extends JFrame {
         }
     }
 
+    /**
+     * A method which automatically updates the combo box based on the total of 'agentID' on the database
+     * Recommended when using foreign keys
+     */
     void update_AgentComboBox() {
         try {
             pst = main.con.prepareStatement("select * from Travel_Agent");

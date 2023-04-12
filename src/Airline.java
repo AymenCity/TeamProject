@@ -13,7 +13,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+/**
+ * A class which allows the employees to alter the information of the Airline database
+ * This allows the employees to create, update, search or delete an Airline
+ * @author Aymen Said, Rati Sturua, Ethan Brewer
+ * @version 134
+ */
 public class Airline extends JFrame {
     private JPanel mainPanel;
     private JLabel SearchTextLabel;
@@ -34,6 +39,10 @@ public class Airline extends JFrame {
     PreparedStatement pst;
     Main main = new Main();
 
+    /**
+     * A constructor which creates the GUI frame of Airline
+     * Includes the main panel, labels, button functionalities
+     */
     public Airline() {
         setContentPane(mainPanel);
         setTitle("ATS System");        // name of software
@@ -43,7 +52,12 @@ public class Airline extends JFrame {
         main.connect();
         load_table();
 
-        // SEARCH
+        /**
+         * An action listener which searches any data from the database from the search text field
+         * This results in the data being filled out automatically in the text fields
+         * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+         */
+        // SEARCH Button
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -71,7 +85,11 @@ public class Airline extends JFrame {
             }
         });
 
-        // DELETE
+        /**
+         * An action listener which removes a data from the database based on the search text field
+         * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+         */
+        // DELETE Button
         deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -91,7 +109,12 @@ public class Airline extends JFrame {
             }
         });
 
-        // SAVE
+        /**
+         * An action listener which adds new data into the database
+         * This obtains any information from the text fields
+         * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+         */
+        // SAVE Button
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -116,7 +139,12 @@ public class Airline extends JFrame {
             }
         });
 
-        // UPDATE
+        /**
+         * An action listener which updates the data from the database
+         * This results in the data being edited and changed
+         * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+         */
+        // UPDATE Button
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -143,14 +171,22 @@ public class Airline extends JFrame {
             }
         });
 
-
-        // CANCEL
+        /**
+         * An action listener which takes the user back to the Welcome page
+         */
+        // CANCEL Button
         cancelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
             }
         });
+
+        /**
+         * An action listener which exports a database into a pdf file
+         * Reference: https://www.youtube.com/watch?v=Zg7lS5sPN0M&ab_channel=jinujawadm
+         */
+        // PRINT Button
         printButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -186,6 +222,10 @@ public class Airline extends JFrame {
         });
     }
 
+    /**
+     * A method which loads the data from the database
+     * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+     */
     void load_table() {
         try {
             pst = main.con.prepareStatement("select * from Airline");

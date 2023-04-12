@@ -1,5 +1,6 @@
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.toedter.calendar.JDateChooser;
 import net.proteanit.sql.DbUtils;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Paragraph;
@@ -16,6 +17,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  * A class which allows the employees to alter the information of the Customer database
@@ -51,6 +54,10 @@ public class CustomerManagement extends JFrame {
     private JComboBox agentIDComboBox;
     private JLabel agentIDLabel;
     private JButton printButton;
+    private JPanel dateOfBirthCalandar;
+
+    Calendar cal = Calendar.getInstance();
+    JDateChooser dateChooser = new JDateChooser();
     Connection con;
     PreparedStatement pst;
     Main main = new Main();
@@ -69,7 +76,11 @@ public class CustomerManagement extends JFrame {
         load_table();   // loads table from database Ticket
         update_AgentComboBox();
 
-        dateOfBirthTextField.setText("YYYY-MM-DD");
+        dateChooser.setDateFormatString("yyyy-MM-dd");
+        dateOfBirthCalandar.add(dateChooser);
+
+
+
         dayJoinedTextField.setText("YYYY-MM-DD");
 
         /**
@@ -103,7 +114,7 @@ public class CustomerManagement extends JFrame {
                 agentID = agentIDComboBox.getSelectedItem().toString();
 
                 try {
-                    pst = main.con.prepareStatement("insert into Ticket(customerName, customerType, customerAddress, customerEmail, customerDateOfBirth, customerDayJoined, agentID)values(?,?,?,?,?,?,?)");
+                    pst = main.con.prepareStatement("insert into Customer(customerName, customerType, customerAddress, customerEmail, customerDateOfBirth, customerDayJoined, agentID)values(?,?,?,?,?,?,?)");
                     pst.setString(1, customerName);
                     pst.setString(2, customerType);
                     pst.setString(3, customerAddress);
@@ -164,7 +175,7 @@ public class CustomerManagement extends JFrame {
                         nameTextField.setText("");
                         addressTextField.setText("");
                         emailTextField.setText("");
-                        dateOfBirthTextField.setText("YYYY-MM-DD");
+                        dateOfBirthCalandar.removeAll();
                         dayJoinedTextField.setText("YYYY-MM-DD");
                         agentIDComboBox.setSelectedIndex(0);
                         JOptionPane.showMessageDialog(mainPanel, "Invalid Ticket ID");
@@ -226,6 +237,7 @@ public class CustomerManagement extends JFrame {
          * An action listener which removes a data from the database based on the search text field
          * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
          */
+        // DELETE Button
         deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

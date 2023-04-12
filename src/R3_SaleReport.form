@@ -197,6 +197,9 @@
               <font name="Helvetica Neue" size="16"/>
               <model>
                 <item value="SELECT"/>
+                <item value="Cash"/>
+                <item value="Credit Card"/>
+                <item value="Bank Transfer"/>
               </model>
             </properties>
           </component>

@@ -13,7 +13,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+/**
+ * A class which allows the employees to alter the information of the Sale Report database
+ * This allows the employees to create, update, search or delete a Sales Report
+ * @author Aymen Said, Rati Sturua, Ethan Brewer
+ * @version 134
+ */
 public class R3_SaleReport extends JFrame {
     private JPanel mainPanel;
     private JTextField searchTextField;
@@ -44,6 +49,10 @@ public class R3_SaleReport extends JFrame {
     PreparedStatement pst;
     Main main = new Main();
 
+    /**
+     * A constructor which creates the GUI frame of Sales Report for the Travel Agent
+     * Includes the main panel, labels, button functionalities
+     */
     public R3_SaleReport() {
         setContentPane(mainPanel);
         setTitle("ATS System");          // name of software
@@ -56,6 +65,11 @@ public class R3_SaleReport extends JFrame {
         update_SaleComboBox();
         //saleComboBox_to_TextField();
 
+        /**
+         * An action listener which searches any data from the database from the search text field
+         * This results in the data being filled out automatically in the text fields
+         * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+         */
         // SEARCH button
         searchButton.addActionListener(new ActionListener() {
             @Override
@@ -100,6 +114,10 @@ public class R3_SaleReport extends JFrame {
             }
         });
 
+        /**
+         * An action listener which removes a data from the database based on the search text field
+         * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+         */
         // DELETE button
         deleteButton.addActionListener(new ActionListener() {
             @Override
@@ -127,7 +145,11 @@ public class R3_SaleReport extends JFrame {
             }
         });
 
-
+        /**
+         * An action listener which adds new data into the database
+         * This obtains any information from the text fields
+         * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+         */
         // SAVE button
         saveButton.addActionListener(new ActionListener() {
             @Override
@@ -167,6 +189,11 @@ public class R3_SaleReport extends JFrame {
             }
         });
 
+        /**
+         * An action listener which updates the data from the database
+         * This results in the data being edited and changed
+         * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+         */
         // UPDATE
         updateButton.addActionListener(new ActionListener() {
             @Override
@@ -209,6 +236,9 @@ public class R3_SaleReport extends JFrame {
             }
         });
 
+        /**
+         * An action listener which takes the user back to the Welcome page
+         */
         // CANCEL
         cancelButton.addActionListener(new ActionListener() {
             @Override
@@ -228,7 +258,7 @@ public class R3_SaleReport extends JFrame {
                 saleType = searchSaleBox.getSelectedItem().toString();
 
                 try {
-                    pst = main.con.prepareStatement("select * from Air_Ticket_Sale where agentID = ? and saleType = ?");
+                    pst = main.con.prepareStatement("select * from Air_Ticket_Sales_Report where agentID = ? and saleType = ?");
                     pst.setString(1, agentID);
                     pst.setString(2, saleType);
                     ResultSet rs = pst.executeQuery();
@@ -239,6 +269,12 @@ public class R3_SaleReport extends JFrame {
                 }
             }
         });
+
+        /**
+         * An action listener which exports a database into a pdf file
+         * Reference: https://www.youtube.com/watch?v=Zg7lS5sPN0M&ab_channel=jinujawadm
+         */
+        // PRINT
         printButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -279,6 +315,10 @@ public class R3_SaleReport extends JFrame {
         });
     }
 
+    /**
+     * A method which loads the data from the database
+     * Reference: https://www.youtube.com/watch?v=e3AKnrTxFFo
+     */
     void load_table() {
         try {
             pst = main.con.prepareStatement("select * from Air_Ticket_Sales_Report");
@@ -289,6 +329,10 @@ public class R3_SaleReport extends JFrame {
         }
     }
 
+    /**
+     * A method which automatically updates the combo box based on the total of 'agentID' on the database
+     * Recommended when using foreign keys
+     */
     void update_AgentComboBox() {
         try {
             pst = main.con.prepareStatement("select * from Travel_Agent");
@@ -301,6 +345,10 @@ public class R3_SaleReport extends JFrame {
         }
     }
 
+    /**
+     * A method which automatically updates the combo box based on the total of 'airlineID' on the database
+     * Recommended when using foreign keys
+     */
     void update_AirlineComboBox() {
         try {
             pst = main.con.prepareStatement("select * from Airline");
@@ -313,9 +361,13 @@ public class R3_SaleReport extends JFrame {
         }
     }
 
+    /**
+     * A method which automatically updates the combo box based on the total of 'saleID' on the database
+     * Recommended when using foreign keys
+     */
     void update_SaleComboBox() {
         try {
-            pst = main.con.prepareStatement("select * from Air_Ticket_Sale");
+            pst = main.con.prepareStatement("select * from Air_Ticket_Sales_Report");
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 saleIDComboBox.addItem(rs.getString("saleID"));
